@@ -9,449 +9,240 @@
         body {
             font-family: Verdana, sans-serif;
             margin: 0;
-            background-color: #f0f8f0; /* Lekko zielony tło */
-            color: #333;
+            background-color: #000000; /* Czarne tło */
+            color: #ffffff; /* Białe napisy */
         }
-        .slideshow-container {
-            max-width: 1200px;
-            position: relative;
-            margin: auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .mySlides {
-            display: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .slide-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            margin-bottom: 20px;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        .dots-container {
-            text-align: center;
+        nav {
+            background-color: #111111;
             padding: 10px;
-            background-color: #e0f7e0;
+            text-align: center;
         }
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
-        .active, .dot:hover {
-            background-color: #4caf50; /* Zielony kolor */
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
         }
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
+        nav ul li a:hover {
+            color: #4caf50; /* Zielony hover */
+        }
+        .page {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+            display: none;
+        }
+        .page-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            margin-bottom: 30px;
+            border-radius: 8px;
         }
         h1 {
-            color: #2e7d32; /* Ciemnozielony */
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            line-height: 1.8;
+            font-size: 1.2em;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto 20px;
         }
         ul {
             list-style-type: disc;
             text-align: left;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            font-size: 1.2em;
         }
-        p {
-            line-height: 1.6;
+        ul li {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
 
-<div class="slideshow-container">
+<nav>
+    <ul>
+        <li><a href="#home">Strona Główna</a></li>
+        <li><a href="#about">O Firmie</a></li>
+        <li><a href="#history">Historia OZE</a></li>
+        <li><a href="#prices">Ceny Prądu</a></li>
+        <li><a href="#howitworks">Jak Działa Instalacja</a></li>
+        <li><a href="#installation">Montaż</a></li>
+        <li><a href="#management">Zarządzanie Energią</a></li>
+        <li><a href="#benefits">Dobór i Korzyści</a></li>
+    </ul>
+</nav>
 
-    <!-- Slide 1: Tytuł -->
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 29</div>
-        <img class="slide-image" src="https://smithroofingservice.com/wp-content/uploads/2021/06/Solar-panel-on-a-red-roof.jpg" alt="Instalacja fotowoltaiczna">
-        <h1>Dzień pierwszy - Instalacje fotowoltaiczne</h1>
-        <p>Witamy w prezentacji szkoleniowej na temat instalacji fotowoltaicznych.</p>
-    </div>
-
-    <!-- Slide 2: O firmie -->
-    <div class="mySlides fade">
-        <div class="numbertext">2 / 29</div>
-        <img class="slide-image" src="https://previewapi.transparency.gov.au/delivery/assets/80a82ed1-3e33-027b-b7e0-6493f97f18f8/2b916cd5-174f-4ed8-877e-b2f23750c6f5/Organisational%20Structure.jpg?w=3508&h=1275&fit=clip&rect=0,8,3508,1275" alt="O firmie">
-        <h1>O firmie</h1>
-        <p>ponad 40 tys. klientów</p>
-        <p>80 ekip montażowych</p>
-        <p>49 oddziałów</p>
-        <p>460 doradców</p>
-        <p>3 mln zł ubezpieczenia</p>
-        <p>4 ECO to lider polskiego rynku odnawialnych źródeł energii, któremu zaufało już 40 000 klientów w całym kraju. Dzięki 49 oddziałom jesteśmy obecni w każdym rejonie kraju, zapewniając dostępność usług oraz pełne wsparcie na miejscu. Nasza oferta opiera się na wysokiej jakości, którą gwarantuje praca 80 certyfikowanych ekip montażowych oraz 460 doradców specjalizujących się w temacie ogrzewania i fotowoltaice.</p>
-        <p>Bezpieczeństwo gwarantuje ubezpieczenie instalacji na 3 mln zł w TUiR Warta S.A. Oferujemy pełne wsparcie — od projektu i montażu po formalności związane z dotacjami — zapewniając klientom komfort i dopasowanie rozwiązań do ich potrzeb.</p>
-    </div>
-
-    <!-- Slide 3: Nasze realizacje -->
-    <div class="mySlides fade">
-        <div class="numbertext">3 / 29</div>
-        <img class="slide-image" src="https://t3.ftcdn.net/jpg/03/03/06/90/360_F_303069017_9pxs84VOUu8cQKAYTJMcDXXII7SeZDsY.jpg" alt="Nasze realizacje">
-        <h1>Nasze realizacje</h1>
-        <p>Przykłady naszych instalacji fotowoltaicznych.</p>
-    </div>
-
-    <!-- Slide 4: Współpracujemy z -->
-    <div class="mySlides fade">
-        <div class="numbertext">4 / 29</div>
-        <img class="slide-image" src="https://www.enelfoundation.org/content/dam/enel-foundation/news/2023/03/world-energy-for-universities-2023-edition--the-power-of-knowledge-for-a-clean-energy-future/2400x1160.png" alt="Współpracujemy z">
-        <h1>Współpracujemy z:</h1>
-        <ul>
-            <li>Uczelnie i nauka: Partnerstwo z Politechniką Świętokrzyską – wspólne inicjatywy badawczo-rozwojowe w zakresie odnawialnych źródeł energii (OZE).</li>
-            <li>Fundacje i edukacja ekologiczna: ECO Fundacja – organizacja powiązana z 4ECO, prowadząca działania edukacyjne.</li>
-            <li>Służby i bezpieczeństwo: Współpraca z Ochotniczymi Strażami Pożarnymi (OSP) – szkolenia i konsultacje.</li>
-            <li>Samorządy i instytucje lokalne: Współpraca z Urzędem Miasta Kielce oraz innymi jednostkami samorządowymi.</li>
-        </ul>
-    </div>
-
-    <!-- Slide 5: Krótka historia branży OZE -->
-    <div class="mySlides fade">
-        <div class="numbertext">5 / 29</div>
-        <img class="slide-image" src="https://i0.wp.com/www.ecomena.org/wp-content/uploads/2020/09/Renewable-Energy-Timeline-scaled.jpg" alt="Historia OZE">
-        <h1>Krótka historia branży OZE</h1>
-        <p>Od czasów starożytnych, gdy wiatr wypełniał żagle, rzeki wprawiały młyny w ruch, a słońce suszyło plony, człowiek szukał sposobów na wykorzystanie energii natury. Przełom nadszedł w 1839 roku, gdy francuski fizyk Edmond Becquerel opisał fotowoltaiczny efekt, a w 1954 roku inżynierowie Bell Labs skonstruowali pierwszy praktyczny krzemowy panel słoneczny. W Polsce zasługi wniósł prof. Janusz Zakrzewski z Politechniki Warszawskiej, który od lat 70. badał półprzewodniki i rozwijał ogniwa słoneczne.</p>
-    </div>
-
-    <!-- Slide 6: Rozwój branży -->
-    <div class="mySlides fade">
-        <div class="numbertext">6 / 29</div>
-        <img class="slide-image" src="https://ars.els-cdn.com/content/image/1-s2.0-S2772427122000687-gr1.jpg" alt="Rozwój branży">
-        <h1>Rozwój branży</h1>
-        <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. W Polsce szczególną rolę odegrały programy „Mój Prąd” i „Czyste Powietrze”, dzięki którym tysiące gospodarstw domowych zamieniło się w prosumentów.</p>
-    </div>
-
-    <!-- Slide 7: Przyszłość -->
-    <div class="mySlides fade">
-        <div class="numbertext">7 / 29</div>
-        <img class="slide-image" src="https://miro.medium.com/1*Ba4qI_6G4gTnR7MMHxPx9w.jpeg" alt="Przyszłość">
-        <h1>Przyszłość</h1>
-        <p>Przyszłość branży OZE zyska nowy wymiar dzięki połączeniu odnawialnych źródeł energii ze sztuczną inteligencją i zaawansowanymi systemami zarządzania. Inteligentne HEMS/EMS, takie jak Sinum-Power, wykorzystują algorytmy do ciągłego monitorowania produkcji i zużycia.</p>
-    </div>
-
-    <!-- Slide 8: Ceny prądu -->
-    <div class="mySlides fade">
-        <div class="numbertext">8 / 29</div>
-        <img class="slide-image" src="https://cdn.statcdn.com/Statistic/1065000/1066654-blank-355.png" alt="Ceny prądu">
-        <h1>Ceny prądu - krótka tragiczna historia</h1>
-        <p>W 2020 roku 1 kWh kosztowała około 0,55 zł. W 2025 roku - już 1,34 zł. To wzrost o ponad 160%.</p>
-    </div>
-
-    <!-- Slide 9: Czas ucieka -->
-    <div class="mySlides fade">
-        <div class="numbertext">9 / 29</div>
-        <img class="slide-image" src="https://www.shutterstock.com/image-vector/utilities-bill-paper-stack-paid-260nw-2517446085.jpg" alt="Rachunki puchną">
-        <h1>Czas ucieka, rachunki puchną</h1>
-        <ul>
-            <li>Roczne rachunki przy zużyciu 3650 kWh: 2020: 1800 zł</li>
-            <li>2023: 2700 zł</li>
-            <li>2025: ponad 4200 zł</li>
-        </ul>
-    </div>
-
-    <!-- Slide 10: Twój rachunek -->
-    <div class="mySlides fade">
-        <div class="numbertext">10 / 29</div>
-        <img class="slide-image" src="http://waterheatertimer.org/images/energy-bill-breakdown-2.jpg" alt="Rachunek za prąd">
-        <h1>Twój rachunek za prąd to nie tylko energia</h1>
-        <p>Na fakturze znajdziesz: energię czynną, dystrybucję, abonament, opłaty dodatkowe, podatki itp.</p>
-    </div>
-
-    <!-- Slide 11: Oszczędzałeś? -->
-    <div class="mySlides fade">
-        <div class="numbertext">11 / 29</div>
-        <img class="slide-image" src="https://nowpowertexas.com/wp-content/uploads/2025/05/Eco%E2%80%93Friendly-Kitchen-Energy%E2%80%93Saving-Appliances.jpg" alt="Oszczędności">
-        <h1>Oszczędzałeś? A i tak płacisz więcej</h1>
-        <p>Wymieniłeś sprzęt na energooszczędny, ale rachunki rosną. Łącznie ponad 12 500 zł wydane na urządzenia A+++.</p>
-    </div>
-
-    <!-- Slide 12: Kary emisyjne -->
-    <div class="mySlides fade">
-        <div class="numbertext">12 / 29</div>
-        <img class="slide-image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/carbon-dioxide-emission-pricing-drawing-frank-ramspott.jpg" alt="Kary emisyjne">
-        <h1>Kary emisyjne – legalny skok na kasę</h1>
-        <p>Kary emisyjne to podatek za emisję CO₂, przerzucany na konsumentów. W Polsce 60% energii z węgla.</p>
-    </div>
-
-    <!-- Slide 13: Wolność -->
-    <div class="mySlides fade">
-        <div class="numbertext">13 / 29</div>
-        <img class="slide-image" src="https://www.ecowatch.com/wp-content/uploads/2022/04/GettyImages-1316382948-1-scaled.jpg" alt="Wolność">
-        <h1>Wolność zaczyna się tutaj</h1>
-        <p>Własna instalacja to niezależność od podwyżek cen prądu.</p>
-    </div>
-
-    <!-- Slide 14: Jak działa -->
-    <div class="mySlides fade">
-        <div class="numbertext">14 / 29</div>
-        <img class="slide-image" src="https://energyresearch.ucf.edu/wp-content/uploads/2017/01/pv_system.png" alt="Jak działa">
-        <h1>Jak działa instalacja fotowoltaiczna?</h1>
-        <p>Opis komponentów i działania systemu.</p>
-    </div>
-
-    <!-- Slide 15: Moduły fotowoltaiczne -->
-    <div class="mySlides fade">
-        <div class="numbertext">15 / 29</div>
-        <img class="slide-image" src="https://www.shutterstock.com/shutterstock/videos/1069600693/thumb/1.jpg?ip=x480" alt="Panele">
-        <h1>Moduły fotowoltaiczne / Panele</h1>
-        <ul>
-            <li>Zbudowane ze szkła, krzemu i aluminium</li>
-            <li>Produkcja energii za dnia</li>
-            <li>Odporne na warunki atmosferyczne</li>
-            <li>Monokrystaliczne, full black, half-cut, bifacjalne</li>
-        </ul>
-    </div>
-
-    <!-- Slide 16: Inwerter -->
-    <div class="mySlides fade">
-        <div class="numbertext">16 / 29</div>
-        <img class="slide-image" src="https://m.media-amazon.com/images/I/812sXsibi8L.jpg" alt="Inwerter">
-        <h1>Inwerter (falownik)</h1>
-        <ul>
-            <li>Zamienia prąd stały na zmienny</li>
-            <li>Bezobsługowy</li>
-            <li>Aplikacja mobilna</li>
-            <li>10 lat gwarancji</li>
-        </ul>
-    </div>
-
-    <!-- Slide 17: Zabezpieczenia -->
-    <div class="mySlides fade">
-        <div class="numbertext">17 / 29</div>
-        <img class="slide-image" src="https://aurorasolar.com/wp-content/uploads/2022/05/AC-and-DC-disconnects.jpg" alt="Zabezpieczenia">
-        <h1>Zabezpieczenia AC/DC</h1>
-        <ul>
-            <li>Podwójna skrzynka</li>
-            <li>Uziemienie</li>
-            <li>Certyfikowane zabezpieczenia Dehn</li>
-        </ul>
-    </div>
-
-    <!-- Slide 18: Licznik -->
-    <div class="mySlides fade">
-        <div class="numbertext">18 / 29</div>
-        <img class="slide-image" src="https://ik.imagekit.io/clouglobal/img/wp-content/uploads/2019/06/CL730S23-TWO-BUTTONS.jpg" alt="Licznik">
-        <h1>Licznik dwukierunkowy</h1>
-        <ul>
-            <li>Zgłoszenie do operatora</li>
-            <li>Wymiana bez kosztów</li>
-        </ul>
-    </div>
-
-    <!-- Slide 19: Sieć energetyczna -->
-    <div class="mySlides fade">
-        <div class="numbertext">19 / 29</div>
-        <img class="slide-image" src="https://envelio.com/hubfs/Envelio_November2024/Images/smart-grid-illustration-en-1300x0-c-center-1.webp" alt="Sieć">
-        <h1>Sieć energetyczna</h1>
-        <ul>
-            <li>Gwarantuje ciągłość dostaw</li>
-            <li>Odbiera nadwyżki</li>
-            <li>Stabilizuje parametry</li>
-        </ul>
-    </div>
-
-    <!-- Slide 20: Sposoby montażu -->
-    <div class="mySlides fade">
-        <div class="numbertext">20 / 29</div>
-        <img class="slide-image" src="https://www.lessosolar.com/uploads/%E6%94%AF%E6%9E%B6%E5%AE%89%E8%A3%85_%E7%94%BB%E6%9D%BF-1.jpg" alt="Montaż">
-        <h1>Sposoby montażu</h1>
-        <p>Różne metody montażu paneli.</p>
-    </div>
-
-    <!-- Slide 21: Gdzie nie montujemy -->
-    <div class="mySlides fade">
-        <div class="numbertext">21 / 29</div>
-        <img class="slide-image" src="https://modernize.com/wp-content/uploads/2017/05/solar-pergola.jpg" alt="Nie montujemy">
-        <h1>Gdzie nie montujemy paneli?</h1>
-        <ul>
-            <li>Na powierzchniach zacienionych</li>
-            <li>Na dachach w złym stanie</li>
-            <li>Na dachach z eternitem</li>
-            <li>Na dachach o ekstremalnym nachyleniu</li>
-            <li>Bez zgody właściciela</li>
-            <li>Na obiektach tymczasowych</li>
-            <li>Na dachach nie spełniających warunków</li>
-        </ul>
-    </div>
-
-    <!-- Slide 22: Autokonsumpcja -->
-    <div class="mySlides fade">
-        <div class="numbertext">22 / 29</div>
-        <img class="slide-image" src="https://www.shutterstock.com/image-vector/home-solar-power-system-roof-260nw-2232554765.jpg" alt="Autokonsumpcja">
-        <h1>Autokonsumpcja – czyli prąd bez pośredników</h1>
-        <p>Energia z paneli trafia bezpośrednio do urządzeń domowych.</p>
-    </div>
-
-    <!-- Slide 23: Jak zatrzymać więcej -->
-    <div class="mySlides fade">
-        <div class="numbertext">23 / 29</div>
-        <img class="slide-image" src="https://cdn.prod.website-files.com/65b3e159d25a6097b6ca5815/65b3e15ad25a6097b6ca6539_different%20types%20of%20assets%20for%20home%20energy%20management%20system.svg" alt="Zatrzymaj energię">
-        <h1>Jak zatrzymać więcej własnej energii?</h1>
-        <p>Korzystaj z prądu w godzinach produkcji, użyj inteligentnych gniazdek lub magazynu energii.</p>
-    </div>
-
-    <!-- Slide 24: Magazyn energii -->
-    <div class="mySlides fade">
-        <div class="numbertext">24 / 29</div>
-        <img class="slide-image" src="https://bakerhomeenergy.com/app/uploads/2023/07/how-home-batteries-work-sonnen-battery.jpeg" alt="Magazyn">
-        <h1>Magazyn energii – zatrzymaj własny prąd</h1>
-        <p>Magazyn zbiera nadwyżki i oddaje je gdy potrzeba.</p>
-    </div>
-
-    <!-- Slide 25: Inteligentne systemy -->
-    <div class="mySlides fade">
-        <div class="numbertext">25 / 29</div>
-        <img class="slide-image" src="https://www.baxenergy.com/wp-content/uploads/2023/02/Energy-Management-System-EMS-BaxEnergy-1.jpg" alt="Systemy">
-        <h1>Inteligentne systemy zarządzania energią – Sinum Power i ENIGA</h1>
-        <p>Systemy AI optymalizują zużycie i bilans energetyczny.</p>
-    </div>
-
-    <!-- Slide 26: Dobór instalacji -->
-    <div class="mySlides fade">
-        <div class="numbertext">26 / 29</div>
-        <img class="slide-image" src="https://footprinthero.com/wp-content/uploads/2023/08/Solar-System-Size-Calculator-Image-15-1024x875.jpg" alt="Dobór">
-        <h1>Dobór instalacji</h1>
-        <p>Dobieramy instalację indywidualnie na podstawie rachunków i kalkulatora PV.</p>
-    </div>
-
-    <!-- Slide 27: Chcesz to wszystko mieć? -->
-    <div class="mySlides fade">
-        <div class="numbertext">27 / 29</div>
-        <img class="slide-image" src="https://thumbs.dreamstime.com/b/happy-family-front-their-house-solar-panels-roof-happy-family-front-their-house-solar-panels-281658197.jpg" alt="Chcesz?">
-        <h1>Chcesz to wszystko mieć?</h1>
-        <p>Niższe rachunki, niezależność – zacznij teraz.</p>
-    </div>
-
-    <!-- Slide 28: NIC NIE ROBIĆ vs PREMIUM -->
-    <div class="mySlides fade">
-        <div class="numbertext">28 / 29</div>
-        <img class="slide-image" src="https://www.researchgate.net/publication/258555930/figure/fig4/AS:667714372788237@1536206920437/Color-online-Example-of-the-differences-between-energy-independent-and-energy-dependent.png" alt="Porównanie">
-        <h1>NIC NIE ROBIĆ = bycie zakładnikiem. PREMIUM = wolność i niezależność</h1>
-        <p>Porównanie braku działania z inwestycją w premium rozwiązania.</p>
-    </div>
-
-    <!-- Slide 29: Co zyskasz? -->
-    <div class="mySlides fade">
-        <div class="numbertext">29 / 29</div>
-        <img class="slide-image" src="https://www.shutterstock.com/image-vector/solar-benefits-icons-outline-showing-260nw-2525900199.jpg" alt="Zyski">
-        <h1>Co zyskasz?</h1>
-        <ul>
-            <li>Realne oszczędności od pierwszego dnia</li>
-            <li>Pełna niezależność energetyczna</li>
-            <li>Inteligentne zarządzanie energią (AI)</li>
-            <li>Bezpieczeństwo i trwałość instalacji</li>
-            <li>Wzrost wartości nieruchomości</li>
-        </ul>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-
+<div id="home" class="page">
+    <img class="page-image" src="https://cdn.enfsolar.com/ID/logo/6660399da8fca.png?v=1" alt="Logo 4ECO Green Energy">
+    <h1>Dzień pierwszy - Instalacje fotowoltaiczne</h1>
+    <p>Witamy w szczegółowej prezentacji szkoleniowej poświęconej instalacjom fotowoltaicznym firmy 4ECO. Ta interaktywna strona internetowa ma na celu kompleksowe wprowadzenie w świat odnawialnych źródeł energii, z szczególnym naciskiem na fotowoltaikę. Omówimy historię branży, jej rozwój, przyszłe trendy, rosnące ceny prądu, mechanizmy działania instalacji, komponenty systemu, metody montażu, zaawansowane systemy zarządzania energią oraz korzyści płynące z inwestycji w ekologiczne rozwiązania. Prezentacja oparta jest na materiałach szkoleniowych, wzbogacona o dodatkowe informacje z oficjalnej strony firmy 4ECO, która jest liderem na polskim rynku OZE, oferującym instalacje fotowoltaiczne, pompy ciepła i termomodernizacje. Przeglądaj podstrony za pomocą menu nawigacyjnego, aby zgłębić każdy aspekt tematu.</p>
 </div>
 
-<div class="dots-container">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
-    <span class="dot" onclick="currentSlide(6)"></span>
-    <span class="dot" onclick="currentSlide(7)"></span>
-    <span class="dot" onclick="currentSlide(8)"></span>
-    <span class="dot" onclick="currentSlide(9)"></span>
-    <span class="dot" onclick="currentSlide(10)"></span>
-    <span class="dot" onclick="currentSlide(11)"></span>
-    <span class="dot" onclick="currentSlide(12)"></span>
-    <span class="dot" onclick="currentSlide(13)"></span>
-    <span class="dot" onclick="currentSlide(14)"></span>
-    <span class="dot" onclick="currentSlide(15)"></span>
-    <span class="dot" onclick="currentSlide(16)"></span>
-    <span class="dot" onclick="currentSlide(17)"></span>
-    <span class="dot" onclick="currentSlide(18)"></span>
-    <span class="dot" onclick="currentSlide(19)"></span>
-    <span class="dot" onclick="currentSlide(20)"></span>
-    <span class="dot" onclick="currentSlide(21)"></span>
-    <span class="dot" onclick="currentSlide(22)"></span>
-    <span class="dot" onclick="currentSlide(23)"></span>
-    <span class="dot" onclick="currentSlide(24)"></span>
-    <span class="dot" onclick="currentSlide(25)"></span>
-    <span class="dot" onclick="currentSlide(26)"></span>
-    <span class="dot" onclick="currentSlide(27)"></span>
-    <span class="dot" onclick="currentSlide(28)"></span>
-    <span class="dot" onclick="currentSlide(29)"></span>
+<div id="about" class="page">
+    <img class="page-image" src="https://img.freepik.com/premium-photo/aerial-view-solar-panels-roof-building-olsztyn-poland_609103-2453.jpg" alt="Nasze realizacje">
+    <h1>O Firmie, Realizacje i Współpraca</h1>
+    <p>4 ECO to niekwestionowany lider na polskim rynku odnawialnych źródeł energii, który zdobył zaufanie ponad 40 tysięcy klientów w całym kraju. Firma specjalizuje się w instalacjach fotowoltaicznych, pompach ciepła i termomodernizacjach, zapewniając ekologiczne i oszczędne rozwiązania dla domów i firm. Dzięki 49 oddziałom jesteśmy obecni w każdym regionie Polski, co gwarantuje szybki dostęp do usług oraz kompleksowe wsparcie lokalne. Nasza oferta bazuje na najwyższej jakości rozwiązań, gwarantowanej przez pracę 80 certyfikowanych ekip montażowych oraz zespół 460 doświadczonych doradców specjalizujących się w ogrzewaniu i fotowoltaice. Bezpieczeństwo jest priorytetem – oferujemy ubezpieczenie instalacji na kwotę aż 3 milionów złotych w renomowanej firmie TUiR Warta S.A. Zapewniamy pełne wsparcie na każdym etapie: od profesjonalnego projektu, przez precyzyjny montaż, aż po załatwienie wszystkich formalności związanych z dotacjami i dofinansowaniami, takimi jak programy "Mój Prąd" czy "Czyste Powietrze". Naszym celem jest dostarczenie rozwiązań idealnie dopasowanych do indywidualnych potrzeb klientów, co gwarantuje komfort, znaczne oszczędności i długoterminową satysfakcję. Firma 4ECO dba o środowisko, promując odnawialne źródła energii, które redukują emisję CO2 i wspierają zrównoważony rozwój.</p>
+    <h2>Nasze Realizacje</h2>
+    <p>Oto przykłady naszych udanych realizacji instalacji fotowoltaicznych w różnych lokalizacjach i na różnorodnych obiektach – od małych domów jednorodzinnych, przez budynki przemysłowe, po duże farmy słoneczne. Każda instalacja jest dostosowana do specyficznych warunków terenowych, potrzeb energetycznych klienta oraz lokalnych regulacji. Nasze projekty demonstrują wysoką efektywność, niezawodność i szybki zwrot z inwestycji, często w ciągu 5-7 lat. Dzięki wykorzystaniu wysokiej klasy komponentów i profesjonalnemu montażowi, nasze realizacje działają bezawaryjnie przez dekady, przyczyniając się do oszczędności tysięcy złotych rocznie na rachunkach za prąd. Zapraszamy do galerii zdjęć, gdzie可以看到 przykłady montażu na dachach, gruntach i elewacjach w całej Polsce.</p>
+    <h2>Współpracujemy z:</h2>
+    <ul>
+        <li>Uczelnie i nauka: Nawiązaliśmy strategiczne partnerstwo z Politechniką Świętokrzyską, gdzie wspólnie prowadzimy inicjatywy badawczo-rozwojowe w zakresie odnawialnych źródeł energii (OZE). Ta współpraca obejmuje rozwój innowacyjnych technologii, testowanie nowych rozwiązań fotowoltaicznych oraz wymianę wiedzy między środowiskiem akademickim a biznesem, co przyczynia się do postępu w branży i edukacji przyszłych specjalistów.</li>
+        <li>Fundacje i edukacja ekologiczna: ECO Fundacja, powiązana z 4ECO, aktywnie prowadzi działania edukacyjne, warsztaty szkoleniowe, kampanie promocyjne i akcje społeczne, które zwiększają świadomość na temat świadomego korzystania z energii, korzyści z OZE oraz ochrony środowiska. Fundacja organizuje wydarzenia dla szkół, społeczności lokalnych i firm, promując zrównoważony styl życia.</li>
+        <li>Służby i bezpieczeństwo: Współpracujemy z Ochotniczymi Strażami Pożarnymi (OSP), oferując specjalistyczne szkolenia, konsultacje i warsztaty dotyczące bezpieczeństwa instalacji fotowoltaicznych, procedur reagowania w sytuacjach awaryjnych oraz zapobiegania pożarom. Przykładem jest cykl szkoleń dla OSP w gminie Mniów i całym regionie świętokrzyskim, który podniósł kompetencje strażaków w obsłudze systemów PV.</li>
+        <li>Samorządy i instytucje lokalne: Współpracujemy z Urzędem Miasta Kielce oraz innymi jednostkami samorządowymi, dostarczając doradztwo w zakresie energii odnawialnej, zrównoważonego rozwoju i programów dofinansowań. Wspieramy lokalne inicjatywy ekologiczne, takie jak instalacje PV na budynkach publicznych, co pomaga gminom redukować koszty i emisje.</li>
+    </ul>
+</div>
+
+<div id="history" class="page">
+    <img class="page-image" src="https://i0.wp.com/www.ecomena.org/wp-content/uploads/2020/09/Renewable-Energy-Timeline-scaled.jpg" alt="Historia OZE">
+    <h1>Historia, Rozwój i Przyszłość Branży OZE</h1>
+    <h2>Krótka Historia Branży OZE</h2>
+    <p>Historia odnawialnych źródeł energii sięga czasów starożytnych, kiedy wiatr napędzał żagle statków, rzeki kręciły koła młyńskie, a słońce suszyło plony i zapewniało ciepło. Ludzkość od zawsze szukała sposobów na wykorzystanie naturalnych sił natury do produkcji energii, co było kluczowe dla rozwoju cywilizacji. Przełomowy moment nastąpił w 1839 roku, gdy francuski fizyk Edmond Becquerel opisał efekt fotowoltaiczny, który stał się podstawą nowoczesnej fotowoltaiki. W 1954 roku inżynierowie z Bell Labs skonstruowali pierwszy praktyczny krzemowy panel słoneczny, co otworzyło drogę do komercyjnego wykorzystania tej technologii. W Polsce znaczący wkład w rozwój fotowoltaiki wniósł prof. Janusz Zakrzewski z Politechniki Warszawskiej, który od lat 70. prowadził badania nad półprzewodnikami i ogniwami słonecznymi. Jego prace, wraz z rozwojem turbin wiatrowych, instalacji wodnych i biogazowni, uczyniły odnawialne źródła energii realną alternatywą dla paliw kopalnych, promując zrównoważony rozwój energetyczny i redukcję zależności od importu surowców.</p>
+    <h2>Rozwój Branży</h2>
+    <p>W XXI wieku branża odnawialnych źródeł energii dynamicznie się rozwija, przechodząc od niszowych rozwiązań do kluczowych elementów globalnej gospodarki energetycznej. Fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostkami, stając się mainstreamowymi źródłami produkcji energii na skalę przemysłową. Równolegle rozwijane są zaawansowane systemy magazynowania prądu, takie jak baterie litowo-jonowe, które stabilizują sieć energetyczną, oraz inteligentne rozwiązania sieciowe (smart grids) umożliwiające automatyczne zarządzanie podażą i popytem na energię. W Polsce kluczową rolę odegrały rządowe programy wsparcia, takie jak „Mój Prąd” i „Czyste Powietrze”, dzięki którym tysiące gospodarstw domowych i firm stało się prosumentami – producentami i konsumentami energii jednocześnie. Integracja OZE z elektromobilnością (ładowarki EV zasilane PV), cyfrowymi platformami sterowania i Internetem Rzeczy (IoT) czyni te technologie nieodłącznym elementem nowoczesnej strategii energetycznej, budując niezależność, efektywność energetyczną i odporność całego systemu na zakłócenia, takie jak blackouty czy wahania cen surowców.</p>
+    <h2>Przyszłość</h2>
+    <p>Przyszłość branży OZE rysuje się w jasnych barwach dzięki głębokiej integracji odnawialnych źródeł energii ze sztuczną inteligencją (AI), machine learningiem i zaawansowanymi systemami zarządzania. Inteligentne systemy HEMS/EMS (Home/Building Energy Management Systems), takie jak Sinum-Power, wykorzystują zaawansowane algorytmy do ciągłego monitorowania produkcji i zużycia energii, automatycznie sterując ładowaniem magazynów energii, pracą pomp ciepła, ładowaniem pojazdów elektrycznych czy nawet inteligentnymi urządzeniami domowymi, biorąc pod uwagę dynamiczne ceny prądu, prognozy pogodowe i nawyki użytkowników. Platformy takie jak Eniga wprowadzają innowacyjny model bilansowania 1:1 przez 365 dni, który dzięki analizie big data i AI umożliwia precyzyjne planowanie bilansów energetycznych, maksymalizując autokonsumpcję, minimalizując straty i optymalizując zwrot z inwestycji dla prosumentów. Te rozwiązania wyznaczają kierunek dla zrównoważonej, autonomicznej i odpornej sieci energetycznej, która będzie kluczowa w walce ze zmianami klimatu, redukcją emisji CO2 i osiągnięciem celów UE w zakresie neutralności klimatycznej do 2050 roku. W Polsce, z rosnącym udziałem OZE w miksie energetycznym, przyszłość to smart cities zintegrowane z PV, wiatrem i magazynami energii.</p>
+</div>
+
+<div id="prices" class="page">
+    <img class="page-image" src="https://notesfrompoland.com/wp-content/uploads/2024/04/Electricity_prices_for_household_consumers_second_half_2023_V_2.png" alt="Ceny prądu chart">
+    <h1>Ceny Prądu, Rachunki i Droga do Niezależności</h1>
+    <h2>Ceny Prądu - Krótka Tragiczna Historia</h2>
+    <p>Historia cen prądu w Polsce to opowieść o ciągłych podwyżkach, które obciążają budżety gospodarstw domowych i firm. W 2020 roku 1 kWh kosztowała około 0,55 zł, ale już w 2025 roku cena wzrosła do 1,34 zł, co oznacza dramatyczny wzrost o ponad 160%. To nie jest zwykła korekta cen – to lawinowy skok, spowodowany czynnikami takimi jak rosnące koszty emisji CO2, uzależnienie od węgla (60% energii w Polsce pochodzi z tego źródła) oraz decyzje dostawców prądu, takich jak Tauron czy PGE, którzy mogą podnosić ceny dzięki systemowi regulacyjnemu. Podwyżki nie wynikają z lepszej jakości prądu czy zwiększonego zużycia, ale z mechanizmów rynkowych i politycznych, które przerzucają koszty na konsumentów. W kontekście unijnych celów klimatycznych, ceny będą rosły dalej, co podkreśla potrzebę inwestycji w OZE.</p>
+    <h2>Czas Ucieka, Rachunki Puchną</h2>
+    <p>Jak naprawdę wyglądają podwyżki w przeciętnym polskim domu? Przy tym samym rocznym zużyciu energii około 3650 kWh, rachunki rosną lawinowo: w 2020 roku wynosiły 1800 zł, w 2023 – 2700 zł, a w 2025 przekroczą 4200 zł. Te liczby ilustrują, jak bez zmian w nawykach czy zakupie nowych urządzeń, koszty energii rosną z roku na rok. Powodem jest system, w którym konsument jest jedynie płatnikiem, nie mającym wpływu na ceny. W obliczu inflacji energetycznej, inwestycja w fotowoltaikę staje się koniecznością, pozwalającą uniezależnić się od podwyżek i stabilizować budżet domowy.</p>
+    <h2>Twój Rachunek za Prąd to Nie Tylko Energia</h2>
+    <p>Twój miesięczny rachunek za prąd to skomplikowana lista dopłat, podatków i "opłat specjalnych", które sprawiają, że płacisz coraz więcej, nawet jeśli nie zmieniasz swoich nawyków energetycznych. Na fakturze znajdziesz m.in.: energię czynną (faktyczne zużycie), dystrybucję i składki sieciowe (opłata za dostarczenie prądu), abonament, opłatę przejściową i jakościową (dopłaty o niejasnych nazwach), opłaty dodatkowe (za OZE, kogenerację, a od 2025 opłatę mocową) oraz podatki jak VAT i akcyza. Do tego dochodzą regulacje "ochronne", takie jak zamrożenia cen czy limity zużycia, które w praktyce są iluzoryczne – rachunki wciąż rosną. System ten faworyzuje dostawców, a konsumentów traktuje jako źródło zysku.</p>
+    <h2>Oszczędzałeś? A i Tak Płacisz Więcej</h2>
+    <p>Przez lata inwestowałeś w energooszczędny sprzęt, wierząc, że to obniży rachunki – lodówka A+++ za 2500 zł, pralka A+++ za 2000 zł, zmywarka A+++ za 2200 zł, żarówki LED za 500 zł, piekarnik A+ za 1800 zł, telewizor LED za 2500 zł, mikrofalówka A za 800 zł i zamrażarka A++ za 2000 zł – łącznie ponad 12 500 zł. Jednak efekt jest odwrotny: rachunki rosną, bo system karze za niskie zużycie poprzez stałe opłaty i podwyżki. To nieuczciwy mechanizm, który discourages ekologiczne zachowania i oszczędności, podkreślając potrzebę własnej produkcji energii poprzez PV.</p>
+    <h2>Kary Emisyjne – Legalny Skok na Kasę</h2>
+    <p>Kary emisyjne to mechanizm UE mający walczyć z globalnym ociepleniem poprzez karanie za przekroczenie limitów emisji CO2. W praktyce jest to podatek przerzucany na konsumentów – przekraczasz limit, płacisz, a koszty trafiają do cen prądu, paliw i towarów. W Polsce, z dominacją węgla, ceny emisji rosną rokrocznie, co oznacza ciągłe podwyżki. System, który miał ratować planetę, stał się narzędziem do dodatkowego opodatkowania obywateli pod pretekstem ekologii, co dodatkowo motywuje do przejścia na OZE.</p>
+    <h2>Wolność Zaczyna Się Tutaj</h2>
+    <p>Przez lata byłeś uwięziony w systemie ciągłych podwyżek, podatków i limitów. Własna instalacja fotowoltaiczna to sposób na zerwanie tych kajdan – każdy wyprodukowany kilowat to krok ku niezależności. Rachunek staje się formalnością, a Ty decydujesz o swojej energii. Fotowoltaika to nie moda, to realna ucieczka od zależności, przynosząca wolność, oszczędności do 80% na rachunkach i spokój na lata, z gwarancją na 25+ lat.</p>
+</div>
+
+<div id="howitworks" class="page">
+    <img class="page-image" src="https://energyresearch.ucf.edu/wp-content/uploads/2017/01/pv_system.png" alt="Jak działa instalacja">
+    <h1>Jak Działa Instalacja Fotowoltaiczna i Jej Komponenty</h1>
+    <h2>Jak Działa Instalacja Fotowoltaiczna?</h2>
+    <p>Instalacja fotowoltaiczna to zaawansowany system przekształcający energię słoneczną w prąd elektryczny, który można wykorzystać w domu lub firmie. Proces zaczyna się od paneli słonecznych, które absorbują promienie słoneczne i generują prąd stały (DC). Ten prąd jest następnie przekształcany przez inwerter na prąd zmienny (AC), używany w standardowych gniazdkach. System obejmuje zabezpieczenia AC/DC, licznik dwukierunkowy do bilansowania nadwyżek z siecią oraz połączenie z siecią energetyczną dla ciągłości dostaw. Dzięki temu, energia jest zużywana na bieżąco (autokonsumpcja), a nadwyżki oddawane do sieci lub magazynowane. Całość jest bezobsługowa, monitorowana przez aplikacje mobilne, i zapewnia oszczędności oraz niezależność energetyczną.</p>
+    <h2>Moduły Fotowoltaiczne / Panele</h2>
+    <ul>
+        <li>Zbudowane z wysokiej jakości materiałów jak szkło hartowane, krzem monokrystaliczny i aluminium, zapewniających trwałość, wysoką efektywność i odporność na uszkodzenia mechaniczne.</li>
+        <li>Produkują energię w ciągu dnia, gdy jest jasno, nawet w pochmurne warunki czy zimą, dzięki zaawansowanej technologii half-cut i bifacjalnej, która pozwala na absorbcję światła z obu stron panelu.</li>
+        <li>Odporne na ekstremalne warunki atmosferyczne, w tym promieniowanie UV, wilgoć, grad o średnicy do 25 mm i temperatury od -40°C do +85°C, co gwarantuje długoletnią pracę bez degradacji.</li>
+        <li>Typy: monokrystaliczne (wysoka sprawność do 22%), full black (estetyczne, czarne panele), half-cut (mniejsze straty cieniowania), bifacjalne (dwustronne) – wszystkie z polskim serwisem i gwarancją do 25 lat na wydajność.</li>
+    </ul>
+    <p>Wymiary paneli to około 2094 × 1038 mm, grubość 30 mm, waga 26,5 kg, co ułatwia montaż na dachach, gruntach czy elewacjach, z minimalnym wpływem na strukturę budynku.</p>
+    <h2>Inwerter (Falownik)</h2>
+    <ul>
+        <li>Zamienia prąd stały (DC) z paneli na prąd zmienny (AC) używany w gniazdkach domowych, z efektywnością powyżej 98%.</li>
+        <li>Bezobsługowy, działa automatycznie bez potrzeby interwencji użytkownika, z wbudowanymi mechanizmami optymalizacji produkcji.</li>
+        <li>Aplikacja mobilna umożliwia zdalną kontrolę, monitorowanie produkcji w czasie rzeczywistym, alerty o awariach i analizę danych historycznych.</li>
+        <li>Gotowy do rozbudowy o magazyny energii czy pompy ciepła, z polskim serwisem i 10-letnią gwarancją, rozszerzalną do 20 lat.</li>
+    </ul>
+    <h2>Zabezpieczenia AC/DC</h2>
+    <ul>
+        <li>Podwójna skrzynka z osobnymi zabezpieczeniami dla domu i instalacji fotowoltaicznej, chroniąca przed przepięciami i zwarciami.</li>
+        <li>Uziemienie w standardzie, chroniące całą instalację od podstaw przed uderzeniami piorunów i zakłóceniami elektrycznymi.</li>
+        <li>Sprzęt najwyższej klasy – certyfikowane zabezpieczenia Dehn z atestem Straży Pożarnej, zapewniające zgodność z normami UE i polskimi przepisami.</li>
+    </ul>
+    <p>Te elementy gwarantują ochronę domu, domowników, sprzętu i samej instalacji przed awariami, pożarami i zagrożeniami zewnętrznymi.</p>
+    <h2>Licznik Dwukierunkowy</h2>
+    <ul>
+        <li>Zgłoszenie do operatora (Tauron, PGE, ENEA, Energa) wysyłamy po montażu, zajmując się wszystkimi formalnościami administracyjnymi.</li>
+        <li>Operator ma maksymalnie 30 dni na bezpłatną wymianę licznika dla klienta, co umożliwia bilansowanie nadwyżek energii.</li>
+    </ul>
+    <p>Wyjątek stanowi licznik przedpłatowy, który należy wymienić przed montażem; system pozwala na odzyskiwanie 70-80% oddanej energii w zależności od taryfy.</p>
+    <h2>Sieć Energetyczna</h2>
+    <ul>
+        <li>Gwarantuje ciągłość dostaw energii niezależnie od warunków pogodowych, uzupełniając produkcję z paneli w nocy czy zimą.</li>
+        <li>Odbiera nadwyżki z instalacji PV i integruje je z systemem krajowym, umożliwiając rozliczenie net-billing lub net-metering.</li>
+        <li>Stabilizuje parametry napięcia i częstotliwości, zapewniając kompatybilność z krajową infrastrukturą energetyczną.</li>
+    </ul>
+</div>
+
+<div id="installation" class="page">
+    <img class="page-image" src="https://img.freepik.com/premium-photo/aerial-view-solar-panels-roof-building-olsztyn-poland_609103-2453.jpg" alt="Sposoby montażu">
+    <h1>Sposoby Montażu i Ograniczenia</h1>
+    <p>Instalacje fotowoltaiczne można montować na różnych powierzchniach, w zależności od warunków budynku i terenu. Standardowe metody to montaż na dachu skośnym (najpopularniejszy, optymalny kąt 30-40°), płaskim (z konstrukcją balastową lub kotwioną), gruncie (farmy lub duże instalacje), elewacjach czy wiatach garażowych. Każdy montaż jest poprzedzony audytem, aby zapewnić maksymalną ekspozycję na słońce (południe, bez cieni). Proces trwa 1-2 dni, jest bezinwazyjny i nie wymaga pozwolenia budowlanego dla instalacji do 50 kW. Firma 4ECO zapewnia profesjonalny montaż przez certyfikowane ekipy, z gwarancją na 10-25 lat.</p>
+    <h2>Gdzie Nie Montujemy Paneli?</h2>
+    <ul>
+        <li>Na powierzchniach zacienionych przez drzewa, kominy, anteny lub inne przeszkody – stałe zacienienie znacząco obniża wydajność instalacji (nawet o 50%), dlatego dobieramy lokalizację dla maksymalnego nasłonecznienia przez cały dzień.</li>
+        <li>Na dachach w złym stanie technicznym – nie montujemy na pokryciach przeciekających, niestabilnych czy wymagających wymiany; instalacja PV to inwestycja na lata, musi opierać się na solidnej konstrukcji, by uniknąć uszkodzeń.</li>
+        <li>Na dachach pokrytych eternitem (azbestem) – zgodnie z przepisami, montaż na azbeście jest zabroniony ze względów zdrowotnych; wymagana jest wcześniejsza wymiana na bezpieczne materiały jak blacha czy dachówka.</li>
+        <li>Na dachach o ekstremalnym kącie nachylenia (powyżej 60°) – zbyt stromy dach utrudnia bezpieczny montaż, serwis i czyszczenie; w takich przypadkach proponujemy alternatywy jak montaż gruntowy czy na elewacji.</li>
+        <li>Na obiektach bez zgody właściciela lub wspólnoty mieszkaniowej – w budynkach wielorodzinnych czy współwłasności wymagamy pisemnej zgody wszystkich stron; brak zgody uniemożliwia legalny montaż i może prowadzić do konfliktów.</li>
+        <li>Na obiektach tymczasowych, niestabilnych lub bez przyłącza energetycznego – instalacja PV wymaga trwałej struktury i możliwości podłączenia do sieci lub magazynu; nie montujemy na barakach, kontenerach czy obiektach sezonowych.</li>
+        <li>Na dachach, które nie spełniają warunków montażowych pod względem powierzchni lub orientacji – jeśli dach jest zbyt mały, skierowany na północ lub ma nietypową geometrię, proponujemy alternatywne rozwiązania jak montaż na gruncie, wiacie czy fasadzie budynku.</li>
+    </ul>
+    <p>Te ograniczenia zapewniają bezpieczeństwo, efektywność i zgodność z prawem, minimalizując ryzyka dla klienta i instalacji.</p>
+</div>
+
+<div id="management" class="page">
+    <img class="page-image" src="https://deye.com/wp-content/uploads/2023/06/Battery-Energy-Storage-System.jpg" alt="Magazyn energii">
+    <h1>Autokonsumpcja, Magazynowanie i Inteligentne Systemy</h1>
+    <h2>Autokonsumpcja – Prąd Bez Pośredników</h2>
+    <p>Autokonsumpcja to kluczowy element instalacji PV, gdzie energia wyprodukowana przez panele trafia bezpośrednio do urządzeń domowych, bez pośrednictwa sieci. Wyobraź sobie mini-elektrownię na dachu: prąd zasila lodówkę, pralkę, klimatyzację czy pompę ciepła w czasie rzeczywistym. To czysta oszczędność – bez opłat za przesył, strat energetycznych czy czekania na rozliczenie. W Polsce, z systemem net-billing, maksymalizacja autokonsumpcji (do 40-60% bez magazynu) jest kluczowa dla opłacalności. Dzięki temu, sieć działa tylko jako backup, a Ty redukujesz rachunki nawet o 80%.</p>
+    <h2>Jak Zatrzymać Więcej Własnej Energii?</h2>
+    <p>Najprostszy sposób to dostosowanie zużycia do godzin produkcji słonecznej: uruchamiaj zmywarkę o 13:00 zamiast 22:00, pralkę w południe, piekarnik czy pompę ciepła w szczycie nasłonecznienia. Inteligentne gniazdka i programatory automatycznie sterują urządzeniami, optymalizując zużycie. Dla pełnej kontroli, zainwestuj w magazyn energii – zbiera nadwyżki i oddaje je wieczorem, w nocy czy podczas awarii. To zwiększa autokonsumpcję do 80-90%, zapewnia niezależność i ochronę przed blackoutami, czyniąc Twój dom autonomicznym energetycznie.</p>
+    <h2>Magazyn Energii – Zatrzymaj Własny Prąd</h2>
+    <p>Magazyn energii to bateria litowo-jonowa, która przechowuje nadwyżki prądu z PV, zamiast oddawać je do sieci po niskiej cenie. Gdy panele produkują więcej niż potrzebujesz, energia ładuje magazyn; później wraca do domu w godzinach szczytu czy nocy. To zwiększa autokonsumpcję, poprawia bilans finansowy (zwrot w 5-7 lat z dotacjami), zapewnia zasilanie awaryjne i integrację z EV czy pompami ciepła. W 4ECO oferujemy magazyny o pojemności 5-20 kWh, z gwarancją 10 lat i monitoringiem AI.</p>
+    <h2>Inteligentne Systemy Zarządzania Energią – Sinum Power i ENIGA</h2>
+    <p>Tradycyjna fotowoltaika daje prąd, ale inteligentne systemy jak Sinum Power i ENIGA sprawiają, że energia pracuje optymalnie. Sinum Power działa jak mózg instalacji: analizuje produkcję PV, zużycie domowe i stan magazynu w czasie rzeczywistym, używając AI do decyzji o zasilaniu, ładowaniu czy sprzedaży prądu. ENIGA idzie dalej – uczy się nawyków, reaguje na ceny rynkowe, automatycznie rozładowuje magazyn w szczytach cenowych i ładuje w tanich godzinach. Korzyści: maksymalna autokonsumpcja, minimalne rachunki, realna kontrola kosztów i niezależność.</p>
+</div>
+
+<div id="benefits" class="page">
+    <img class="page-image" src="https://energyresearch.ucf.edu/wp-content/uploads/2017/01/pv_system.png" alt="Korzyści">
+    <h1>Dobór Instalacji i Korzyści</h1>
+    <h2>Dobór Instalacji</h2>
+    <p>Każdy dom i firma mają unikalne potrzeby energetyczne, dlatego instalację PV dobieramy indywidualnie, analizując rachunki, zużycie, lokalizację i cele klienta. Używamy zaawansowanego kalkulatora PV, który symuluje produkcję energii na podstawie danych pogodowych, kąta dachu i cieniowania. To zapewnia optymalną moc (np. 5-10 kW dla domu), bez przepłacania czy niedoborów. Proces obejmuje audyt, projekt 3D i symulację zwrotu inwestycji, z uwzględnieniem dotacji.</p>
+    <h2>Chcesz to Wszystko Mieć?</h2>
+    <p>Niższe rachunki, własną energię, niezależność od podwyżek i technologię AI pracującą 24/7? To nie wizja – to rzeczywistość z 4ECO. Im szybciej zainwestujesz, tym szybciej zaczniesz oszczędzać i budować zrównoważoną przyszłość. Skontaktuj się z nami po darmowy audyt!</p>
+    <h2>NIC NIE ROBIĆ = Bycie Zakładnikiem. PREMIUM = Wolność i Niezależność</h2>
+    <p>Brak działania oznacza pozostanie w pułapce podwyżek i zależności. Wybór premium rozwiązań PV to wolność, oszczędności i ekologiczny styl życia.</p>
+    <h2>Co Zyskasz?</h2>
+    <ul>
+        <li>Realne oszczędności od pierwszego dnia – każdy kWh z PV to mniej płacone do sieci, z redukcją rachunków o 70-90%.</li>
+        <li>Pełna niezależność energetyczna – niezależnie od polityki czy cen, masz własne źródło prądu i ciepła.</li>
+        <li>Inteligentne zarządzanie energią (AI) – system optymalizuje zużycie automatycznie, minimalizując koszty.</li>
+        <li>Bezpieczeństwo i trwałość – atestowane komponenty, montaż przez ekspertów, gwarancje do 25 lat.</li>
+        <li>Wzrost wartości nieruchomości – dom z PV i magazynem jest atrakcyjniejszy na rynku, zwiększając wartość o 10-20%.</li>
+    </ul>
 </div>
 
 <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.style.display = 'none';
+        });
+        document.getElementById(pageId).style.display = 'block';
     }
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+    window.addEventListener('hashchange', function() {
+        var pageId = window.location.hash.substring(1) || 'home';
+        showPage(pageId);
+    });
 
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-    }
+    window.addEventListener('load', function() {
+        var pageId = window.location.hash.substring(1) || 'home';
+        showPage(pageId);
+    });
 </script>
 
 </body>
