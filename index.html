@@ -140,6 +140,7 @@
             border-radius: 15px;
             border-left: 4px solid #4ade80;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .feature-card:hover {
@@ -237,7 +238,7 @@
 
         .comparison-card.bad {
             background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
-            border: 2px solid rgba(239, 68, 68, 0.3);
+            border: 2px solid rgba(239, 68, 38, 0.3);
         }
 
         .comparison-card.good {
@@ -322,6 +323,52 @@
             background: #4ade80;
             transform: scale(1.3);
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -368,7 +415,15 @@
             </div>
         </div>
 
-        <!-- Slide 3: Współpraca -->
+        <!-- Slide 3: Nasze realizacje -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🏗️ Nasze Realizacje</h2>
+                <p>Przykłady naszych udanych instalacji fotowoltaicznych w różnych lokalizacjach i na różnorodnych obiektach. Od małych domów jednorodzinnych po duże farmy przemysłowe, nasze projekty demonstrują wysoką efektywność i niezawodność.</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Współpraca -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🤝 Nasze Partnerstwa</h2>
@@ -397,10 +452,10 @@
             </div>
         </div>
 
-        <!-- Slide 4: Historia OZE -->
+        <!-- Slide 5: Historia OZE -->
         <div class="slide">
             <div class="slide-content">
-                <h2>📜 Historia Branży OZE</h2>
+                <h2>📜 Historia Branży OZE</h3>
                 <div class="feature-card">
                     <h3>1839 - Przełom</h3>
                     <p>Edmond Becquerel odkrywa efekt fotowoltaiczny</p>
@@ -420,7 +475,23 @@
             </div>
         </div>
 
-        <!-- Slide 5: Ceny prądu - PROBLEM -->
+        <!-- Slide 6: Rozwój branży -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📈 Rozwój Branży</h2>
+                <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. W Polsce programy „Mój Prąd” i „Czyste Powietrze” zamieniły tysiące gospodarstw w prosumentów.</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Przyszłość -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🚀 Przyszłość OZE</h2>
+                <p>Przyszłość branży OZE zyska nowy wymiar dzięki połączeniu z AI. Inteligentne HEMS/EMS jak Sinum-Power monitorują produkcję i zużycie, sterując ładowaniem magazynów, pomp ciepła czy EV na podstawie cen prądu i pogody.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Ceny prądu - PROBLEM -->
         <div class="slide">
             <div class="slide-content">
                 <h2>💸 Dramat Rosnących Cen Prądu</h2>
@@ -446,7 +517,7 @@
             </div>
         </div>
 
-        <!-- Slide 6: Ukryte koszty -->
+        <!-- Slide 9: Ukryte koszty -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🔍 Rachunek to Nie Tylko Prąd</h2>
@@ -464,7 +535,7 @@
             </div>
         </div>
 
-        <!-- Slide 7: Paradoks oszczędzania -->
+        <!-- Slide 10: Paradoks oszczędzania -->
         <div class="slide">
             <div class="slide-content">
                 <h2>😤 Paradoks: Oszczędzałeś? I tak płacisz więcej!</h2>
@@ -496,7 +567,24 @@
             </div>
         </div>
 
-        <!-- Slide 8: Porównanie -->
+        <!-- Slide 11: Kary emisyjne -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🏭 Kary Emisyjne - Legalny Skok na Kasę</h2>
+                <p style="font-size: 1.3em;">Oficjalnie: walka z CO₂. W praktyce: podatek przerzucany na Ciebie.</p>
+                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%); border-color: #ef4444;">
+                    <ul>
+                        <li>Przekraczasz limit emisji → płacisz</li>
+                        <li>Polska: 60% energii z węgla → ceny rosną rokrocznie</li>
+                        <li>Nie korporacje płacą - Ty płacisz w rachunkach</li>
+                        <li>Ekologia stała się podatkiem w przebraniu</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.4em; font-weight: 700;">Efekt? System, który miał ratować planetę, drenuje Twoje kieszenie.</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Porównanie -->
         <div class="slide">
             <div class="slide-content">
                 <h2>⚔️ Dwa Światy</h2>
@@ -512,7 +600,7 @@
                         </ul>
                     </div>
                     <div class="comparison-card good">
-                        <h3 style="color: #4ade80; font-size: 2em;">😎 FOTOWOLTAIKA</h3>
+                        <h3 style="color: #4ade80; font-size: 2em;">😎 PREMIUM PV</h3>
                         <p style="font-size: 1.5em; margin: 20px 0;">= Wolność i niezależność</p>
                         <ul style="text-align: left;">
                             <li>Stabilne koszty</li>
@@ -528,47 +616,69 @@
             </div>
         </div>
 
-        <!-- Slide 9: Jak działa -->
+        <!-- Slide 13: Wolność -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🗽 Wolność Zaczyna Się Tutaj</h2>
+                <p style="font-size: 1.3em;">Przez lata płaciłeś coraz więcej. System dusił Cię kajdanami podwyżek.</p>
+                <div class="highlight-box">
+                    <p style="font-size: 1.4em; line-height: 1.8;">
+                        Własna instalacja to zerwany łańcuch.<br>
+                        Każdy kilowat to cegła wyjęta z muru zależności.<br>
+                        Nagle oddychasz pełną piersią.<br>
+                        To Ty decydujesz.
+                    </p>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.4em; font-weight: 700;">Im szybciej uciekniesz, tym szybciej odzyskasz wolność, pieniądze i spokój.</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Jak działa -->
         <div class="slide">
             <div class="slide-content">
                 <h2>⚙️ Jak Działa Instalacja Fotowoltaiczna?</h2>
-                <p style="font-size: 1.3em; margin-bottom: 30px;">System składa się z kilku kluczowych elementów:</p>
+                <p style="font-size: 1.3em; margin-bottom: 30px;">System składa się z kilku kluczowych elementów. Kliknij na kartę, aby zobaczyć obraz:</p>
                 <div class="feature-grid">
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="openModal('panele')">
                         <div class="feature-icon">☀️</div>
                         <h3>1. Panele PV</h3>
                         <p>Wychwytują światło słoneczne i przekształcają je w prąd stały (DC)</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="openModal('inwerter')">
                         <div class="feature-icon">⚡</div>
                         <h3>2. Inwerter</h3>
                         <p>Zamienia prąd stały na prąd zmienny (AC) - gotowy do użycia w domu</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="openModal('zabezpieczenia')">
                         <div class="feature-icon">🛡️</div>
                         <h3>3. Zabezpieczenia</h3>
                         <p>Chronią instalację i dom (Dehn z atestem Straży Pożarnej)</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="openModal('licznik')">
                         <div class="feature-icon">📊</div>
                         <h3>4. Licznik dwukierunkowy</h3>
                         <p>Mierzy energię pobieraną i oddawaną do sieci</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="openModal('sieć')">
+                        <div class="feature-icon">🌐</div>
+                        <h3>5. Sieć energetyczna</h3>
+                        <p>Gwarantuje ciągłość dostaw i odbiera nadwyżki</p>
+                    </div>
+                    <div class="feature-card" onclick="openModal('magazyn')">
                         <div class="feature-icon">🔋</div>
-                        <h3>5. Magazyn energii (opcja)</h3>
+                        <h3>6. Magazyn energii (opcja)</h3>
                         <p>Przechowuje nadwyżki na wieczór i noc</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🏠</div>
-                        <h3>6. Twój dom</h3>
-                        <p>Korzysta z darmowej energii w pierwszej kolejności!</p>
+                    <div class="feature-card" onclick="openModal('systemy')">
+                        <div class="feature-icon">🤖</div>
+                        <h3>7. Inteligentne systemy</h3>
+                        <p>Sinum Power i ENIGA - zarządzanie energią z AI</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 10: Panele -->
+        <!-- Slide 15: Panele -->
         <div class="slide">
             <div class="slide-content">
                 <h2>📦 Moduły Fotowoltaiczne</h2>
@@ -595,13 +705,13 @@
                     <li><strong>Monokrystaliczne</strong> - najwyższa sprawność konwersji</li>
                     <li><strong>Full Black</strong> - elegancki wygląd</li>
                     <li><strong>Half-cut</strong> - lepsza wydajność przy częściowym zacienieniu</li>
-                    <li><strong>Bifacjalne</strong> - produkcja energii z obu stron panelu</li>
+                    <li><strong>Bifacjalne</strong> - produkcja energii z obu stron</li>
                     <li><strong>Polski serwis i gwarancja</strong> - bezproblemowa obsługa</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Slide 11: Inwerter -->
+        <!-- Slide 16: Inwerter -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🔌 Inwerter - Mózg Instalacji</h2>
@@ -626,28 +736,98 @@
                         <h3>Bezobsługowy</h3>
                         <p>Działa sam przez lata</p>
                     </div>
-                </ul>
+                </div>
                 <div class="highlight-box">
                     <p style="font-size: 1.3em; font-weight: 700;">✓ Polski serwis + 10 lat gwarancji</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 12: Autokonsumpcja -->
+        <!-- Slide 17: Zabezpieczenia -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🛡️ Zabezpieczenia AC/DC</h2>
+                <ul>
+                    <li>Podwójna skrzynka – osobne zabezpieczenia dla domu i instalacji</li>
+                    <li>Uziemienie w standardzie – ochrona od podstaw</li>
+                    <li>Certyfikowane zabezpieczenia Dehn z atestem Straży Pożarnej</li>
+                    <li>Gwarancja bezpieczeństwa dla domu i sprzętów</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 18: Licznik -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📊 Licznik Dwukierunkowy</h2>
+                <ul>
+                    <li>Zgłoszenie do operatora po montażu (my załatwiamy)</li>
+                    <li>Wymiana w max 30 dni - bez kosztów dla klienta</li>
+                    <li>Wyjątek: licznik przedpłatowy wymienić przed montażem</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 19: Sieć energetyczna -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🌐 Sieć Energetyczna</h2>
+                <ul>
+                    <li>Gwarantuje ciągłość dostaw</li>
+                    <li>Odbiera nadwyżki z PV</li>
+                    <li>Stabilizuje napięcie i częstotliwość</li>
+                    <li>Zapewnia zgodność z krajową infrastrukturą</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 20: Sposoby montażu -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔧 Sposoby Montażu</h2>
+                <p>Różne metody montażu paneli w zależności od typu dachu i warunków.</p>
+            </div>
+        </div>
+
+        <!-- Slide 21: Gdzie nie montujemy -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>❌ Gdzie Nie Montujemy Paneli?</h2>
+                <ul>
+                    <li>Na powierzchniach zacienionych</li>
+                    <li>Na dachach w złym stanie</li>
+                    <li>Na dachach z eternitem (azbestem)</li>
+                    <li>Na dachach o ekstremalnym nachyleniu (>60°)</li>
+                    <li>Bez zgody właściciela lub wspólnoty</li>
+                    <li>Na obiektach tymczasowych</li>
+                    <li>Na dachach nie spełniających warunków (mały, północny)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 22: Na czym nie montujemy -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>❌ Na Czym Nie Montujemy</h2>
+                <p>Przykłady powierzchni i materiałów, na których nie wykonujemy montażu dla bezpieczeństwa i efektywności.</p>
+            </div>
+        </div>
+
+        <!-- Slide 23: Autokonsumpcja -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🏠 Autokonsumpcja - Prąd Bez Pośredników</h2>
-                <p style="font-size: 1.4em; margin-bottom: 30px;">Twoje panele działają jak mini-elektrownia na dachu</p>
+                <p>Twoje panele działają jak mini-elektrownia na dachu</p>
                 <div class="highlight-box">
                     <h3>Jak to działa?</h3>
-                    <p style="font-size: 1.2em; line-height: 1.8;">
+                    <p>
                         1. Panele produkują energię<br>
                         2. Prąd trafia NAJPIERW do Twoich urządzeń<br>
                         3. Nadwyżki idą do sieci (lub magazynu)<br>
                         4. Wieczorem pobierasz z sieci (lub magazynu)
                     </p>
                 </div>
-                <h3 style="margin-top: 40px;">💰 Każdy kilowat zużyty na miejscu to:</h3>
+                <h3>💰 Każdy kilowat zużyty na miejscu to:</h3>
                 <ul>
                     <li>Brak opłat za przesył</li>
                     <li>Brak podatków dystrybucyjnych</li>
@@ -657,11 +837,24 @@
             </div>
         </div>
 
-        <!-- Slide 13: Magazyn energii -->
+        <!-- Slide 24: Jak zatrzymać więcej -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔒 Jak Zatrzymać Więcej Własnej Energii?</h2>
+                <p>Proste sposoby: korzystaj z prądu w godzinach produkcji (zmywarka o 13:00, pralka w południe).</p>
+                <p>Zaawansowane: inteligentne gniazdka i programatory.</p>
+                <p>Najlepsze: magazyn energii - zbiera nadwyżki i oddaje gdy potrzeba.</p>
+                <div class="highlight-box">
+                    <p>To nie oszczędność. To niezależność!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Magazyn energii -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🔋 Magazyn Energii - Zatrzymaj Swój Prąd</h2>
-                <p style="font-size: 1.4em; margin-bottom: 30px;">Przestań oddawać energię za bezcen. Zachowaj ją dla siebie!</p>
+                <p>Przestań oddawać energię za bezcen. Zachowaj ją dla siebie!</p>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <div class="feature-icon">☀️</div>
@@ -685,17 +878,17 @@
                     </div>
                 </div>
                 <div class="highlight-box">
-                    <p style="font-size: 1.4em; font-weight: 700;">Magazyn = Niezależność energetyczna 24/7</p>
-                    <p style="margin-top: 20px;">To inwestycja, która zwraca się szybciej, niż myślisz</p>
+                    <p>Magazyn = Niezależność energetyczna 24/7</p>
+                    <p>To inwestycja, która zwraca się szybciej, niż myślisz</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 14: Inteligentne systemy -->
+        <!-- Slide 26: Inteligentne systemy -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🤖 AI w Służbie Twojej Energii</h2>
-                <p style="font-size: 1.4em; margin-bottom: 30px;">Sinum Power i ENIGA - systemy zarządzania nowej generacji</p>
+                <p>Sinum Power i ENIGA - systemy zarządzania nowej generacji</p>
                 
                 <div class="feature-card" style="margin-bottom: 30px;">
                     <h3>🧠 Sinum Power - Mózg Instalacji</h3>
@@ -703,134 +896,65 @@
                         <li>Analizuje produkcję z paneli w czasie rzeczywistym</li>
                         <li>Śledzi zużycie w domu</li>
                         <li>Monitoruje stan magazynu</li>
-                        <li>Podejmuje inteligentne decyzje: kiedy zasilać dom, kiedy ładować baterię</li>
-                        <li>Efekt: maksymalna autokonsumpcja + minimalne rachunki</li>
+                        <li>Podejmuje inteligentne decyzje</li>
+                        <li>Efekt: maksymalna autokonsumpcja</li>
                     </ul>
                 </div>
 
                 <div class="feature-card">
                     <h3>💡 ENIGA - Inteligencja Rynkowa</h3>
                     <ul>
-                        <li>Uczy się Twoich nawyków energetycznych</li>
-                        <li>Reaguje na dynamiczne ceny prądu</li>
-                        <li>Rozładowuje magazyn, gdy ceny w sieci są najwyższe</li>
-                        <li>Ładuje, gdy energia jest najtańsza</li>
-                        <li>Bilansowanie 1:1 przez 365 dni w roku</li>
+                        <li>Uczy się Twoich nawyków</li>
+                        <li>Reaguje na ceny prądu</li>
+                        <li>Rozładowuje magazyn w szczytach</li>
+                        <li>Ładuje w tanich godzinach</li>
+                        <li>Bilansowanie 1:1 przez 365 dni</li>
                     </ul>
                 </div>
 
                 <div class="highlight-box" style="margin-top: 40px;">
-                    <p style="font-size: 1.5em; font-weight: 700;">To już nie tylko fotowoltaika. To połączenie AI, automatyzacji i Twojej instalacji!</p>
+                    <p>To już nie tylko fotowoltaika. To połączenie AI i automatyzacji!</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 15: Gdzie montujemy -->
+        <!-- Slide 27: Dobór instalacji -->
         <div class="slide">
             <div class="slide-content">
-                <h2>📍 Gdzie Montujemy Panele?</h2>
-                <div class="feature-grid">
-                    <div class="feature-card" style="border-left-color: #4ade80;">
-                        <h3 style="color: #4ade80;">✓ TAK montujemy:</h3>
-                        <ul>
-                            <li>Dachy skośne (blacha, dachówka)</li>
-                            <li>Dachy płaskie</li>
-                            <li>Grunty</li>
-                            <li>Wiaty, carporty</li>
-                            <li>Elewacje (w uzasadnionych przypadkach)</li>
-                        </ul>
-                    </div>
-                    <div class="feature-card" style="border-left-color: #ef4444;">
-                        <h3 style="color: #ef4444;">✗ NIE montujemy:</h3>
-                        <ul style="list-style: none;">
-                            <li style="padding-left: 0;">❌ Na zacienieniu (drzewa, kominy)</li>
-                            <li style="padding-left: 0;">❌ Na dachach w złym stanie</li>
-                            <li style="padding-left: 0;">❌ Na eternicie (azbest)</li>
-                            <li style="padding-left: 0;">❌ Bez zgody właściciela/wspólnoty</li>
-                            <li style="padding-left: 0;">❌ Na obiektach tymczasowych</li>
-                            <li style="padding-left: 0;">❌ Na dachach >60° nachylenia</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 16: Dobór instalacji -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>🎯 Dobór Instalacji - Szyte Na Miarę</h2>
-                <p style="font-size: 1.3em; margin-bottom: 30px;">Każdy dom jest inny. Każda rodzina ma inne potrzeby.</p>
+                <h2>🎯 Dobór Instalacji</h2>
+                <p>Każdy dom ma inne potrzeby. Dobieramy instalację indywidualnie, bez przepłacania.</p>
                 <div class="highlight-box">
-                    <h3>Nasz proces doboru:</h3>
-                    <ul>
-                        <li>Analiza Twoich rachunków za prąd (ostatnie 12 miesięcy)</li>
-                        <li>Sprawdzenie profilu zużycia (kiedy zużywasz najwięcej)</li>
-                        <li>Oględziny dachu/terenu (powierzchnia, nasłonecznienie, konstrukcja)</li>
-                        <li>Uwzględnienie planów rozwoju (pompa ciepła, auto elektryczne)</li>
-                        <li>Kalkulator PV - precyzyjny projekt instalacji</li>
-                    </ul>
-                </div>
-                <div class="feature-grid" style="margin-top: 40px;">
-                    <div class="feature-card">
-                        <h3>🔍 Analiza</h3>
-                        <p>Dokładne poznanie Twoich potrzeb</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>📐 Projekt</h3>
-                        <p>Optymalna moc i rozmieszczenie</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>💰 Wycena</h3>
-                        <p>Przejrzysta i uczciwa</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🎁 Dotacje</h3>
-                        <p>Pomoc w uzyskaniu wsparcia</p>
-                    </div>
+                    <p>Używamy kalkulatora PV analizującego rachunki i zużycie dla projektu na miarę.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 17: Co zyskujesz -->
+        <!-- Slide 28: Chcesz to wszystko mieć? -->
         <div class="slide">
             <div class="slide-content">
-                <h2>🎁 Co Zyskasz Dzięki Fotowoltaice?</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">💰</div>
-                        <h3>Realne oszczędności</h3>
-                        <p>Od pierwszego dnia produkcji. Każdy kilowat to mniej pieniędzy oddanych operatorowi</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🗽</div>
-                        <h3>Pełna niezależność</h3>
-                        <p>Nieważne, co zrobią politycy czy jak wzrosną ceny - masz własne źródło energii</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <h3>Inteligentne zarządzanie</h3>
-                        <p>System AI optymalizuje zużycie automatycznie. Ty tylko korzystasz z efektów</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>Bezpieczeństwo</h3>
-                        <p>Atestowane zabezpieczenia Dehn + ubezpieczenie 3 mln zł</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h3>Wzrost wartości domu</h3>
-                        <p>Nieruchomość z PV i magazynem to wyższa wartość rynkowa</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌍</div>
-                        <h3>Czyste sumienie</h3>
-                        <p>Mniejszy ślad węglowy. Lepszy świat dla Twoich dzieci</p>
-                    </div>
+                <h2>🤔 Chcesz to Wszystko Mieć?</h2>
+                <p>Niższe rachunki, własną energię, niezależność i technologię AI?</p>
+                <div class="highlight-box">
+                    <p>To nie przyszłość. To rozwiązanie dostępne już teraz. Im szybciej zaczniesz, tym szybciej odzyskasz wolność.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 18: Proces montażu -->
+        <!-- Slide 29: Co zyskasz? -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎁 Co Zyskasz?</h2>
+                <ul>
+                    <li>Realne oszczędności od pierwszego dnia</li>
+                    <li>Pełna niezależność energetyczna</li>
+                    <li>Inteligentne zarządzanie energią (AI)</li>
+                    <li>Bezpieczeństwo i trwałość instalacji</li>
+                    <li>Wzrost wartości nieruchomości</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 30: Proces montażu -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🔧 Proces Realizacji Krok Po Kroku</h2>
@@ -861,12 +985,12 @@
                     </div>
                 </div>
                 <div class="highlight-box" style="margin-top: 40px;">
-                    <p style="font-size: 1.3em; font-weight: 700;">Od pierwszego kontaktu do produkcji własnego prądu: około 4-6 tygodni</p>
+                    <p>Od pierwszego kontaktu do produkcji własnego prądu: około 4-6 tygodni</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 19: Gwarancje i serwis -->
+        <!-- Slide 31: Gwarancje i serwis -->
         <div class="slide">
             <div class="slide-content">
                 <h2>🛡️ Gwarancje i Wsparcie</h2>
@@ -890,16 +1014,16 @@
                 </div>
                 <div class="highlight-box" style="margin-top: 40px;">
                     <h3>Polski serwis - zawsze blisko Ciebie</h3>
-                    <p style="font-size: 1.2em;">49 oddziałów w całej Polsce. Ekipy serwisowe w Twoim regionie. Wsparcie techniczne przez telefon i aplikację mobilną.</p>
+                    <p>49 oddziałów w całej Polsce. Ekipy serwisowe w Twoim regionie. Wsparcie techniczne przez telefon i aplikację mobilną.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 20: CTA Final -->
+        <!-- Slide 32: CTA Final -->
         <div class="slide">
             <div class="slide-content">
                 <h2>⚡ Czas Podjąć Decyzję</h2>
-                <p style="font-size: 1.5em; margin-bottom: 40px;">Każdy dzień zwłoki to kolejne pieniądze oddane operatorowi</p>
+                <p>Każdy dzień zwłoki to kolejne pieniądze oddane operatorowi</p>
                 
                 <div class="comparison-table">
                     <div class="comparison-card bad">
@@ -926,7 +1050,7 @@
             </div>
         </div>
 
-        <!-- Slide 21: Podsumowanie dla doradców -->
+        <!-- Slide 33: Podsumowanie dla doradców -->
         <div class="slide">
             <div class="slide-content">
                 <h2>📚 Kluczowe Punkty Do Zapamiętania</h2>
@@ -957,12 +1081,12 @@
                     </div>
                 </div>
                 <div class="highlight-box" style="margin-top: 40px;">
-                    <p style="font-size: 1.4em; font-weight: 700;">Nie sprzedajemy paneli. Sprzedajemy niezależność, spokój i kontrolę nad własnym życiem.</p>
+                    <p>Nie sprzedajemy paneli. Sprzedajemy niezależność, spokój i kontrolę nad własnym życiem.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 22: Dziękujemy -->
+        <!-- Slide 34: Dziękujemy -->
         <div class="slide">
             <div class="slide-content" style="text-align: center;">
                 <h1 style="font-size: 4em; margin-bottom: 40px;">⚡ Dziękujemy!</h1>
@@ -980,7 +1104,63 @@
                 <p style="font-size: 1.3em; margin-top: 60px; color: #86efac;">Pytania? Teraz jest czas!</p>
             </div>
         </div>
+    </div>
 
+    <!-- Modale -->
+    <div id="paneleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('panele')">&times;</span>
+            <img src="https://hysolis.com/cdn/shop/products/solar_panel_1600x.jpg?v=1670894944" alt="Panele PV">
+            <p>Monokrystaliczne panele bifacjalne full black</p>
+        </div>
+    </div>
+
+    <div id="inwerterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('inwerter')">&times;</span>
+            <img src="https://solmix.pl/wp-content/uploads/2021/11/co-to-jest-falownik-fotowoltaiczny.jpg" alt="Inwerter">
+            <p>Inwerter fotowoltaiczny</p>
+        </div>
+    </div>
+
+    <div id="zabezpieczeniaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('zabezpieczenia')">&times;</span>
+            <img src="https://www.dehn.us/sites/default/files/styles/3_2_ratio_1000_x_665/public/media/images/2019-05/dehncombo-1200x675.png?itok=77kC8Jkw" alt="Zabezpieczenia">
+            <p>Zabezpieczenia Dehn dla instalacji PV</p>
+        </div>
+    </div>
+
+    <div id="licznikModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('licznik')">&times;</span>
+            <img src="https://floridasolardesigngroup.com/wp-content/uploads/2015/03/Bi-Directional-Utility-Meter-1.jpg" alt="Licznik">
+            <p>Licznik dwukierunkowy</p>
+        </div>
+    </div>
+
+    <div id="siećModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sieć')">&times;</span>
+            <img src="https://copper.org/environment/sustainable-energy/grid-infrastructure/images/p6232-energy-grid_infographic.jpg" alt="Sieć energetyczna">
+            <p>Schemat sieci energetycznej</p>
+        </div>
+    </div>
+
+    <div id="magazynModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('magazyn')">&times;</span>
+            <img src="https://www.energy.gov/sites/default/files/2021-11/35974719113_24cfb03c24_o.jpg" alt="Magazyn energii">
+            <p>Magazyn energii dla domu</p>
+        </div>
+    </div>
+
+    <div id="systemyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('systemy')">&times;</span>
+            <img src="https://tech-controllers.com/!uploads/pages/115206_05102023_sinum_bg_hms_ems_en.jpg.webp" alt="Systemy inteligentne">
+            <p>System zarządzania energią Sinum-Power</p>
+        </div>
     </div>
 
     <script>
@@ -995,7 +1175,7 @@
             });
         });
 
-        // Add animation on scroll
+        // Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1016,6 +1196,22 @@
             slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(slide);
         });
+
+        // Modal functions
+        function openModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
