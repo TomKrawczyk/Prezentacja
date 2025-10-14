@@ -5,317 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instalacja Fotowoltaiczna - 4ECO</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #334155 0%, #64748b 100%);
             color: #fff;
-            overflow-x: hidden;
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 40px 0;
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 40px 0; position: relative; }
         .logo {
-            font-size: 3em;
-            font-weight: 800;
+            font-size: 3em; font-weight: 800;
             background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 20px;
             text-shadow: 0 0 40px rgba(74, 222, 128, 0.3);
         }
+        .subtitle { font-size: 1.8em; color: #86efac; margin-bottom: 30px; }
 
-        .subtitle {
-            font-size: 1.8em;
-            color: #86efac;
-            margin-bottom: 30px;
-        }
-
-        .quote-box {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #4ade80;
-            margin: 30px auto;
-            font-style: italic;
-            font-size: 1.3em;
-            text-align: center;
-            position: relative;
-            max-width: 800px;
-        }
-
-        .quote-box::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 30px;
-            font-size: 4em;
-            color: rgba(74, 222, 128, 0.3);
-            font-family: Georgia, serif;
-        }
-
-        /* Main Menu */
+        /* Main menu grid */
         .main-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin: 60px 0;
         }
-
         .menu-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(74, 222, 128, 0.3);
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
+            background: rgba(255,255,255,0.07);
+            border-radius: 20px; border: 2px solid rgba(74,222,128,0.3);
+            padding: 40px; text-align: center; cursor: pointer; transition: all 0.35s cubic-bezier(.39,.58,.57,1);
             position: relative;
-            overflow: hidden;
+            width: 270px;
+            box-shadow: 0 4px 16px rgba(74,222,128,0.12);
         }
-
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: all 0.4s ease;
+        .menu-card:hover, .menu-card.active {
+            transform: scale(1.05); border-color: #4ade80;
+            box-shadow: 0 24px 48px rgba(74,222,128,0.25);
+            background: linear-gradient(135deg, rgba(74,222,128,0.13), rgba(34,197,94,0.08));
         }
+        .menu-title { font-size: 1.5em; font-weight: 700; color: #4ade80; margin-bottom: 15px; }
+        .menu-description { font-size: 1.1em; color: rgba(255,255,255,0.8); line-height: 1.5; }
 
-        .menu-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #4ade80;
-            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
-        }
+        /* Content pages */
+        .content-page { display: none; min-height: 100vh; padding: 40px 0; }
+        .content-page.active { display: block; animation: fadeIn .6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
 
-        .menu-card:hover::before {
-            opacity: 1;
-        }
-
-        .menu-title {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #4ade80;
-            margin-bottom: 15px;
-        }
-
-        .menu-description {
-            font-size: 1.1em;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-
-        /* Content Pages */
-        .content-page {
-            display: none;
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-
-        .content-page.active {
-            display: block;
-            animation: fadeIn 0.6s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
+        .page-header { text-align: center; margin-bottom: 30px; }
         .page-title {
-            font-size: 3em;
-            font-weight: 800;
+            font-size: 2.6em; font-weight: 800;
             background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 20px;
         }
+        .page-subtitle { font-size: 1.4em; color: #86efac; margin-bottom: 30px; }
+        .slide-content { max-width: 800px; margin: 0 auto; }
 
-        .page-subtitle {
-            font-size: 1.4em;
-            color: #86efac;
-            margin-bottom: 30px;
-        }
-
-        /* Submenu */
-        .submenu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .submenu-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(74, 222, 128, 0.3);
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .submenu-card:hover {
-            transform: translateY(-10px);
-            border-color: #4ade80;
-            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
-        }
-
-        .submenu-title {
-            font-size: 1.6em;
-            color: #86efac;
-            margin-bottom: 10px;
-        }
-
-        .submenu-description {
-            font-size: 1.1em;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Slide Content */
-        .slide-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1, h2 {
-            text-align: center;
-        }
-
-        /* Navigation */
         .back-button {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            padding: 15px 30px;
-            background: rgba(74, 222, 128, 0.2);
-            border: 2px solid #4ade80;
-            border-radius: 50px;
-            color: #4ade80;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-decoration: none;
-            display: none;
+            position: fixed; top: 30px; left: 30px;
+            padding: 15px 30px; background: rgba(74,222,128,0.2);
+            border: 2px solid #4ade80; border-radius: 50px; color: #4ade80;
+            font-weight: 700; cursor: pointer; transition: all 0.3s ease; z-index: 1000;
+            text-decoration: none; display: none;
         }
+        .back-button:hover { background: #4ade80; color: #0a0e27; transform: translateX(-5px);}
+        .back-button.active { display: block; }
 
-        .back-button:hover {
-            background: #4ade80;
-            color: #0a0e27;
-            transform: translateX(-5px);
-        }
-
-        .back-button.active {
-            display: block;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-menu, .submenu {
-                grid-template-columns: 1fr;
-            }
-            .logo { font-size: 2em; }
-            .page-title { font-size: 2em; }
+        /* Simple notification */
+        .notification {
+            position: fixed; top: 90px; right: 30px; background: #22c55e;
+            color: #fff; padding: 15px 30px; border-radius: 50px;
+            font-weight: 700; font-size: 1.1em; z-index: 1100; display: none;
+            box-shadow: 0 8px 18px rgba(34,197,94,0.15);
         }
 
         /* Modal Styles */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
+            display: none; position: fixed; z-index: 1001;
+            left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
+            justify-content: center; align-items: center;
         }
-
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
+            background-color: #fefefe; margin: 10% auto; padding: 20px;
+            border: 1px solid #888; width: 90%; max-width: 500px; border-radius: 10px;
+            text-align: center; color: #222;
         }
+        .close { color: #888; float: right; font-size: 28px; font-weight: bold;}
+        .close:hover, .close:focus { color: #22c55e; cursor: pointer; }
 
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        /* Quiz styles */
+        .quiz-box { background: rgba(74,222,128,0.11); border-radius: 16px; padding: 24px; margin: 30px 0;}
+        .quiz-question { font-size: 1.25em; margin-bottom: 16px;}
+        .quiz-answers { display: flex; flex-direction: column; gap: 10px;}
+        .quiz-answer {
+            background: #64748b; color: #fff; border: none; border-radius: 8px;
+            padding: 12px; font-size: 1em; cursor: pointer; transition: background .2s;
         }
+        .quiz-answer:hover { background: #4ade80; color: #0a0e27; }
+        .quiz-result { font-size: 1.2em; margin-top: 20px; font-weight: 700;}
+        .quiz-score { font-size: 1.1em; margin-top: 12px; color: #86efac; font-weight: 600;}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        @media (max-width: 768px) {
+            .main-menu { flex-direction: column; align-items: center; }
+            .menu-card { width: 95%; }
+            .logo { font-size: 2em; }
+            .page-title { font-size: 1.7em; }
         }
     </style>
 </head>
 <body>
     <!-- Back Button -->
     <a href="#" class="back-button" onclick="goBack()">← Wstecz</a>
+    <div class="notification" id="notification"></div>
+    <div class="modal" id="myModal">
+        <div class="modal-content" id="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Main Menu -->
@@ -323,334 +128,211 @@
             <div class="header">
                 <div class="logo">⚡ Instalacje Fotowoltaiczne</div>
                 <div class="subtitle">Twoja droga do energetycznej niezależności</div>
-                <div class="quote-box">
-                    Dzień pierwszy - Szkolenie dla doradców 4ECO
-                </div>
             </div>
-
             <div class="main-menu">
-                <div class="menu-card" onclick="showSubmenu('firma')">
+                <div class="menu-card" onclick="showPage('firma')">
                     <div class="menu-title">O Firmie</div>
                     <div class="menu-description">Informacje o 4ECO, realizacjach i partnerstwach</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('historia')">
-                    <div class="menu-title">Historia i Rozwój OZE</div>
-                    <div class="menu-description">Ewolucja branży odnawialnych źródeł energii</div>
+                <div class="menu-card" onclick="showPage('problem')">
+                    <div class="menu-title">Problem Cen Energii</div>
+                    <div class="menu-description">Dlaczego energia drożeje i jakie są konsekwencje?</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('problem')">
-                    <div class="menu-title">Problem Cen Prądu</div>
-                    <div class="menu-description">Analiza rosnących kosztów energii</div>
+                <div class="menu-card" onclick="showPage('rozwiazanie')">
+                    <div class="menu-title">Rozwiązanie – Fotowoltaika</div>
+                    <div class="menu-description">Jak działa PV i jakie daje korzyści?</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('rozwiazanie')">
-                    <div class="menu-title">Rozwiązanie - Fotowoltaika</div>
-                    <div class="menu-description">Jak działa system PV i jego korzyści</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('komponenty')">
-                    <div class="menu-title">Komponenty Systemu</div>
-                    <div class="menu-description">Szczegóły techniczne elementów instalacji</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('montaz')">
-                    <div class="menu-title">Montaż i Ograniczenia</div>
-                    <div class="menu-description">Metody instalacji i gdzie nie montujemy</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('zaawansowane')">
-                    <div class="menu-title">Zaawansowane Funkcje</div>
-                    <div class="menu-description">Autokonsumpcja, magazyny i systemy AI</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('proces')">
-                    <div class="menu-title">Proces i Gwarancje</div>
-                    <div class="menu-description">Kroki realizacji i wsparcie</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('podsumowanie')">
-                    <div class="menu-title">Podsumowanie</div>
-                    <div class="menu-description">Kluczowe punkty i wezwanie do działania</div>
+                <div class="menu-card" onclick="showPage('quiz')">
+                    <div class="menu-title">Quiz – Sprawdź się!</div>
+                    <div class="menu-description">Weź udział w krótkim teście i wygraj punkty!</div>
                 </div>
             </div>
         </div>
 
-        <!-- Submenu for O Firmie -->
-        <div id="submenu-firma" class="content-page">
+        <!-- O Firmie -->
+        <div id="firma" class="content-page">
             <div class="page-header">
                 <div class="page-title">O Firmie</div>
-                <div class="page-subtitle">Informacje o 4ECO</div>
-            </div>
-
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('firma-o-firmie')">
-                    <div class="submenu-title">4ECO - Lider OZE</div>
-                    <div class="submenu-description">Statystyki i kompleksowa obsługa</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('firma-realizacje')">
-                    <div class="submenu-title">Nasze Realizacje</div>
-                    <div class="submenu-description">Przykłady instalacji</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('firma-partnerstwa')">
-                    <div class="submenu-title">Partnerstwa</div>
-                    <div class="submenu-description">Współprace z instytucjami</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Content for O Firmie -->
-        <div id="firma-o-firmie" class="content-page">
-            <div class="page-header">
-                <div class="page-title">4ECO - Lider OZE w Polsce</div>
+                <div class="page-subtitle">4ECO - Lider OZE w Polsce</div>
             </div>
             <div class="slide-content">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">40 000+</span>
-                        <span class="stat-label">Zadowolonych klientów</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 22px; justify-content: center;">
+                    <div style="background:#1e293b; border-radius:14px; padding:22px; min-width:180px; text-align:center;">
+                        <div style="font-size:1.6em;font-weight:700;">40 000+</div>
+                        <div>Zadowolonych klientów</div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">49</span>
-                        <span class="stat-label">Oddziałów w Polsce</span>
+                    <div style="background:#1e293b; border-radius:14px; padding:22px; min-width:180px; text-align:center;">
+                        <div style="font-size:1.6em;font-weight:700;">49</div>
+                        <div>Oddziałów w Polsce</div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">80</span>
-                        <span class="stat-label">Certyfikowanych ekip</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">460</span>
-                        <span class="stat-label">Ekspertów doradców</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">3 mln zł</span>
-                        <span class="stat-label">Ubezpieczenie TUiR Warta</span>
+                    <div style="background:#1e293b; border-radius:14px; padding:22px; min-width:180px; text-align:center;">
+                        <div style="font-size:1.6em;font-weight:700;">80</div>
+                        <div>Certyfikowanych ekip</div>
                     </div>
                 </div>
-                <div class="highlight-box">
+                <div class="highlight-box" style="margin-top:24px;">
                     <h3>Kompleksowa obsługa</h3>
-                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
+                    <p>Od projektu i montażu po formalności z dotacjami – zapewniamy wsparcie na każdym etapie. <br>
+                    <button onclick="showModal('Chcesz zobaczyć przykładową realizację?', '<img src=https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80 style=max-width:100%;border-radius:10px;margin:10px 0>')">Zobacz realizację</button>
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div id="firma-realizacje" class="content-page">
+        <!-- Problem Cen Energii -->
+        <div id="problem" class="content-page">
             <div class="page-header">
-                <div class="page-title">Nasze Realizacje</div>
+                <div class="page-title">Problem Cen Energii</div>
+                <div class="page-subtitle">Dlaczego płacimy coraz więcej?</div>
             </div>
             <div class="slide-content">
-                <p>Przykłady naszych udanych instalacji fotowoltaicznych w różnych lokalizacjach i na różnorodnych obiektach. Od małych domów jednorodzinnych po duże farmy przemysłowe, nasze projekty demonstrują wysoką efektywność i niezawodność.</p>
+                <div style="background:#ef4444; padding:18px 28px; border-radius:12px; color:#fff; font-weight:600; text-align:center;">
+                    <div>2020: <b>0,55 zł/kWh</b> &nbsp;&nbsp; 2025: <b>1,34 zł/kWh</b></div>
+                    <div style="font-size:1.1em; margin-top:10px;">Wzrost o <b>+160%</b> w 5 lat!</div>
+                </div>
+                <div style="margin:30px 0;">
+                    <button onclick="showModal('Dlaczego energia drożeje?', 'Podstawowe składniki wzrostu cen to:\n<ul style=\'text-align:left;\'><li>Podatki i opłaty emisyjne</li><li>Rosnący koszt surowców</li><li>Opłaty dystrybucyjne</li></ul>')">Wyjaśnij wzrost cen</button>
+                </div>
+                <div style="text-align:center; margin-top:30px; color:#ef4444; font-size:1.2em;">
+                    Roczne rachunki (3650 kWh):<br>
+                    2020: 1 800 zł | 2025: ponad 4 200 zł
+                </div>
             </div>
         </div>
 
-        <div id="firma-partnerstwa" class="content-page">
+        <!-- Rozwiązanie – Fotowoltaika -->
+        <div id="rozwiazanie" class="content-page">
             <div class="page-header">
-                <div class="page-title">Nasze Partnerstwa</div>
+                <div class="page-title">Rozwiązanie – Fotowoltaika</div>
+                <div class="page-subtitle">Jak działa system PV?</div>
             </div>
             <div class="slide-content">
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🎓</div>
-                        <h3>Nauka i rozwój</h3>
-                        <p>Politechnika Świętokrzyska - wspólne projekty badawczo-rozwojowe w zakresie OZE</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌱</div>
-                        <h3>Edukacja ekologiczna</h3>
-                        <p>ECO Fundacja - warsztaty i akcje promujące świadome korzystanie z energii</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🚒</div>
-                        <h3>Bezpieczeństwo</h3>
-                        <p>Współpraca z OSP - szkolenia dot. bezpieczeństwa instalacji fotowoltaicznych</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🏛️</div>
-                        <h3>Samorządy</h3>
-                        <p>Urząd Miasta Kielce - doradztwo w zakresie OZE i zrównoważonego rozwoju</p>
-                    </div>
+                <div style="margin-bottom:20px; text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="PV Panel" style="max-width:220px; border-radius:12px;">
+                </div>
+                <div style="font-size:1.1em; margin-bottom:14px;">Panele przekształcają światło słoneczne w prąd, który zasila Twój dom. Nadwyżki trafiają do sieci lub magazynu energii!</div>
+                <div style="margin:12px 0;">
+                    <button onclick="showNotification('Zainstaluj PV i oszczędzaj nawet 80% na rachunkach!')">Dowiedz się o oszczędnościach</button>
+                </div>
+                <div style="margin:18px 0;">
+                    <button onclick="showModal('Co daje magazyn energii?', '<b>Magazyn energii pozwala:</b><ul style=text-align:left><li>Przechowywać nadwyżki</li><li>Korzystać z prądu w nocy</li><li>Zwiększać autokonsumpcję</li></ul>')">Magazyn energii</button>
                 </div>
             </div>
         </div>
 
-        <!-- Submenu for Historia i Rozwój OZE -->
-        <div id="submenu-historia" class="content-page">
+        <!-- Quiz -->
+        <div id="quiz" class="content-page">
             <div class="page-header">
-                <div class="page-title">Historia i Rozwój OZE</div>
-                <div class="page-subtitle">Ewolucja branży</div>
-            </div>
-
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('historia-historia')">
-                    <div class="submenu-title">Historia OZE</div>
-                    <div class="submenu-description">Kluczowe daty i odkrycia</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('historia-rozwoj')">
-                    <div class="submenu-title">Rozwój Branży</div>
-                    <div class="submenu-description">Współczesny rozwój OZE</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('historia-przyszlosc')">
-                    <div class="submenu-title">Przyszłość OZE</div>
-                    <div class="submenu-description">Trendy i innowacje</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="historia-historia" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Historia Branży OZE</div>
+                <div class="page-title">Quiz – Sprawdź się!</div>
+                <div class="page-subtitle">Zdobywaj punkty i ucz się!</div>
             </div>
             <div class="slide-content">
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>1839 - Przełom</h3>
-                        <p>Edmond Becquerel odkrywa efekt fotowoltaiczny</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>1954 - Pierwsza komórka</h3>
-                        <p>Bell Labs konstruuje pierwszy praktyczny krzemowy panel słoneczny</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Lata 70. - Polski wkład</h3>
-                        <p>Prof. Janusz Zakrzewski z Politechniki Warszawskiej rozwija technologię półprzewodników i ogniw słonecznych</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>XXI wiek - Rewolucja</h3>
-                        <p>OZE wchodzą do głównego nurtu. Programy "Mój Prąd" i "Czyste Powietrze" zmieniają polski krajobraz energetyczny</p>
-                    </div>
+                <div class="quiz-box" id="quiz-box">
+                    <!-- Quiz will be injected here by JS -->
                 </div>
+                <div class="quiz-score" id="quiz-score"></div>
             </div>
         </div>
-
-        <div id="historia-rozwoj" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Rozwój Branży</div>
-            </div>
-            <div class="slide-content">
-                <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. W Polsce programy „Mój Prąd” i „Czyste Powietrze” zamieniły tysiące gospodarstw w prosumentów.</p>
-            </div>
-        </div>
-
-        <div id="historia-przyszlosc" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Przyszłość OZE</div>
-            </div>
-            <div class="slide-content">
-                <p>Przyszłość branży OZE zyska nowy wymiar dzięki połączeniu z AI. Inteligentne HEMS/EMS jak Sinum-Power monitorują produkcję i zużycie, sterując ładowaniem magazynów, pomp ciepła czy EV na podstawie cen prądu i pogody.</p>
-            </div>
-        </div>
-
-        <!-- Submenu for Problem Cen Prądu -->
-        <div id="submenu-problem" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Problem Cen Prądu</div>
-                <div class="page-subtitle">Analiza rosnących kosztów</div>
-            </div>
-
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('problem-dramat')">
-                    <div class="submenu-title">Dramat Rosnących Cen</div>
-                    <div class="submenu-description">Wzrost cen prądu</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('problem-ukryte')">
-                    <div class="submenu-title">Ukryte Koszty</div>
-                    <div class="submenu-description">Składniki rachunku</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('problem-paradoks')">
-                    <div class="submenu-title">Paradoks Oszczędzania</div>
-                    <div class="submenu-description">Oszczędzanie nie pomaga</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('problem-kary')">
-                    <div class="submenu-title">Kary Emisyjne</div>
-                    <div class="submenu-description">Podatki w przebraniu</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('problem-porownanie')">
-                    <div class="submenu-title">Dwa Światy</div>
-                    <div class="submenu-description">Porównanie opcji</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('problem-wolnosc')">
-                    <div class="submenu-title">Wolność Zaczyna Się Tutaj</div>
-                    <div class="submenu-description">Ucieczka od systemu</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="problem-dramat" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Dramat Rosnących Cen Prądu</div>
-            </div>
-            <div class="slide-content">
-                <div class="price-comparison">
-                    <div class="price-row">
-                        <span class="year">2020</span>
-                        <span class="price">0,55 zł/kWh</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="year">2025</span>
-                        <span class="price">1,34 zł/kWh</span>
-                    </div>
-                    <div style="text-align: center; margin-top: 30px;">
-                        <p style="font-size: 2em; color: #ef4444; font-weight: 800;">+160% wzrostu!</p>
-                        <p style="font-size: 1.3em; margin-top: 20px;">Za tę samą energię płacisz dziś ponad 2,5 raza więcej</p>
-                    </div>
-                </div>
-                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%); border-color: #ef4444;">
-                    <h3>Roczne rachunki przy tym samym zużyciu (3650 kWh)</h3>
-                    <p>2020: 1 800 zł | 2023: 2 700 zł | 2025: ponad 4 200 zł</p>
-                    <p style="margin-top: 20px; font-weight: 700;">Nie zmieniłeś nic. Ale płacisz 2,3x więcej.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add content for other problem subtopics similarly -->
-
-        <!-- Continue adding submenus and content for all sections -->
-
-        <!-- Quizzes can be added as before, with questions related to the section -->
-
     </div>
 
     <script>
         let currentPageStack = ['main-menu'];
-
-        function showSubmenu(submenuId) {
-            showPage(`submenu-${submenuId}`);
-        }
-
         function showPage(pageId) {
-            document.querySelectorAll('.content-page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
+            document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
             currentPageStack.push(pageId);
-            
             document.querySelector('.back-button').classList.add('active');
         }
-
         function goBack() {
             if (currentPageStack.length > 1) {
                 currentPageStack.pop();
                 const previousPage = currentPageStack[currentPageStack.length - 1];
-                document.querySelectorAll('.content-page').forEach(page => {
-                    page.classList.remove('active');
-                });
+                document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
                 document.getElementById(previousPage).classList.add('active');
-                
-                if (currentPageStack.length === 1) {
-                    document.querySelector('.back-button').classList.remove('active');
-                }
+                if (currentPageStack.length === 1) document.querySelector('.back-button').classList.remove('active');
             }
         }
 
-        // Modal functions...
-        // Add the modal script here as in the original
+        // Notification
+        function showNotification(msg) {
+            const notif = document.getElementById('notification');
+            notif.innerText = msg;
+            notif.style.display = 'block';
+            setTimeout(()=>{ notif.style.display = 'none'; }, 2200);
+        }
 
-        // Initialize
+        // Modal
+        function showModal(title, htmlContent) {
+            document.getElementById('modal-body').innerHTML = `<h2 style='color:#22c55e;'>${title}</h2>` + htmlContent;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) closeModal();
+        }
+
+        // Quiz logic
+        const quizQuestions = [
+            {
+                question: "Czym zajmuje się firma 4ECO?",
+                answers: ["Instalacje OZE", "Transport", "Budowa mostów", "Telekomunikacja"],
+                correct: 0
+            },
+            {
+                question: "Jak zmieniła się cena 1 kWh prądu od 2020 do 2025?",
+                answers: ["Spadła o 50%", "Wzrosła o 160%", "Pozostała bez zmian", "Wzrosła o 10%"],
+                correct: 1
+            },
+            {
+                question: "Do czego służy magazyn energii?",
+                answers: [
+                    "Do przechowywania nadwyżek prądu",
+                    "Do przechowywania wody",
+                    "Do produkcji gazu",
+                    "Do transportu energii"
+                ],
+                correct: 0
+            }
+        ];
+        let quizIndex = 0;
+        let quizScore = 0;
+
+        function renderQuiz() {
+            const box = document.getElementById('quiz-box');
+            if (quizIndex < quizQuestions.length) {
+                const q = quizQuestions[quizIndex];
+                box.innerHTML = `<div class='quiz-question'>${q.question}</div><div class='quiz-answers'></div>`;
+                const answersDiv = box.querySelector('.quiz-answers');
+                q.answers.forEach((ans, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quiz-answer';
+                    btn.innerText = ans;
+                    btn.onclick = () => quizAnswer(idx);
+                    answersDiv.appendChild(btn);
+                });
+                document.getElementById('quiz-score').innerText = `Twój wynik: ${quizScore}`;
+            } else {
+                box.innerHTML = `<div class='quiz-result'>Koniec quizu!<br>Twój wynik: <span style='color:#22c55e;'>${quizScore} / ${quizQuestions.length}</span></div>`;
+                document.getElementById('quiz-score').innerText = "";
+            }
+        }
+        function quizAnswer(idx) {
+            if (quizQuestions[quizIndex].correct === idx) {
+                quizScore++;
+                showNotification("Dobra odpowiedź!");
+            } else {
+                showNotification("Ups! To nieprawidłowa odpowiedź.");
+            }
+            quizIndex++;
+            setTimeout(renderQuiz, 800);
+        }
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.back-button').classList.remove('active');
+            renderQuiz();
         });
+
     </script>
 </body>
 </html>
