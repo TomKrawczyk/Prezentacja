@@ -722,35 +722,7 @@
             </div>
         </div>
 
-        <!-- Add similar structure with images and accordions for all other pages -->
-
-        <!-- For example, in historia-historia -->
-        <div id="historia-historia" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Historia Branży OZE</div>
-            </div>
-            <div class="slide-content">
-                <img src="https://via.placeholder.com/800x400?text=History+of+Renewable+Energy" alt="History of Renewable Energy" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
-                <div class="accordion">1839 - Przełom</div>
-                <div class="panel">
-                    <p>Edmond Becquerel odkrywa efekt fotowoltaiczny</p>
-                </div>
-                <div class="accordion">1954 - Pierwsza komórka</div>
-                <div class="panel">
-                    <p>Bell Labs konstruuje pierwszy praktyczny krzemowy panel słoneczny</p>
-                </div>
-                <div class="accordion">Lata 70. - Polski wkład</div>
-                <div class="panel">
-                    <p>Prof. Janusz Zakrzewski z Politechniki Warszawskiej rozwija technologię półprzewodników i ogniw słonecznych</p>
-                </div>
-                <div class="accordion">XXI wiek - Rewolucja</div>
-                <div class="panel">
-                    <p>OZE wchodzą do głównego nurtu. Programy "Mój Prąd" i "Czyste Powietrze" zmieniają polski krajobraz energetyczny</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Continue for all pages, adding images and accordions where appropriate to make it interactive -->
+        <!-- Content for other pages similar, with images and accordions -->
 
         <!-- Modals -->
         <!-- ... -->
@@ -758,7 +730,45 @@
     </div>
 
     <script>
-        // Existing script for showSubmenu, showPage, goBack, quizzes, modals
+        let currentPageStack = ['main-menu'];
+
+        function showSubmenu(submenuId) {
+            showPage(`submenu-${submenuId}`);
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.content-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const pageElement = document.getElementById(pageId);
+            if (pageElement) {
+                pageElement.classList.add('active');
+                currentPageStack.push(pageId);
+                
+                document.querySelector('.back-button').classList.add('active');
+            } else {
+                console.error(`Page with ID ${pageId} not found.`);
+            }
+        }
+
+        function goBack() {
+            if (currentPageStack.length > 1) {
+                currentPageStack.pop();
+                const previousPage = currentPageStack[currentPageStack.length - 1];
+                document.querySelectorAll('.content-page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(previousPage).classList.add('active');
+                
+                if (currentPageStack.length === 1) {
+                    document.querySelector('.back-button').classList.remove('active');
+                }
+            }
+        }
+
+        // Quiz Functions...
+        // Keep the quiz script as is
 
         // Accordion script
         var acc = document.getElementsByClassName("accordion");
@@ -774,6 +784,21 @@
                     panel.style.display = "block";
                 }
             });
+        }
+
+        // Modal functions...
+        function openModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
         }
 
         // Initialize
