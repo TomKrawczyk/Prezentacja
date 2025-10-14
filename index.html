@@ -5,25 +5,317 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instalacja Fotowoltaiczna - 4ECO</title>
     <style>
-        /* ... (dotychczasowy styl, nie zmieniam) ... */
-        /* Dodaj niżej nowe style jeśli chcesz wyróżnić nowe sekcje! */
-        .benefits-list {list-style: none; padding: 0;}
-        .benefits-list li {margin-bottom: 12px; font-size: 1.1em;}
-        .faq-box {background: #1e293b; border-radius: 12px; padding: 22px; margin-bottom: 18px;}
-        .faq-question {color: #4ade80; font-weight: 700;}
-        .faq-answer {color: #fff;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #334155 0%, #64748b 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 40px rgba(74, 222, 128, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #86efac;
+            margin-bottom: 30px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #4ade80;
+            margin: 30px auto;
+            font-style: italic;
+            font-size: 1.3em;
+            text-align: center;
+            position: relative;
+            max-width: 800px;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 4em;
+            color: rgba(74, 222, 128, 0.3);
+            font-family: Georgia, serif;
+        }
+
+        /* Main Menu */
+        .main-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #4ade80;
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
+        }
+
+        .menu-card:hover::before {
+            opacity: 1;
+        }
+
+        .menu-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+
+        .menu-description {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Content Pages */
+        .content-page {
+            display: none;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .content-page.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 1.4em;
+            color: #86efac;
+            margin-bottom: 30px;
+        }
+
+        /* Submenu */
+        .submenu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .submenu-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .submenu-card:hover {
+            transform: translateY(-10px);
+            border-color: #4ade80;
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
+        }
+
+        .submenu-title {
+            font-size: 1.6em;
+            color: #86efac;
+            margin-bottom: 10px;
+        }
+
+        .submenu-description {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Slide Content */
+        .slide-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        /* Navigation */
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 15px 30px;
+            background: rgba(74, 222, 128, 0.2);
+            border: 2px solid #4ade80;
+            border-radius: 50px;
+            color: #4ade80;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            display: none;
+        }
+
+        .back-button:hover {
+            background: #4ade80;
+            color: #0a0e27;
+            transform: translateX(-5px);
+        }
+
+        .back-button.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-menu, .submenu {
+                grid-template-columns: 1fr;
+            }
+            .logo { font-size: 2em; }
+            .page-title { font-size: 2em; }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <!-- Back Button -->
     <a href="#" class="back-button" onclick="goBack()">← Wstecz</a>
-    <div class="notification" id="notification"></div>
-    <div class="modal" id="myModal">
-        <div class="modal-content" id="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-body"></div>
-        </div>
-    </div>
 
     <div class="container">
         <!-- Main Menu -->
@@ -31,320 +323,172 @@
             <div class="header">
                 <div class="logo">⚡ Instalacje Fotowoltaiczne</div>
                 <div class="subtitle">Twoja droga do energetycznej niezależności</div>
+                <div class="quote-box">
+                    Dzień pierwszy - Szkolenie dla doradców 4ECO
+                </div>
             </div>
+
             <div class="main-menu">
-                <div class="menu-card" onclick="showPage('firma')">
+                <div class="menu-card" onclick="showSubmenu('firma')">
                     <div class="menu-title">O Firmie</div>
                     <div class="menu-description">Informacje o 4ECO, realizacjach i partnerstwach</div>
                 </div>
-                <div class="menu-card" onclick="showPage('problem')">
-                    <div class="menu-title">Problem Cen Energii</div>
-                    <div class="menu-description">Dlaczego energia drożeje i jakie są konsekwencje?</div>
+
+                <div class="menu-card" onclick="showSubmenu('historia')">
+                    <div class="menu-title">Historia i Rozwój OZE</div>
+                    <div class="menu-description">Ewolucja branży odnawialnych źródeł energii</div>
                 </div>
-                <div class="menu-card" onclick="showPage('rozwiazanie')">
-                    <div class="menu-title">Rozwiązanie – Fotowoltaika</div>
-                    <div class="menu-description">Jak działa PV i jakie daje korzyści?</div>
+
+                <div class="menu-card" onclick="showSubmenu('problem')">
+                    <div class="menu-title">Problem Cen Prądu</div>
+                    <div class="menu-description">Analiza rosnących kosztów energii</div>
                 </div>
-                <div class="menu-card" onclick="showPage('benefity')">
-                    <div class="menu-title">Korzyści z PV</div>
-                    <div class="menu-description">Dlaczego warto zainstalować fotowoltaikę?</div>
+
+                <div class="menu-card" onclick="showSubmenu('rozwiazanie')">
+                    <div class="menu-title">Rozwiązanie - Fotowoltaika</div>
+                    <div class="menu-description">Jak działa system PV i jego korzyści</div>
                 </div>
-                <div class="menu-card" onclick="showPage('technologie')">
-                    <div class="menu-title">Technologie i systemy</div>
-                    <div class="menu-description">Panele, magazyny i monitoring</div>
+
+                <div class="menu-card" onclick="showSubmenu('komponenty')">
+                    <div class="menu-title">Komponenty Systemu</div>
+                    <div class="menu-description">Szczegóły techniczne elementów instalacji</div>
                 </div>
-                <div class="menu-card" onclick="showPage('dotacje')">
-                    <div class="menu-title">Dotacje i wsparcie</div>
-                    <div class="menu-description">Programy, ulgi i dofinansowania</div>
+
+                <div class="menu-card" onclick="showSubmenu('montaz')">
+                    <div class="menu-title">Montaż i Ograniczenia</div>
+                    <div class="menu-description">Metody instalacji i gdzie nie montujemy</div>
                 </div>
-                <div class="menu-card" onclick="showPage('faq')">
-                    <div class="menu-title">FAQ</div>
-                    <div class="menu-description">Najczęstsze pytania i odpowiedzi</div>
+
+                <div class="menu-card" onclick="showSubmenu('zaawansowane')">
+                    <div class="menu-title">Zaawansowane Funkcje</div>
+                    <div class="menu-description">Autokonsumpcja, magazyny i systemy AI</div>
                 </div>
-                <div class="menu-card" onclick="showPage('podsumowanie')">
+
+                <div class="menu-card" onclick="showSubmenu('proces')">
+                    <div class="menu-title">Proces i Gwarancje</div>
+                    <div class="menu-description">Kroki realizacji i wsparcie</div>
+                </div>
+
+                <div class="menu-card" onclick="showSubmenu('podsumowanie')">
                     <div class="menu-title">Podsumowanie</div>
-                    <div class="menu-description">Wnioski i kontakt</div>
-                </div>
-                <div class="menu-card" onclick="showPage('quiz')">
-                    <div class="menu-title">Quiz – Sprawdź się!</div>
-                    <div class="menu-description">Weź udział w krótkim teście i wygraj punkty!</div>
+                    <div class="menu-description">Kluczowe punkty i wezwanie do działania</div>
                 </div>
             </div>
         </div>
 
-        <!-- O Firmie -->
-        <div id="firma" class="content-page">
+        <!-- Submenu for O Firmie -->
+        <div id="submenu-firma" class="content-page">
             <div class="page-header">
                 <div class="page-title">O Firmie</div>
-                <div class="page-subtitle">4ECO - Lider OZE w Polsce</div>
+                <div class="page-subtitle">Informacje o 4ECO</div>
             </div>
-            <div class="slide-content">
-                <!-- ... (dotychczasowe treści) ... -->
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('firma-o-firmie')">
+                    <div class="submenu-title">4ECO - Lider OZE</div>
+                    <div class="submenu-description">Statystyki i kompleksowa obsługa</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('firma-realizacje')">
+                    <div class="submenu-title">Nasze Realizacje</div>
+                    <div class="submenu-description">Przykłady instalacji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('firma-partnerstwa')">
+                    <div class="submenu-title">Partnerstwa</div>
+                    <div class="submenu-description">Współprace z instytucjami</div>
+                </div>
             </div>
         </div>
 
-        <!-- Problem Cen Energii -->
-        <div id="problem" class="content-page">
+        <!-- Submenu for Historia i Rozwój OZE -->
+        <div id="submenu-historia" class="content-page">
             <div class="page-header">
-                <div class="page-title">Problem Cen Energii</div>
-                <div class="page-subtitle">Dlaczego płacimy coraz więcej?</div>
+                <div class="page-title">Historia i Rozwój OZE</div>
+                <div class="page-subtitle">Ewolucja branży</div>
             </div>
-            <div class="slide-content">
-                <!-- ... (dotychczasowe treści) ... -->
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('historia-historia')">
+                    <div class="submenu-title">Historia OZE</div>
+                    <div class="submenu-description">Kluczowe daty i odkrycia</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('historia-rozwoj')">
+                    <div class="submenu-title">Rozwój Branży</div>
+                    <div class="submenu-description">Współczesny rozwój OZE</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('historia-przyszlosc')">
+                    <div class="submenu-title">Przyszłość OZE</div>
+                    <div class="submenu-description">Trendy i innowacje</div>
+                </div>
             </div>
         </div>
 
-        <!-- Rozwiązanie – Fotowoltaika -->
-        <div id="rozwiazanie" class="content-page">
+        <!-- Add similar submenus for other main topics -->
+
+        <!-- Example Content Page -->
+        <div id="firma-o-firmie" class="content-page">
             <div class="page-header">
-                <div class="page-title">Rozwiązanie – Fotowoltaika</div>
-                <div class="page-subtitle">Jak działa system PV?</div>
+                <div class="page-title">4ECO - Lider OZE w Polsce</div>
             </div>
             <div class="slide-content">
-                <!-- ... (dotychczasowe treści) ... -->
-            </div>
-        </div>
-
-        <!-- Nowe sekcje na podstawie prezentacji Google -->
-
-        <!-- Korzyści z PV -->
-        <div id="benefity" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Korzyści z Fotowoltaiki</div>
-                <div class="page-subtitle">Dlaczego warto?</div>
-            </div>
-            <div class="slide-content">
-                <ul class="benefits-list">
-                    <li>✔ Oszczędność na rachunkach za energię do 80%</li>
-                    <li>✔ Wzrost wartości nieruchomości</li>
-                    <li>✔ Niezależność energetyczna</li>
-                    <li>✔ Ekologiczna energia – zero emisji CO₂</li>
-                    <li>✔ Możliwość magazynowania energii</li>
-                    <li>✔ Szybka amortyzacja inwestycji (nawet 6-8 lat)</li>
-                </ul>
-                <div style="margin-top:18px;">
-                    <button onclick="showNotification('Korzyści są nie tylko finansowe, ale też ekologiczne!')">Więcej o korzyściach</button>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">40 000+</span>
+                        <span class="stat-label">Zadowolonych klientów</span>
+                    </div>
+                    <!-- Add other stats -->
+                </div>
+                <div class="highlight-box">
+                    <h3>Kompleksowa obsługa</h3>
+                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
                 </div>
             </div>
         </div>
 
-        <!-- Technologie i systemy -->
-        <div id="technologie" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Technologie i Systemy</div>
-                <div class="page-subtitle">Co instalujemy?</div>
-            </div>
-            <div class="slide-content">
-                <ul class="benefits-list">
-                    <li>✔ Nowoczesne panele monokrystaliczne</li>
-                    <li>✔ Falowniki z monitoringiem produkcji</li>
-                    <li>✔ Magazyny energii (akumulatory LiFePO₄)</li>
-                    <li>✔ Systemy do monitoringu online (aplikacja mobilna)</li>
-                    <li>✔ Instalacje hybrydowe (PV + pompy ciepła)</li>
-                </ul>
-                <div style="margin-top:18px;">
-                    <button onclick="showModal('Przykład monitoringu', '<img src=https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80 style=max-width:220px;border-radius:12px;><div>Podgląd produkcji w aplikacji!</div>')">Zobacz monitoring</button>
-                </div>
-            </div>
-        </div>
+        <!-- Continue adding all content pages similarly -->
 
-        <!-- Dotacje i wsparcie -->
-        <div id="dotacje" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Dotacje i Wsparcie</div>
-                <div class="page-subtitle">Jak możesz zyskać?</div>
-            </div>
-            <div class="slide-content">
-                <ul class="benefits-list">
-                    <li>✔ Program "Mój Prąd" – do 6 000 zł dotacji</li>
-                    <li>✔ Ulga termomodernizacyjna – nawet 53 000 zł odpisu od podatku</li>
-                    <li>✔ Regionalne programy wsparcia</li>
-                    <li>✔ Pomoc w formalnościach od 4ECO</li>
-                </ul>
-                <div style="margin-top:18px;">
-                    <button onclick="showModal('Jak uzyskać dotację?', 'Skontaktuj się z nami - przeprowadzimy Cię przez proces krok po kroku!')">Dowiedz się więcej</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAQ -->
-        <div id="faq" class="content-page">
-            <div class="page-header">
-                <div class="page-title">FAQ – Najczęstsze pytania</div>
-                <div class="page-subtitle">Masz pytania? Sprawdź odpowiedzi!</div>
-            </div>
-            <div class="slide-content">
-                <div class="faq-box">
-                    <div class="faq-question">Jak długo trwa montaż instalacji?</div>
-                    <div class="faq-answer">Zazwyczaj od 1 do 3 dni roboczych, w zależności od wielkości systemu.</div>
-                </div>
-                <div class="faq-box">
-                    <div class="faq-question">Czy mogę magazynować energię?</div>
-                    <div class="faq-answer">Tak, oferujemy magazyny energii, które pozwalają przechowywać nadwyżki.</div>
-                </div>
-                <div class="faq-box">
-                    <div class="faq-question">Co z serwisem i gwarancją?</div>
-                    <div class="faq-answer">Zapewniamy pełny serwis gwarancyjny i pogwarancyjny na podzespoły i montaż.</div>
-                </div>
-                <div class="faq-box">
-                    <div class="faq-question">Jakie są koszty instalacji?</div>
-                    <div class="faq-answer">Koszt zależy od mocy instalacji – typowo od 15 do 35 tys. zł, minus dotacje.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Podsumowanie -->
-        <div id="podsumowanie" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Podsumowanie</div>
-                <div class="page-subtitle">Energia przyszłości jest w Twoich rękach!</div>
-            </div>
-            <div class="slide-content">
-                <ul class="benefits-list">
-                    <li>✔ Oszczędzasz pieniądze i chronisz środowisko</li>
-                    <li>✔ Możesz skorzystać z dotacji i ulg</li>
-                    <li>✔ Instalacja to szybki proces, a 4ECO wspiera Cię na każdym etapie</li>
-                </ul>
-                <div style="margin-top:18px;">
-                    <h3>Masz pytania?</h3>
-                    <p>Skontaktuj się z nami: <b>biuro@4eco.pl</b> lub zadzwoń <b>800 800 400</b></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quiz -->
-        <div id="quiz" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Quiz – Sprawdź się!</div>
-                <div class="page-subtitle">Zdobywaj punkty i ucz się!</div>
-            </div>
-            <div class="slide-content">
-                <div class="quiz-box" id="quiz-box">
-                    <!-- Quiz will be injected here by JS -->
-                </div>
-                <div class="quiz-score" id="quiz-score"></div>
-            </div>
-        </div>
     </div>
 
     <script>
         let currentPageStack = ['main-menu'];
+
+        function showSubmenu(submenuId) {
+            showPage(`submenu-${submenuId}`);
+        }
+
         function showPage(pageId) {
-            document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.content-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
             document.getElementById(pageId).classList.add('active');
+            
             currentPageStack.push(pageId);
+            
             document.querySelector('.back-button').classList.add('active');
         }
+
         function goBack() {
             if (currentPageStack.length > 1) {
                 currentPageStack.pop();
                 const previousPage = currentPageStack[currentPageStack.length - 1];
-                document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
-                document.getElementById(previousPage).classList.add('active');
-                if (currentPageStack.length === 1) document.querySelector('.back-button').classList.remove('active');
-            }
-        }
-
-        // Notification
-        function showNotification(msg) {
-            const notif = document.getElementById('notification');
-            notif.innerText = msg;
-            notif.style.display = 'block';
-            setTimeout(()=>{ notif.style.display = 'none'; }, 2200);
-        }
-
-        // Modal
-        function showModal(title, htmlContent) {
-            document.getElementById('modal-body').innerHTML = `<h2 style='color:#22c55e;'>${title}</h2>` + htmlContent;
-            document.getElementById('myModal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) closeModal();
-        }
-
-        // Quiz logic
-        const quizQuestions = [
-            {
-                question: "Czym zajmuje się firma 4ECO?",
-                answers: ["Instalacje OZE", "Transport", "Budowa mostów", "Telekomunikacja"],
-                correct: 0
-            },
-            {
-                question: "Jak zmieniła się cena 1 kWh prądu od 2020 do 2025?",
-                answers: ["Spadła o 50%", "Wzrosła o 160%", "Pozostała bez zmian", "Wzrosła o 10%"],
-                correct: 1
-            },
-            {
-                question: "Do czego służy magazyn energii?",
-                answers: [
-                    "Do przechowywania nadwyżek prądu",
-                    "Do przechowywania wody",
-                    "Do produkcji gazu",
-                    "Do transportu energii"
-                ],
-                correct: 0
-            },
-            {
-                question: "Jaką dotację możesz uzyskać w programie Mój Prąd?",
-                answers: [
-                    "6 000 zł",
-                    "60 000 zł",
-                    "Brak dotacji",
-                    "2 000 zł"
-                ],
-                correct: 0
-            },
-            {
-                question: "Jaka jest typowa amortyzacja instalacji PV?",
-                answers: [
-                    "20 lat",
-                    "6-8 lat",
-                    "Rok",
-                    "Nie da się odzyskać kosztów"
-                ],
-                correct: 1
-            }
-        ];
-        let quizIndex = 0;
-        let quizScore = 0;
-
-        function renderQuiz() {
-            const box = document.getElementById('quiz-box');
-            if (quizIndex < quizQuestions.length) {
-                const q = quizQuestions[quizIndex];
-                box.innerHTML = `<div class='quiz-question'>${q.question}</div><div class='quiz-answers'></div>`;
-                const answersDiv = box.querySelector('.quiz-answers');
-                q.answers.forEach((ans, idx) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'quiz-answer';
-                    btn.innerText = ans;
-                    btn.onclick = () => quizAnswer(idx);
-                    answersDiv.appendChild(btn);
+                document.querySelectorAll('.content-page').forEach(page => {
+                    page.classList.remove('active');
                 });
-                document.getElementById('quiz-score').innerText = `Twój wynik: ${quizScore}`;
-            } else {
-                box.innerHTML = `<div class='quiz-result'>Koniec quizu!<br>Twój wynik: <span style='color:#22c55e;'>${quizScore} / ${quizQuestions.length}</span></div>`;
-                document.getElementById('quiz-score').innerText = "";
+                document.getElementById(previousPage).classList.add('active');
+                
+                if (currentPageStack.length === 1) {
+                    document.querySelector('.back-button').classList.remove('active');
+                }
             }
         }
-        function quizAnswer(idx) {
-            if (quizQuestions[quizIndex].correct === idx) {
-                quizScore++;
-                showNotification("Dobra odpowiedź!");
-            } else {
-                showNotification("Ups! To nieprawidłowa odpowiedź.");
-            }
-            quizIndex++;
-            setTimeout(renderQuiz, 800);
-        }
+
+        // Modal functions...
+        // Add the modal script here as in the original
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.back-button').classList.remove('active');
-            renderQuiz();
         });
-
     </script>
 </body>
 </html>
