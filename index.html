@@ -219,54 +219,14 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Quiz Styles */
-        .quiz-container {
+        /* Slide Content */
+        .slide-content {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
         }
 
-        .question {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #86efac;
-        }
-
-        .answers label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        button {
-            padding: 10px 20px;
-            background: #4ade80;
-            color: #0a0e27;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            font-weight: 700;
-        }
-
-        button:hover {
-            background: #22c55e;
-        }
-
-        #results {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #4ade80;
-        }
-
-        .slide {
-            display: none;
-        }
-
-        .active-slide {
-            display: block;
+        h1, h2 {
+            text-align: center;
         }
 
         /* Navigation */
@@ -436,9 +396,79 @@
                     <div class="submenu-title">Partnerstwa</div>
                     <div class="submenu-description">Współprace z instytucjami</div>
                 </div>
-                <div class="submenu-card" onclick="showPage('quiz-firma')">
-                    <div class="submenu-title">Quiz: O Firmie</div>
-                    <div class="submenu-description">Sprawdź swoją wiedzę</div>
+            </div>
+        </div>
+
+        <!-- Content for O Firmie -->
+        <div id="firma-o-firmie" class="content-page">
+            <div class="page-header">
+                <div class="page-title">4ECO - Lider OZE w Polsce</div>
+            </div>
+            <div class="slide-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">40 000+</span>
+                        <span class="stat-label">Zadowolonych klientów</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">49</span>
+                        <span class="stat-label">Oddziałów w Polsce</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">80</span>
+                        <span class="stat-label">Certyfikowanych ekip</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">460</span>
+                        <span class="stat-label">Ekspertów doradców</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3 mln zł</span>
+                        <span class="stat-label">Ubezpieczenie TUiR Warta</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <h3>Kompleksowa obsługa</h3>
+                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="firma-realizacje" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Nasze Realizacje</div>
+            </div>
+            <div class="slide-content">
+                <p>Przykłady naszych udanych instalacji fotowoltaicznych w różnych lokalizacjach i na różnorodnych obiektach. Od małych domów jednorodzinnych po duże farmy przemysłowe, nasze projekty demonstrują wysoką efektywność i niezawodność.</p>
+            </div>
+        </div>
+
+        <div id="firma-partnerstwa" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Nasze Partnerstwa</div>
+            </div>
+            <div class="slide-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Nauka i rozwój</h3>
+                        <p>Politechnika Świętokrzyska - wspólne projekty badawczo-rozwojowe w zakresie OZE</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Edukacja ekologiczna</h3>
+                        <p>ECO Fundacja - warsztaty i akcje promujące świadome korzystanie z energii</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚒</div>
+                        <h3>Bezpieczeństwo</h3>
+                        <p>Współpraca z OSP - szkolenia dot. bezpieczeństwa instalacji fotowoltaicznych</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏛️</div>
+                        <h3>Samorządy</h3>
+                        <p>Urząd Miasta Kielce - doradztwo w zakresie OZE i zrównoważonego rozwoju</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -463,52 +493,120 @@
                     <div class="submenu-title">Przyszłość OZE</div>
                     <div class="submenu-description">Trendy i innowacje</div>
                 </div>
-                <div class="submenu-card" onclick="showPage('quiz-historia')">
-                    <div class="submenu-title">Quiz: Historia OZE</div>
-                    <div class="submenu-description">Sprawdź swoją wiedzę</div>
-                </div>
             </div>
         </div>
 
-        <!-- Add similar submenus for other sections, including quizzes at the end -->
-
-        <!-- Example Content Page for firma-o-firmie -->
-        <div id="firma-o-firmie" class="content-page">
+        <div id="historia-historia" class="content-page">
             <div class="page-header">
-                <div class="page-title">4ECO - Lider OZE w Polsce</div>
+                <div class="page-title">Historia Branży OZE</div>
             </div>
             <div class="slide-content">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">40 000+</span>
-                        <span class="stat-label">Zadowolonych klientów</span>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>1839 - Przełom</h3>
+                        <p>Edmond Becquerel odkrywa efekt fotowoltaiczny</p>
                     </div>
-                    <!-- Add other stats -->
-                </div>
-                <div class="highlight-box">
-                    <h3>Kompleksowa obsługa</h3>
-                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
+                    <div class="feature-card">
+                        <h3>1954 - Pierwsza komórka</h3>
+                        <p>Bell Labs konstruuje pierwszy praktyczny krzemowy panel słoneczny</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Lata 70. - Polski wkład</h3>
+                        <p>Prof. Janusz Zakrzewski z Politechniki Warszawskiej rozwija technologię półprzewodników i ogniw słonecznych</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>XXI wiek - Rewolucja</h3>
+                        <p>OZE wchodzą do głównego nurtu. Programy "Mój Prąd" i "Czyste Powietrze" zmieniają polski krajobraz energetyczny</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Quiz for Firma -->
-        <div id="quiz-firma" class="content-page">
+        <div id="historia-rozwoj" class="content-page">
             <div class="page-header">
-                <div class="page-title">Quiz: O Firmie</div>
+                <div class="page-title">Rozwój Branży</div>
             </div>
-            <div class="quiz-container" id="quiz-firma-container">
-                <div id="quiz-firma-content"></div>
+            <div class="slide-content">
+                <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. W Polsce programy „Mój Prąd” i „Czyste Powietrze” zamieniły tysiące gospodarstw w prosumentów.</p>
             </div>
-            <button id="previous-firma">Poprzednie Pytanie</button>
-            <button id="next-firma">Następne Pytanie</button>
-            <button id="submit-firma">Zatwierdź Quiz</button>
-            <div id="results-firma"></div>
         </div>
 
-        <!-- Add other content pages and quizzes similarly -->
+        <div id="historia-przyszlosc" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Przyszłość OZE</div>
+            </div>
+            <div class="slide-content">
+                <p>Przyszłość branży OZE zyska nowy wymiar dzięki połączeniu z AI. Inteligentne HEMS/EMS jak Sinum-Power monitorują produkcję i zużycie, sterując ładowaniem magazynów, pomp ciepła czy EV na podstawie cen prądu i pogody.</p>
+            </div>
+        </div>
 
-        <!-- Modals remain the same -->
+        <!-- Submenu for Problem Cen Prądu -->
+        <div id="submenu-problem" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Problem Cen Prądu</div>
+                <div class="page-subtitle">Analiza rosnących kosztów</div>
+            </div>
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('problem-dramat')">
+                    <div class="submenu-title">Dramat Rosnących Cen</div>
+                    <div class="submenu-description">Wzrost cen prądu</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('problem-ukryte')">
+                    <div class="submenu-title">Ukryte Koszty</div>
+                    <div class="submenu-description">Składniki rachunku</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('problem-paradoks')">
+                    <div class="submenu-title">Paradoks Oszczędzania</div>
+                    <div class="submenu-description">Oszczędzanie nie pomaga</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('problem-kary')">
+                    <div class="submenu-title">Kary Emisyjne</div>
+                    <div class="submenu-description">Podatki w przebraniu</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('problem-porownanie')">
+                    <div class="submenu-title">Dwa Światy</div>
+                    <div class="submenu-description">Porównanie opcji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('problem-wolnosc')">
+                    <div class="submenu-title">Wolność Zaczyna Się Tutaj</div>
+                    <div class="submenu-description">Ucieczka od systemu</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="problem-dramat" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Dramat Rosnących Cen Prądu</div>
+            </div>
+            <div class="slide-content">
+                <div class="price-comparison">
+                    <div class="price-row">
+                        <span class="year">2020</span>
+                        <span class="price">0,55 zł/kWh</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="year">2025</span>
+                        <span class="price">1,34 zł/kWh</span>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="font-size: 2em; color: #ef4444; font-weight: 800;">+160% wzrostu!</p>
+                        <p style="font-size: 1.3em; margin-top: 20px;">Za tę samą energię płacisz dziś ponad 2,5 raza więcej</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%); border-color: #ef4444;">
+                    <h3>Roczne rachunki przy tym samym zużyciu (3650 kWh)</h3>
+                    <p>2020: 1 800 zł | 2023: 2 700 zł | 2025: ponad 4 200 zł</p>
+                    <p style="margin-top: 20px; font-weight: 700;">Nie zmieniłeś nic. Ale płacisz 2,3x więcej.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add content for other problem subtopics similarly -->
+
+        <!-- Continue adding submenus and content for all sections -->
+
+        <!-- Quizzes can be added as before, with questions related to the section -->
 
     </div>
 
@@ -529,11 +627,6 @@
             currentPageStack.push(pageId);
             
             document.querySelector('.back-button').classList.add('active');
-
-            // Initialize quiz if it's a quiz page
-            if (pageId.startsWith('quiz-')) {
-                initQuiz(pageId.split('-')[1]);
-            }
         }
 
         function goBack() {
@@ -551,111 +644,8 @@
             }
         }
 
-        // Quiz Functions
-        function buildQuiz(quizId, questions) {
-            const output = [];
-            questions.forEach((currentQuestion, questionNumber) => {
-                const answers = [];
-                for (let letter in currentQuestion.answers) {
-                    answers.push(
-                        `<label>
-                            <input type="radio" name="question${quizId}${questionNumber}" value="${letter}">
-                            ${letter} : ${currentQuestion.answers[letter]}
-                        </label>`
-                    );
-                }
-                output.push(
-                    `<div class="slide" id="slide-${quizId}-${questionNumber}">
-                        <div class="question">${currentQuestion.question}</div>
-                        <div class="answers">${answers.join('')}</div>
-                    </div>`
-                );
-            });
-            document.getElementById(`quiz-${quizId}-content`).innerHTML = output.join('');
-        }
-
-        function showResults(quizId, questions) {
-            const answerContainers = document.querySelectorAll(`#quiz-${quizId}-content .answers`);
-            let numCorrect = 0;
-            questions.forEach((currentQuestion, questionNumber) => {
-                const answerContainer = answerContainers[questionNumber];
-                const selector = `input[name=question${quizId}${questionNumber}]:checked`;
-                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-                if (userAnswer === currentQuestion.correctAnswer) {
-                    numCorrect++;
-                    answerContainer.style.color = 'lightgreen';
-                } else {
-                    answerContainer.style.color = 'red';
-                }
-            });
-            document.getElementById(`results-${quizId}`).innerHTML = `${numCorrect} out of ${questions.length}`;
-        }
-
-        function showSlide(quizId, n, numSlides) {
-            const slides = document.querySelectorAll(`#quiz-${quizId}-content .slide`);
-            slides.forEach(slide => slide.classList.remove('active-slide'));
-            document.getElementById(`slide-${quizId}-${n}`).classList.add('active-slide');
-            const previousButton = document.getElementById(`previous-${quizId}`);
-            const nextButton = document.getElementById(`next-${quizId}`);
-            const submitButton = document.getElementById(`submit-${quizId}`);
-            if (n === 0) {
-                previousButton.style.display = 'none';
-            } else {
-                previousButton.style.display = 'inline-block';
-            }
-            if (n === numSlides - 1) {
-                nextButton.style.display = 'none';
-                submitButton.style.display = 'inline-block';
-            } else {
-                nextButton.style.display = 'inline-block';
-                submitButton.style.display = 'none';
-            }
-        }
-
-        function initQuiz(quizId) {
-            let questions;
-            if (quizId === 'firma') {
-                questions = [
-                    {
-                        question: "Ile oddziałów ma 4ECO?",
-                        answers: {
-                            a: "20",
-                            b: "49",
-                            c: "100"
-                        },
-                        correctAnswer: "b"
-                    },
-                    // Add more questions
-                ];
-            } else if (quizId === 'historia') {
-                questions = [
-                    {
-                        question: "Kiedy odkryto efekt fotowoltaiczny?",
-                        answers: {
-                            a: "1839",
-                            b: "1954",
-                            c: "1970"
-                        },
-                        correctAnswer: "a"
-                    },
-                    // Add more
-                ];
-            } // Add for other quizzes
-
-            buildQuiz(quizId, questions);
-            const numSlides = questions.length;
-            showSlide(quizId, 0, numSlides);
-
-            document.getElementById(`previous-${quizId}`).addEventListener("click", () => showSlide(quizId, currentSlides[quizId] - 1, numSlides));
-            document.getElementById(`next-${quizId}`).addEventListener("click", () => showSlide(quizId, currentSlides[quizId] + 1, numSlides));
-            document.getElementById(`submit-${quizId}`).addEventListener("click", () => showResults(quizId, questions));
-            currentSlides[quizId] = 0;
-        }
-
-        let currentSlides = {};
-
         // Modal functions...
-        // Add the modal script here
+        // Add the modal script here as in the original
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
