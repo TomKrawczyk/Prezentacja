@@ -225,8 +225,79 @@
             margin: 0 auto;
         }
 
-        h1, h2 {
+        .slide-content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .slide-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-content li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .slide-content li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+        }
+
+        .realizations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .realization-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .realization-img:hover {
+            transform: scale(1.05);
+        }
+
+        .interactive-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .interactive-item {
+            flex: 1 1 200px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
             text-align: center;
+            transition: all 0.3s;
+        }
+
+        .interactive-item:hover {
+            background: rgba(74,222,128,0.2);
+        }
+
+        .anger-section {
+            color: #ef4444;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .chart {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
         }
 
         /* Navigation */
@@ -311,67 +382,96 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Notification */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #22c55e;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        /* Quiz Styles */
+        .quiz-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .quiz-question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .quiz-answers button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(74,222,128,0.2);
+            border: 1px solid #4ade80;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .quiz-answers button:hover {
+            background: #4ade80;
+            color: #000;
+        }
+
+        .quiz-score {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <!-- Back Button -->
     <a href="#" class="back-button" onclick="goBack()">← Wstecz</a>
+    <div class="notification" id="notification"></div>
+    <div class="modal" id="myModal">
+        <div class="modal-content" id="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
 
     <div class="container">
-        <!-- Main Menu -->
+        <!-- Main Menu - Maks 5 tematów -->
         <div id="main-menu" class="content-page active">
             <div class="header">
                 <div class="logo">⚡ Instalacje Fotowoltaiczne</div>
                 <div class="subtitle">Twoja droga do energetycznej niezależności</div>
                 <div class="quote-box">
-                    Dzień pierwszy - Szkolenie dla doradców 4ECO
+                    Dzień pierwszy - Instalacje fotowoltaiczne
                 </div>
             </div>
-
             <div class="main-menu">
                 <div class="menu-card" onclick="showSubmenu('firma')">
                     <div class="menu-title">O Firmie</div>
-                    <div class="menu-description">Informacje o 4ECO, realizacjach i partnerstwach</div>
+                    <div class="menu-description">Podstawowe dane o 4ECO i nasze realizacje</div>
                 </div>
-
                 <div class="menu-card" onclick="showSubmenu('historia')">
-                    <div class="menu-title">Historia i Rozwój OZE</div>
-                    <div class="menu-description">Ewolucja branży odnawialnych źródeł energii</div>
+                    <div class="menu-title">Historia OZE</div>
+                    <div class="menu-description">Od przeszłości przez teraźniejszość do przyszłości</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('problem')">
-                    <div class="menu-title">Problem Cen Prądu</div>
-                    <div class="menu-description">Analiza rosnących kosztów energii</div>
+                <div class="menu-card" onclick="showSubmenu('ceny')">
+                    <div class="menu-title">Ceny Prądu</div>
+                    <div class="menu-description">Dlaczego PGE i Tauron nas okradają?</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('rozwiazanie')">
-                    <div class="menu-title">Rozwiązanie - Fotowoltaika</div>
-                    <div class="menu-description">Jak działa system PV i jego korzyści</div>
+                <div class="menu-card" onclick="showSubmenu('instalacja')">
+                    <div class="menu-title">Instalacja PV</div>
+                    <div class="menu-description">Jak działa i co składa się na system?</div>
                 </div>
-
-                <div class="menu-card" onclick="showSubmenu('komponenty')">
-                    <div class="menu-title">Komponenty Systemu</div>
-                    <div class="menu-description">Szczegóły techniczne elementów instalacji</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('montaz')">
-                    <div class="menu-title">Montaż i Ograniczenia</div>
-                    <div class="menu-description">Metody instalacji i gdzie nie montujemy</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('zaawansowane')">
-                    <div class="menu-title">Zaawansowane Funkcje</div>
-                    <div class="menu-description">Autokonsumpcja, magazyny i systemy AI</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('proces')">
-                    <div class="menu-title">Proces i Gwarancje</div>
-                    <div class="menu-description">Kroki realizacji i wsparcie</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('podsumowanie')">
-                    <div class="menu-title">Podsumowanie</div>
-                    <div class="menu-description">Kluczowe punkty i wezwanie do działania</div>
+                <div class="menu-card" onclick="showSubmenu('korzysci')">
+                    <div class="menu-title">Korzyści i Dodatki</div>
+                    <div class="menu-description">Zyski, technologie, dotacje, FAQ i quiz</div>
                 </div>
             </div>
         </div>
@@ -380,71 +480,253 @@
         <div id="submenu-firma" class="content-page">
             <div class="page-header">
                 <div class="page-title">O Firmie</div>
-                <div class="page-subtitle">Informacje o 4ECO</div>
+                <div class="page-subtitle">4ECO - Lider OZE w Polsce</div>
             </div>
-
             <div class="submenu">
-                <div class="submenu-card" onclick="showPage('firma-o-firmie')">
-                    <div class="submenu-title">4ECO - Lider OZE</div>
-                    <div class="submenu-description">Statystyki i kompleksowa obsługa</div>
+                <div class="submenu-card" onclick="showPage('firma-info')">
+                    <div class="submenu-title">Informacje o 4ECO</div>
+                    <div class="submenu-description">Statystyki i wsparcie</div>
                 </div>
                 <div class="submenu-card" onclick="showPage('firma-realizacje')">
                     <div class="submenu-title">Nasze Realizacje</div>
                     <div class="submenu-description">Przykłady instalacji</div>
                 </div>
                 <div class="submenu-card" onclick="showPage('firma-partnerstwa')">
-                    <div class="submenu-title">Partnerstwa</div>
-                    <div class="submenu-description">Współprace z instytucjami</div>
+                    <div class="submenu-title">Współprace</div>
+                    <div class="submenu-description">Partnerzy i instytucje</div>
                 </div>
             </div>
         </div>
 
-        <!-- Submenu for Historia i Rozwój OZE -->
-        <div id="submenu-historia" class="content-page">
+        <!-- Content for O Firmie - Info -->
+        <div id="firma-info" class="content-page">
             <div class="page-header">
-                <div class="page-title">Historia i Rozwój OZE</div>
-                <div class="page-subtitle">Ewolucja branży</div>
-            </div>
-
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('historia-historia')">
-                    <div class="submenu-title">Historia OZE</div>
-                    <div class="submenu-description">Kluczowe daty i odkrycia</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('historia-rozwoj')">
-                    <div class="submenu-title">Rozwój Branży</div>
-                    <div class="submenu-description">Współczesny rozwój OZE</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('historia-przyszlosc')">
-                    <div class="submenu-title">Przyszłość OZE</div>
-                    <div class="submenu-description">Trendy i innowacje</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add similar submenus for other main topics -->
-
-        <!-- Example Content Page -->
-        <div id="firma-o-firmie" class="content-page">
-            <div class="page-header">
-                <div class="page-title">4ECO - Lider OZE w Polsce</div>
+                <div class="page-title">Informacje o 4ECO</div>
             </div>
             <div class="slide-content">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">40 000+</span>
-                        <span class="stat-label">Zadowolonych klientów</span>
-                    </div>
-                    <!-- Add other stats -->
-                </div>
-                <div class="highlight-box">
-                    <h3>Kompleksowa obsługa</h3>
-                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
+                <p>4ECO to lider polskiego rynku odnawialnych źródeł energii, któremu zaufało już ponad 40 tys. klientów. Mamy 49 oddziałów, 80 ekip montażowych, 460 doradców i ubezpieczenie na 3 mln zł w TUiR Warta S.A.</p>
+                <p>Oferujemy pełne wsparcie — od projektu po dotacje. Bezpieczeństwo i jakość to nasze priorytety.</p>
+                <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100053174630289" alt="4ECO Logo" class="chart">
+            </div>
+        </div>
+
+        <!-- Content for O Firmie - Realizacje -->
+        <div id="firma-realizacje" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Nasze Realizacje</div>
+            </div>
+            <div class="slide-content">
+                <div class="realizations-grid">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230126_105346_764_1674727001791_photo_optimized_0.jpg" alt="Realizacja 1" class="realization-img">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/RemoteMediaFile_6554001_0_2022_05_04_16_57_24_0.JPG" alt="Realizacja 2" class="realization-img">
+                    <img src="https://media.datacenterdynamics.com/media/images/Orange_Poland_Lodz.original.jpg" alt="Realizacja 3" class="realization-img">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230525_163450_853_1685025424828_photo_optimized_0.jpg" alt="Realizacja 4" class="realization-img">
+                    <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1007%2Fs10098-022-02403-0/MediaObjects/10098_2022_2403_Fig6_HTML.jpg" alt="Realizacja 5" class="realization-img">
+                    <img src="https://www.pv-magazine.com/wp-content/uploads/2021/11/Mibets-Floating-PV-in-Poland-01.jpg" alt="Realizacja 6" class="realization-img">
                 </div>
             </div>
         </div>
 
-        <!-- Continue adding all content pages similarly -->
+        <!-- Content for O Firmie - Partnerstwa -->
+        <div id="firma-partnerstwa" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Współprace</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Uczelnie: Partnerstwo z Politechniką Świętokrzyską – wspólne inicjatywy badawczo-rozwojowe w zakresie OZE.</li>
+                    <img src="https://tu.kielce.pl/wp-content/uploads/2023/05/logo-politechnika-swietokrzyska-red.png" alt="Politechnika Świętokrzyska" class="realization-img" style="max-width: 200px;">
+                    <li>Fundacje: ECO Fundacja – działania edukacyjne i promocyjne OZE.</li>
+                    <img src="https://ecofundacja.pl/wp-content/uploads/2023/12/cropped-cropped-4-eco-FUNDACJA-logo_2023-01-1-270x270.webp" alt="ECO Fundacja" class="realization-img" style="max-width: 200px;">
+                    <li>Służby: Współpraca z OSP – szkolenia dotyczące bezpieczeństwa PV.</li>
+                    <img src="https://zosprp.pl/wp-content/uploads/2021/12/znak_zosp.jpg" alt="OSP" class="realization-img" style="max-width: 200px;">
+                    <li>Samorządy: Doradztwo dla Urzędu Miasta Kielce w zakresie energii odnawialnej.</li>
+                    <img src="https://www.kielce.eu/projects/kielce_um/build/images/fb.3662725a.png" alt="Urząd Miasta Kielce" class="realization-img" style="max-width: 200px;">
+                </ul>
+            </div>
+        </div>
+
+        <!-- Submenu for Historia OZE -->
+        <div id="submenu-historia" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Historia OZE</div>
+                <div class="page-subtitle">Od starożytności do AI</div>
+            </div>
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('historia-przeszlosc')">
+                    <div class="submenu-title">Przeszłość</div>
+                    <div class="submenu-description">Kluczowe odkrycia</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('historia-terazniejszosc')">
+                    <div class="submenu-title">Teraźniejszość</div>
+                    <div class="submenu-description">Współczesny rozwój</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('historia-przyszlosc')">
+                    <div class="submenu-title">Przyszłość</div>
+                    <div class="submenu-description">Innowacje i trendy</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Historia - Przeszlosc -->
+        <div id="historia-przeszlosc" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Przeszłość OZE</div>
+            </div>
+            <div class="slide-content">
+                <p>Od czasów starożytnych wiatr, rzeki i słońce służyły człowiekowi. Przełom: 1839 - Edmond Becquerel opisuje efekt fotowoltaiczny. 1954 - Pierwszy panel krzemowy w Bell Labs. W Polsce prof. Janusz Zakrzewski rozwijał ogniwa od lat 70.</p>
+                <img src="https://i0.wp.com/www.ecomena.org/wp-content/uploads/2020/09/Renewable-Energy-Timeline-scaled.jpg" alt="Historia OZE Timeline" class="chart">
+            </div>
+        </div>
+
+        <!-- Dodaj pozostałe sekcje podobnie -->
+
+        <!-- Submenu for Ceny Prądu -->
+        <div id="submenu-ceny" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Ceny Prądu</div>
+                <div class="page-subtitle">Tragiczna historia podwyżek</div>
+            </div>
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('ceny-historia')">
+                    <div class="submenu-title">Historia Podwyżek</div>
+                    <div class="submenu-description">Wzrost cen od 2020</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('ceny-rachunki')">
+                    <div class="submenu-title">Rachunki Puchną</div>
+                    <div class="submenu-description">Jak to wygląda w domu</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('ceny-sklad')">
+                    <div class="submenu-title">Skład Rachunku</div>
+                    <div class="submenu-description">Opłaty i podatki</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('ceny-oszczednosci')">
+                    <div class="submenu-title">Oszczędności Karane</div>
+                    <div class="submenu-description">Inwestycje w sprzęt</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('ceny-emisje')">
+                    <div class="submenu-title">Kary Emisyjne</div>
+                    <div class="submenu-description">Podatek w przebraniu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Ceny - Historia -->
+        <div id="ceny-historia" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Historia Podwyżek</div>
+            </div>
+            <div class="slide-content">
+                <p class="anger-section">W 2020: 0,55 zł/kWh. W 2025: 1,34 zł! Wzrost o 160%! To bezwstydny skok na Twoją kasę przez monopolistów jak PGE i Tauron.</p>
+                <img src="https://cdn.statcdn.com/Statistic/1065000/1066654-blank-355.png" alt="Wykres wzrostu cen" class="chart">
+            </div>
+        </div>
+
+        <!-- Dodaj pozostałe podsekcje dla cen z emocjonalnym językiem -->
+
+        <!-- Submenu for Instalacja PV -->
+        <div id="submenu-instalacja" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Instalacja PV</div>
+                <div class="page-subtitle">Jak działa system</div>
+            </div>
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('instalacja-dzialanie')">
+                    <div class="submenu-title">Jak Działa</div>
+                    <div class="submenu-description">Podstawy działania PV</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('instalacja-komponenty')">
+                    <div class="submenu-title">Komponenty</div>
+                    <div class="submenu-description">Elementy instalacji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('instalacja-montaz')">
+                    <div class="submenu-title">Montaż</div>
+                    <div class="submenu-description">Sposoby i ograniczenia</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('instalacja-zaawansowane')">
+                    <div class="submenu-title">Zaawansowane</div>
+                    <div class="submenu-description">Magazyny i AI</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Instalacja - Dzialanie -->
+        <div id="instalacja-dzialanie" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Jak Działa Instalacja</div>
+            </div>
+            <div class="slide-content">
+                <p>Instalacja PV produkuje prąd z słońca. Panele przekształcają światło w prąd stały, inwerter zmienia na zmienny. Nadwyżki idą do sieci lub magazynu. Autokonsumpcja: Zużywaj od razu dla oszczędności.</p>
+            </div>
+        </div>
+
+        <!-- Content for Instalacja - Komponenty -->
+        <div id="instalacja-komponenty" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Komponenty</div>
+            </div>
+            <div class="slide-content">
+                <div class="interactive-section">
+                    <div class="interactive-item" onclick="showModal('Moduły Fotowoltaiczne', '<img src=\'https://www.sunrun.com/sites/default/files/styles/gsc_feature_750x300/public/Solar-Module.jpg\'><p>Monokrystaliczne, full black, half-cut, bifacjalne. Wymiary: 2094x1038mm, waga 26.5kg.</p>')">Moduły/Panele</div>
+                    <div class="interactive-item" onclick="showModal('Inwerter', '<img src=\'https://www.ttnergy.com/wp-content/uploads/2023/01/Hd00034fc37044527b21b76f94337dd82R.jpg_960x960.webp\'><p>Zamienia DC na AC. Aplikacja mobilna, 10 lat gwarancji.</p>')">Inwerter</div>
+                    <div class="interactive-item" onclick="showModal('Zabezpieczenia', '<img src=\'https://aurorasolar.com/wp-content/uploads/2022/05/AC-and-DC-disconnects.jpg\'><p>Podwójna skrzynka, uziemienie, certyfikowane Dehn.</p>')">Zabezpieczenia AC/DC</div>
+                    <div class="interactive-item" onclick="showModal('Licznik', '<img src=\'https://m.media-amazon.com/images/I/61HTvHOxZbL._UF1000,1000_QL80_.jpg\'><p>Rejestruje produkcję i zużycie. Wymiana gratis.</p>')">Licznik Dwukierunkowy</div>
+                    <div class="interactive-item" onclick="showModal('Sieć', '<img src=\'https://www.geni.org/globalenergy/library/national_energy_grid/united-states-of-america/graphics/UnitedStatesPowerGrid.jpg\'><p>Gwarantuje ciągłość, odbiera nadwyżki.</p>')">Sieć Energetyczna</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dodaj pozostałe -->
+
+        <!-- Submenu for Korzyści i Dodatki -->
+        <div id="submenu-korzysci" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Korzyści i Dodatki</div>
+                <div class="page-subtitle">Dlaczego warto</div>
+            </div>
+            <div class="submenu">
+                <div class="submenu-card" onclick="showPage('korzysci-korzysci')">
+                    <div class="submenu-title">Korzyści</div>
+                    <div class="submenu-description">Zyski z PV</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('korzysci-technologie')">
+                    <div class="submenu-title">Technologie</div>
+                    <div class="submenu-description">Zaawansowane systemy</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('korzysci-dotacje')">
+                    <div class="submenu-title">Dotacje</div>
+                    <div class="submenu-description">Wsparcie finansowe</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('korzysci-faq')">
+                    <div class="submenu-title">FAQ</div>
+                    <div class="submenu-description">Najczęstsze pytania</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('korzysci-quiz')">
+                    <div class="submenu-title">Quiz</div>
+                    <div class="submenu-description">Sprawdź wiedzę</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Korzyści - Korzyści -->
+        <div id="korzysci-korzysci" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Korzyści z PV</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Realne oszczędności od pierwszego dnia</li>
+                    <li>Pełna niezależność energetyczna</li>
+                    <li>Inteligentne zarządzanie energią (AI)</li>
+                    <li>Bezpieczeństwo i trwałość instalacji</li>
+                    <li>Wzrost wartości nieruchomości</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dodaj quiz JS -->
+
+        <!-- ... Kontynuuj z pozostałymi sekcjami na podstawie PDF ... -->
 
     </div>
 
@@ -456,14 +738,9 @@
         }
 
         function showPage(pageId) {
-            document.querySelectorAll('.content-page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
+            document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
             currentPageStack.push(pageId);
-            
             document.querySelector('.back-button').classList.add('active');
         }
 
@@ -471,23 +748,86 @@
             if (currentPageStack.length > 1) {
                 currentPageStack.pop();
                 const previousPage = currentPageStack[currentPageStack.length - 1];
-                document.querySelectorAll('.content-page').forEach(page => {
-                    page.classList.remove('active');
-                });
+                document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
                 document.getElementById(previousPage).classList.add('active');
-                
-                if (currentPageStack.length === 1) {
-                    document.querySelector('.back-button').classList.remove('active');
-                }
+                if (currentPageStack.length === 1) document.querySelector('.back-button').classList.remove('active');
             }
         }
 
-        // Modal functions...
-        // Add the modal script here as in the original
+        // Modal
+        function showModal(title, htmlContent) {
+            document.getElementById('modal-body').innerHTML = `<h2 style='color:#22c55e;'>${title}</h2>` + htmlContent;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) closeModal();
+        }
 
-        // Initialize
+        // Notification
+        function showNotification(msg) {
+            const notif = document.getElementById('notification');
+            notif.innerText = msg;
+            notif.style.display = 'block';
+            setTimeout(() => { notif.style.display = 'none'; }, 2200);
+        }
+
+        // Kalkulator for ceny
+        function calculateAnger() {
+            const zuzycie = document.getElementById('zuzycie').value;
+            if (zuzycie) {
+                const strata = (zuzycie * 1.34) - (zuzycie * 0.55);
+                document.getElementById('result').innerHTML = `Straciłeś ${strata.toFixed(2)} zł rocznie! Czas na PV!`;
+            }
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                question: "Czym zajmuje się firma 4ECO?",
+                answers: ["Instalacje OZE", "Transport", "Budowa mostów", "Telekomunikacja"],
+                correct: 0
+            },
+            // Dodaj więcej z poprzedniego
+        ];
+        let quizIndex = 0;
+        let quizScore = 0;
+
+        function renderQuiz() {
+            const box = document.getElementById('quiz-box');
+            if (box) {
+                if (quizIndex < quizQuestions.length) {
+                    const q = quizQuestions[quizIndex];
+                    box.innerHTML = `<div class="quiz-question">${q.question}</div><div class="quiz-answers"></div>`;
+                    const answersDiv = box.querySelector('.quiz-answers');
+                    q.answers.forEach((ans, idx) => {
+                        const btn = document.createElement('button');
+                        btn.innerText = ans;
+                        btn.onclick = () => quizAnswer(idx);
+                        answersDiv.appendChild(btn);
+                    });
+                    document.getElementById('quiz-score').innerText = `Twój wynik: ${quizScore}`;
+                } else {
+                    box.innerHTML = `<div>Koniec quizu! Wynik: ${quizScore} / ${quizQuestions.length}</div>`;
+                }
+            }
+        }
+        function quizAnswer(idx) {
+            if (quizQuestions[quizIndex].correct === idx) {
+                quizScore++;
+                showNotification("Dobra odpowiedź!");
+            } else {
+                showNotification("Ups! Zła odpowiedź.");
+            }
+            quizIndex++;
+            setTimeout(renderQuiz, 800);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.back-button').classList.remove('active');
+            if (document.getElementById('quiz-box')) renderQuiz();
         });
     </script>
 </body>
