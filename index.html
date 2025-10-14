@@ -605,33 +605,8 @@
                 </div>
 
                 <div class="menu-card" onclick="showSubmenu('rozwiazanie')">
-                    <div class="menu-title">Rozwiązanie - Fotowoltaika</div>
-                    <div class="menu-description">Jak działa system PV i jego korzyści</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('komponenty')">
-                    <div class="menu-title">Komponenty Systemu</div>
-                    <div class="menu-description">Szczegóły techniczne elementów instalacji</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('montaz')">
-                    <div class="menu-title">Montaż i Ograniczenia</div>
-                    <div class="menu-description">Metody instalacji i gdzie nie montujemy</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('zaawansowane')">
-                    <div class="menu-title">Zaawansowane Funkcje</div>
-                    <div class="menu-description">Autokonsumpcja, magazyny i systemy AI</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('proces')">
-                    <div class="menu-title">Proces i Gwarancje</div>
-                    <div class="menu-description">Kroki realizacji i wsparcie</div>
-                </div>
-
-                <div class="menu-card" onclick="showSubmenu('podsumowanie')">
-                    <div class="menu-title">Podsumowanie</div>
-                    <div class="menu-description">Kluczowe punkty i wezwanie do działania</div>
+                    <div class="menu-title">Rozwiązanie Fotowoltaiczne</div>
+                    <div class="menu-description">Jak działa, komponenty, montaż, zaawansowane funkcje, proces i podsumowanie</div>
                 </div>
             </div>
         </div>
@@ -737,7 +712,6 @@
             </div>
         </div>
 
-        <!-- Quiz for Firma -->
         <div id="quiz-firma" class="content-page">
             <div class="page-header">
                 <div class="page-title">Quiz: O Firmie</div>
@@ -1035,11 +1009,11 @@
             <div id="results-problem"></div>
         </div>
 
-        <!-- Submenu for Rozwiązanie - Fotowoltaika -->
+        <!-- Submenu for Rozwiązanie Fotowoltaiczne (połączone) -->
         <div id="submenu-rozwiazanie" class="content-page">
             <div class="page-header">
-                <div class="page-title">Rozwiązanie - Fotowoltaika</div>
-                <div class="page-subtitle">Jak działa system PV i jego korzyści</div>
+                <div class="page-title">Rozwiązanie Fotowoltaiczne</div>
+                <div class="page-subtitle">Jak działa, komponenty, montaż, zaawansowane funkcje, proces i podsumowanie</div>
             </div>
 
             <div class="submenu">
@@ -1047,8 +1021,88 @@
                     <div class="submenu-title">Jak Działa Instalacja</div>
                     <div class="submenu-description">Podstawy działania PV</div>
                 </div>
+                <div class="submenu-card" onclick="showPage('komponenty-panele')">
+                    <div class="submenu-title">Panele Fotowoltaiczne</div>
+                    <div class="submenu-description">Specyfikacja paneli</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('komponenty-inwerter')">
+                    <div class="submenu-title">Inwerter</div>
+                    <div class="submenu-description">Mózg instalacji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('komponenty-zabezpieczenia')">
+                    <div class="submenu-title">Zabezpieczenia</div>
+                    <div class="submenu-description">Ochrona instalacji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('komponenty-licznik')">
+                    <div class="submenu-title">Licznik Dwukierunkowy</div>
+                    <div class="submenu-description">Liczenie produkcji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('komponenty-siec')">
+                    <div class="submenu-title">Sieć Energetyczna</div>
+                    <div class="submenu-description">Integracja z siecią</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('montaz-sposoby')">
+                    <div class="submenu-title">Sposoby Montażu</div>
+                    <div class="submenu-description">Metody instalacji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('montaz-gdzie-nie')">
+                    <div class="submenu-title">Gdzie Nie Montujemy</div>
+                    <div class="submenu-description">Ograniczenia montażu</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('montaz-na-czym-nie')">
+                    <div class="submenu-title">Na Czym Nie Montujemy</div>
+                    <div class="submenu-description">Niedozwolone powierzchnie</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('zaawansowane-autokonsumpcja')">
+                    <div class="submenu-title">Autokonsumpcja</div>
+                    <div class="submenu-description">Prąd bez pośredników</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('zaawansowane-zatrzymaj')">
+                    <div class="submenu-title">Jak Zatrzymać Więcej</div>
+                    <div class="submenu-description">Zwiększanie autokonsumpcji</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('zaawansowane-magazyn')">
+                    <div class="submenu-title">Magazyn Energii</div>
+                    <div class="submenu-description">Zatrzymaj swój prąd</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('zaawansowane-ai')">
+                    <div class="submenu-title">AI w Energii</div>
+                    <div class="submenu-description">Inteligentne systemy</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('zaawansowane-dobor')">
+                    <div class="submenu-title">Dobór Instalacji</div>
+                    <div class="submenu-description">Personalizacja systemu</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-chcesz')">
+                    <div class="submenu-title">Chcesz to Wszystko Mieć?</div>
+                    <div class="submenu-description">Korzyści z PV</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-zyskasz')">
+                    <div class="submenu-title">Co Zyskasz?</div>
+                    <div class="submenu-description">Lista korzyści</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-proces')">
+                    <div class="submenu-title">Proces Realizacji</div>
+                    <div class="submenu-description">Kroki od konsultacji do uruchomienia</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-gwarancje')">
+                    <div class="submenu-title">Gwarancje i Wsparcie</div>
+                    <div class="submenu-description">Gwarancje i serwis</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-cta')">
+                    <div class="submenu-title">Czas Podjąć Decyzję</div>
+                    <div class="submenu-description">Wezwanie do działania</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-kluczowe')">
+                    <div class="submenu-title">Kluczowe Punkty</div>
+                    <div class="submenu-description">Podsumowanie dla doradców</div>
+                </div>
+                <div class="submenu-card" onclick="showPage('podsumowanie-dziekujemy')">
+                    <div class="submenu-title">Dziękujemy</div>
+                    <div class="submenu-description">Zakończenie prezentacji</div>
+                </div>
                 <div class="submenu-card" onclick="showPage('quiz-rozwiazanie')">
-                    <div class="submenu-title">Quiz: Rozwiązanie - Fotowoltaika</div>
+                    <div class="submenu-title">Quiz: Rozwiązanie Fotowoltaiczne</div>
                     <div class="submenu-description">Sprawdź swoją wiedzę</div>
                 </div>
             </div>
@@ -1086,43 +1140,6 @@
                         <h3>5. Sieć</h3>
                         <p>Odbiera nadwyżki i dostarcza gdy potrzeba</p>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add other submenus and their content similarly for komponenty, montaz, zaawansowane, proces, podsumowanie -->
-
-        <!-- For example, Submenu for Komponenty Systemu -->
-        <div id="submenu-komponenty" class="content-page">
-            <div class="page-header">
-                <div class="page-title">Komponenty Systemu</div>
-                <div class="page-subtitle">Szczegóły techniczne elementów instalacji</div>
-            </div>
-
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('komponenty-panele')">
-                    <div class="submenu-title">Panele Fotowoltaiczne</div>
-                    <div class="submenu-description">Specyfikacja paneli</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('komponenty-inwerter')">
-                    <div class="submenu-title">Inwerter</div>
-                    <div class="submenu-description">Mózg instalacji</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('komponenty-zabezpieczenia')">
-                    <div class="submenu-title">Zabezpieczenia</div>
-                    <div class="submenu-description">Ochrona instalacji</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('komponenty-licznik')">
-                    <div class="submenu-title">Licznik Dwukierunkowy</div>
-                    <div class="submenu-description">Liczenie produkcji</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('komponenty-siec')">
-                    <div class="submenu-title">Sieć Energetyczna</div>
-                    <div class="submenu-description">Integracja z siecią</div>
-                </div>
-                <div class="submenu-card" onclick="showPage('quiz-komponenty')">
-                    <div class="submenu-title">Quiz: Komponenty Systemu</div>
-                    <div class="submenu-description">Sprawdź swoją wiedzę</div>
                 </div>
             </div>
         </div>
@@ -1174,47 +1191,232 @@
             </div>
         </div>
 
-        <!-- Continue filling in content for all pages based on the original structure -->
-
-        <!-- For example, the last one: Podsumowanie -->
-        <div id="submenu-podsumowanie" class="content-page">
+        <div id="komponenty-inwerter" class="content-page">
             <div class="page-header">
-                <div class="page-title">Podsumowanie</div>
-                <div class="page-subtitle">Kluczowe punkty i wezwanie do działania</div>
+                <div class="page-title">Inwerter - Mózg Instalacji</div>
             </div>
+            <div class="slide-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Konwersja prądu</h3>
+                        <p>Zamienia DC na AC automatycznie</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Aplikacja mobilna</h3>
+                        <p>Pełna kontrola z telefonu</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Gotowy do rozbudowy</h3>
+                        <p>Łatwe dodanie magazynu energii</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>Bezobsługowy</h3>
+                        <p>Działa sam przez lata</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p style="font-size: 1.3em; font-weight: 700;">✓ Polski serwis + 10 lat gwarancji</p>
+                </div>
+            </div>
+        </div>
 
-            <div class="submenu">
-                <div class="submenu-card" onclick="showPage('podsumowanie-chcesz')">
-                    <div class="submenu-title">Chcesz to Wszystko Mieć?</div>
-                    <div class="submenu-description">Korzyści z PV</div>
+        <div id="komponenty-zabezpieczenia" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Zabezpieczenia AC/DC</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Podwójna skrzynka – osobne zabezpieczenia dla domu i instalacji</li>
+                    <li>Uziemienie w standardzie – ochrona od podstaw</li>
+                    <li>Certyfikowane zabezpieczenia Dehn z atestem Straży Pożarnej</li>
+                    <li>Gwarancja bezpieczeństwa dla domu i sprzętów</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="komponenty-licznik" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Licznik Dwukierunkowy</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Zgłoszenie do operatora po montażu (my załatwiamy)</li>
+                    <li>Wymiana w max 30 dni - bez kosztów dla klienta</li>
+                    <li>Wyjątek: licznik przedpłatowy wymienić przed montażem</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="komponenty-siec" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Sieć Energetyczna</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Gwarantuje ciągłość dostaw</li>
+                    <li>Odbiera nadwyżki z PV</li>
+                    <li>Stabilizuje napięcie i częstotliwość</li>
+                    <li>Zapewnia zgodność z krajową infrastrukturą</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="montaz-sposoby" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Sposoby Montażu</div>
+            </div>
+            <div class="slide-content">
+                <p>Różne metody montażu paneli w zależności od typu dachu i warunków.</p>
+            </div>
+        </div>
+
+        <div id="montaz-gdzie-nie" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Gdzie Nie Montujemy Paneli?</div>
+            </div>
+            <div class="slide-content">
+                <ul>
+                    <li>Na powierzchniach zacienionych</li>
+                    <li>Na dachach w złym stanie</li>
+                    <li>Na dachach z eternitem (azbestem)</li>
+                    <li>Na dachach o ekstremalnym nachyleniu (>60°)</li>
+                    <li>Bez zgody właściciela lub wspólnoty</li>
+                    <li>Na obiektach tymczasowych</li>
+                    <li>Na dachach nie spełniających warunków (mały, północny)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="montaz-na-czym-nie" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Na Czym Nie Montujemy</div>
+            </div>
+            <div class="slide-content">
+                <p>Przykłady powierzchni i materiałów, na których nie wykonujemy montażu dla bezpieczeństwa i efektywności.</p>
+            </div>
+        </div>
+
+        <div id="zaawansowane-autokonsumpcja" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Autokonsumpcja - Prąd Bez Pośredników</div>
+            </div>
+            <div class="slide-content">
+                <p>Twoje panele działają jak mini-elektrownia na dachu</p>
+                <div class="highlight-box">
+                    <h3>Jak to działa?</h3>
+                    <p>
+                        1. Panele produkują energię<br>
+                        2. Prąd trafia NAJPIERW do Twoich urządzeń<br>
+                        3. Nadwyżki idą do sieci (lub magazynu)<br>
+                        4. Wieczorem pobierasz z sieci (lub magazynu)
+                    </p>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-zyskasz')">
-                    <div class="submenu-title">Co Zyskasz?</div>
-                    <div class="submenu-description">Lista korzyści</div>
+                <h3>Każdy kilowat zużyty na miejscu to:</h3>
+                <ul>
+                    <li>Brak opłat za przesył</li>
+                    <li>Brak podatków dystrybucyjnych</li>
+                    <li>Natychmiastowa oszczędność</li>
+                    <li>Pełna kontrola nad kosztami</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="zaawansowane-zatrzymaj" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Jak Zatrzymać Więcej Własnej Energii?</div>
+            </div>
+            <div class="slide-content">
+                <p>Proste sposoby: korzystaj z prądu w godzinach produkcji (zmywarka o 13:00, pralka w południe).</p>
+                <p>Zaawansowane: inteligentne gniazdka i programatory.</p>
+                <p>Najlepsze: magazyn energii - zbiera nadwyżki i oddaje gdy potrzeba.</p>
+                <div class="highlight-box">
+                    <p>To nie oszczędność. To niezależność!</p>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-proces')">
-                    <div class="submenu-title">Proces Realizacji</div>
-                    <div class="submenu-description">Kroki od konsultacji do uruchomienia</div>
+            </div>
+        </div>
+
+        <div id="zaawansowane-magazyn" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Magazyn Energii - Zatrzymaj Swój Prąd</div>
+            </div>
+            <div class="slide-content">
+                <p>Przestań oddawać energię za bezcen. Zachowaj ją dla siebie!</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">☀️</div>
+                        <h3>W dzień</h3>
+                        <p>Nadwyżki z paneli ładują magazyn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌙</div>
+                        <h3>Wieczorem i w nocy</h3>
+                        <p>Korzystasz z zapisanej energii</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Przy awarii sieci</h3>
+                        <p>Masz własne zasilanie awaryjne</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Maksymalna autokonsumpcja</h3>
+                        <p>Wykorzystujesz nawet 90%+ własnej energii</p>
+                    </div>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-gwarancje')">
-                    <div class="submenu-title">Gwarancje i Wsparcie</div>
-                    <div class="submenu-description">Gwarancje i serwis</div>
+                <div class="highlight-box">
+                    <p>Magazyn = Niezależność energetyczna 24/7</p>
+                    <p>To inwestycja, która zwraca się szybciej, niż myślisz</p>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-cta')">
-                    <div class="submenu-title">Czas Podjąć Decyzję</div>
-                    <div class="submenu-description">Wezwanie do działania</div>
+            </div>
+        </div>
+
+        <div id="zaawansowane-ai" class="content-page">
+            <div class="page-header">
+                <div class="page-title">AI w Służbie Twojej Energii</div>
+            </div>
+            <div class="slide-content">
+                <p>Sinum Power i ENIGA - systemy zarządzania nowej generacji</p>
+                
+                <div class="feature-card" style="margin-bottom: 30px;">
+                    <h3>🧠 Sinum Power - Mózg Instalacji</h3>
+                    <ul>
+                        <li>Analizuje produkcję z paneli w czasie rzeczywistym</li>
+                        <li>Śledzi zużycie w domu</li>
+                        <li>Monitoruje stan magazynu</li>
+                        <li>Podejmuje inteligentne decyzje</li>
+                        <li>Efekt: maksymalna autokonsumpcja</li>
+                    </ul>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-kluczowe')">
-                    <div class="submenu-title">Kluczowe Punkty</div>
-                    <div class="submenu-description">Podsumowanie dla doradców</div>
+
+                <div class="feature-card">
+                    <h3>💡 ENIGA - Inteligencja Rynkowa</h3>
+                    <ul>
+                        <li>Uczy się Twoich nawyków</li>
+                        <li>Reaguje na ceny prądu</li>
+                        <li>Rozładowuje magazyn w szczytach</li>
+                        <li>Ładuje w tanich godzinach</li>
+                        <li>Bilansowanie 1:1 przez 365 dni</li>
+                    </ul>
                 </div>
-                <div class="submenu-card" onclick="showPage('podsumowanie-dziekujemy')">
-                    <div class="submenu-title">Dziękujemy</div>
-                    <div class="submenu-description">Zakończenie prezentacji</div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <p>To już nie tylko fotowoltaika. To połączenie AI i automatyzacji!</p>
                 </div>
-                <div class="submenu-card" onclick="showPage('quiz-podsumowanie')">
-                    <div class="submenu-title">Quiz: Podsumowanie</div>
-                    <div class="submenu-description">Sprawdź swoją wiedzę</div>
+            </div>
+        </div>
+
+        <div id="zaawansowane-dobor" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Dobór Instalacji</div>
+            </div>
+            <div class="slide-content">
+                <p>Każdy dom ma inne potrzeby. Dobieramy instalację indywidualnie, bez przepłacania.</p>
+                <div class="highlight-box">
+                    <p>Używamy kalkulatora PV analizującego rachunki i zużycie dla projektu na miarę.</p>
                 </div>
             </div>
         </div>
@@ -1403,28 +1605,260 @@
             </div>
         </div>
 
-        <div id="quiz-podsumowanie" class="content-page">
+        <div id="quiz-rozwiazanie" class="content-page">
             <div class="page-header">
-                <div class="page-title">Quiz: Podsumowanie</div>
+                <div class="page-title">Quiz: Rozwiązanie Fotowoltaiczne</div>
             </div>
-            <div class="quiz-container" id="quiz-podsumowanie-container">
-                <div id="quiz-podsumowanie-content"></div>
+            <div class="quiz-container" id="quiz-rozwiazanie-container">
+                <div id="quiz-rozwiazanie-content"></div>
             </div>
-            <button id="previous-podsumowanie">Poprzednie Pytanie</button>
-            <button id="next-podsumowanie">Następne Pytanie</button>
-            <button id="submit-podsumowanie">Zatwierdź Quiz</button>
-            <div id="results-podsumowanie"></div>
+            <button id="previous-rozwiazanie">Poprzednie Pytanie</button>
+            <button id="next-rozwiazanie">Następne Pytanie</button>
+            <button id="submit-rozwiazanie">Zatwierdź Quiz</button>
+            <div id="results-rozwiazanie"></div>
         </div>
-
-        <!-- Add missing submenus like for Zaawansowane Funkcje, etc., and fill their content similarly from the original -->
 
     </div>
 
     <!-- Modals -->
-    <!-- Add all modals from the original -->
+    <div id="paneleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('panele')">&times;</span>
+            <img src="https://hysolis.com/cdn/shop/products/solar_panel_1600x.jpg?v=1670894944" alt="Panele PV">
+            <p>Monokrystaliczne panele bifacjalne full black</p>
+        </div>
+    </div>
+
+    <!-- Add all other modals similarly from the original -->
 
     <script>
-        // Script remains the same, with quiz initialization for each quiz page
+        let currentPageStack = ['main-menu'];
+
+        function showSubmenu(submenuId) {
+            showPage(`submenu-${submenuId}`);
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.content-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            currentPageStack.push(pageId);
+            
+            document.querySelector('.back-button').classList.add('active');
+
+            // Initialize quiz if it's a quiz page
+            if (pageId.startsWith('quiz-')) {
+                initQuiz(pageId.split('-')[1]);
+            }
+        }
+
+        function goBack() {
+            if (currentPageStack.length > 1) {
+                currentPageStack.pop();
+                const previousPage = currentPageStack[currentPageStack.length - 1];
+                document.querySelectorAll('.content-page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(previousPage).classList.add('active');
+                
+                if (currentPageStack.length === 1) {
+                    document.querySelector('.back-button').classList.remove('active');
+                }
+            }
+        }
+
+        // Quiz Functions
+        function buildQuiz(quizId, questions) {
+            const output = [];
+            questions.forEach((currentQuestion, questionNumber) => {
+                const answers = [];
+                for (let letter in currentQuestion.answers) {
+                    answers.push(
+                        `<label>
+                            <input type="radio" name="question${quizId}${questionNumber}" value="${letter}">
+                            ${letter} : ${currentQuestion.answers[letter]}
+                        </label>`
+                    );
+                }
+                output.push(
+                    `<div class="slide" id="slide-${quizId}-${questionNumber}">
+                        <div class="question">${currentQuestion.question}</div>
+                        <div class="answers">${answers.join('')}</div>
+                    </div>`
+                );
+            });
+            document.getElementById(`quiz-${quizId}-content`).innerHTML = output.join('');
+        }
+
+        function showResults(quizId, questions) {
+            const answerContainers = document.querySelectorAll(`#quiz-${quizId}-content .answers`);
+            let numCorrect = 0;
+            questions.forEach((currentQuestion, questionNumber) => {
+                const answerContainer = answerContainers[questionNumber];
+                const selector = `input[name=question${quizId}${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+                if (userAnswer === currentQuestion.correctAnswer) {
+                    numCorrect++;
+                    answerContainer.style.color = 'lightgreen';
+                } else {
+                    answerContainer.style.color = 'red';
+                }
+            });
+            document.getElementById(`results-${quizId}`).innerHTML = `${numCorrect} out of ${questions.length}`;
+        }
+
+        function showSlide(quizId, n, numSlides) {
+            const slides = document.querySelectorAll(`#quiz-${quizId}-content .slide`);
+            slides.forEach(slide => slide.classList.remove('active-slide'));
+            document.getElementById(`slide-${quizId}-${n}`).classList.add('active-slide');
+            const previousButton = document.getElementById(`previous-${quizId}`);
+            const nextButton = document.getElementById(`next-${quizId}`);
+            const submitButton = document.getElementById(`submit-${quizId}`);
+            if (n === 0) {
+                previousButton.style.display = 'none';
+            } else {
+                previousButton.style.display = 'inline-block';
+            }
+            if (n === numSlides - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'inline-block';
+            } else {
+                nextButton.style.display = 'inline-block';
+                submitButton.style.display = 'none';
+            }
+        }
+
+        function initQuiz(quizId) {
+            let questions;
+            if (quizId === 'firma') {
+                questions = [
+                    {
+                        question: "Ile oddziałów ma 4ECO?",
+                        answers: {
+                            a: "20",
+                            b: "49",
+                            c: "100"
+                        },
+                        correctAnswer: "b"
+                    },
+                    {
+                        question: "Ilu zadowolonych klientów ma 4ECO?",
+                        answers: {
+                            a: "10 000+",
+                            b: "40 000+",
+                            c: "100 000+"
+                        },
+                        correctAnswer: "b"
+                    },
+                    // Add more if needed
+                ];
+            } else if (quizId === 'historia') {
+                questions = [
+                    {
+                        question: "Kiedy odkryto efekt fotowoltaiczny?",
+                        answers: {
+                            a: "1839",
+                            b: "1954",
+                            c: "1970"
+                        },
+                        correctAnswer: "a"
+                    },
+                    {
+                        question: "Kto skonstruował pierwszy praktyczny panel słoneczny?",
+                        answers: {
+                            a: "Edmond Becquerel",
+                            b: "Bell Labs",
+                            c: "Prof. Janusz Zakrzewski"
+                        },
+                        correctAnswer: "b"
+                    },
+                ];
+            } else if (quizId === 'problem') {
+                questions = [
+                    {
+                        question: "O ile wzrosły ceny prądu od 2020 do 2025?",
+                        answers: {
+                            a: "+50%",
+                            b: "+160%",
+                            c: "+300%"
+                        },
+                        correctAnswer: "b"
+                    },
+                    {
+                        question: "Co to są kary emisyjne?",
+                        answers: {
+                            a: "Podatek za zużycie prądu",
+                            b: "Opłata za emisję CO2 przerzucana na konsumentów",
+                            c: "Dotacja na OZE"
+                        },
+                        correctAnswer: "b"
+                    },
+                ];
+            } else if (quizId === 'rozwiazanie') {
+                questions = [
+                    {
+                        question: "Jaka jest sprawność paneli?",
+                        answers: {
+                            a: "10%",
+                            b: "22,45%",
+                            c: "50%"
+                        },
+                        correctAnswer: "b"
+                    },
+                    {
+                        question: "Co robi inwerter?",
+                        answers: {
+                            a: "Zmienia DC na AC",
+                            b: "Przechowuje energię",
+                            c: "Liczy zużycie"
+                        },
+                        correctAnswer: "a"
+                    },
+                    {
+                        question: "Co to autokonsumpcja?",
+                        answers: {
+                            a: "Zużycie własnej energii z PV",
+                            b: "Kupowanie prądu od sieci",
+                            c: "Sprzedaż nadwyżek"
+                        },
+                        correctAnswer: "a"
+                    },
+                ];
+            }
+            buildQuiz(quizId, questions);
+            const numSlides = questions.length;
+            showSlide(quizId, 0, numSlides);
+
+            document.getElementById(`previous-${quizId}`).addEventListener("click", () => showSlide(quizId, currentSlides[quizId] - 1, numSlides));
+            document.getElementById(`next-${quizId}`).addEventListener("click", () => showSlide(quizId, currentSlides[quizId] + 1, numSlides));
+            document.getElementById(`submit-${quizId}`).addEventListener("click", () => showResults(quizId, questions));
+            currentSlides[quizId] = 0;
+        }
+
+        let currentSlides = {};
+
+        // Modal functions...
+        function openModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(component) {
+            document.getElementById(component + 'Modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.back-button').classList.remove('active');
+        });
     </script>
 </body>
 </html>
