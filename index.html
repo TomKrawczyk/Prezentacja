@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalacja Fotowoltaiczna - 4ECO</title>
+    <title>Dzień 2 - Obiekcje i Proces Sprzedaży</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #334155 0%, #64748b 100%);
+            background: linear-gradient(135deg, #334155 0%, #64748b 100%); /* Jaśniejsze tło: zmodyfikowany gradient dla lepszego widoku */
             color: #fff;
             overflow-x: hidden;
             min-height: 100vh;
@@ -208,6 +208,13 @@
             box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
         }
 
+        .submenu-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+
         .submenu-title {
             font-size: 1.6em;
             color: #86efac;
@@ -219,14 +226,182 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Slide Content */
-        .slide-content {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Exercise Page */
+        .exercise-page {
+            display: none;
+            min-height: 100vh;
+            padding: 40px 0;
         }
 
-        h1, h2 {
+        .exercise-page.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .exercise-header {
             text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .exercise-title {
+            font-size: 2.5em;
+            color: #4ade80;
+            margin-bottom: 20px;
+        }
+
+        .exercise-instruction {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Input and List */
+        .input-group {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .exercise-input {
+            width: calc(100% - 120px);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #4ade80;
+            border-radius: 8px 0 0 8px;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .add-button {
+            width: 120px;
+            padding: 12px;
+            background: #4ade80;
+            color: #0a0e27;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .add-button:hover {
+            background: #22c55e;
+        }
+
+        .exercise-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0;
+        }
+
+        .exercise-list li {
+            background: rgba(74, 222, 128, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-item {
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Timer */
+        .timer-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .timer-display {
+            font-size: 4em;
+            font-weight: 800;
+            color: #ef4444;
+            margin-bottom: 20px;
+        }
+
+        .timer-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: #0a0e27;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.5);
+        }
+
+        .stop-button {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #fff;
+            display: none;
+        }
+
+        .stop-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+        }
+
+        .reset-button {
+            background: linear-gradient(135deg, #a1a1aa 0%, #71717a 100%);
+            color: #fff;
+        }
+
+        .reset-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(161, 161, 170, 0.5);
+        }
+
+        /* Results */
+        .results {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 2px solid #4ade80;
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .results h3 {
+            color: #4ade80;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .results ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .results li {
+            background: rgba(74, 222, 128, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
 
         /* Navigation */
@@ -264,352 +439,26 @@
             }
             .logo { font-size: 2em; }
             .page-title { font-size: 2em; }
+            .timer-display { font-size: 3em; }
+            .input-group {
+                display: flex;
+                flex-direction: column;
+            }
+            .exercise-input {
+                width: 100%;
+                border-radius: 8px 8px 0 0;
+            }
+            .add-button {
+                width: 100%;
+                border-radius: 0 0 8px 8px;
+            }
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .modal-content img {
+        img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Quiz Styles */
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-        }
-
-        .question {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #86efac;
-        }
-
-        .answers label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        button {
-            padding: 10px 20px;
-            background: #4ade80;
-            color: #0a0e27;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            font-weight: 700;
-        }
-
-        button:hover {
-            background: #22c55e;
-        }
-
-        #results {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #4ade80;
-        }
-
-        .slide {
-            display: none;
-        }
-
-        .active-slide {
-            display: block;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid rgba(74, 222, 128, 0.3);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: #4ade80;
-            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.2);
-        }
-
-        .stat-number {
-            font-size: 3em;
-            font-weight: 800;
-            color: #4ade80;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1em;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 15px;
-            border-left: 4px solid #4ade80;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            background: rgba(74, 222, 128, 0.1);
-            transform: translateX(10px);
-        }
-
-        .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        /* Price Comparison */
-        .price-comparison {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
-            padding: 40px;
-            border-radius: 15px;
-            border: 2px solid rgba(239, 68, 68, 0.3);
-            margin: 40px 0;
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            margin: 15px 0;
-            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-        }
-
-        .year {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #4ade80;
-        }
-
-        .price {
-            font-size: 2em;
-            font-weight: 800;
-            color: #ef4444;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
-            padding: 40px;
-            border-radius: 15px;
-            border: 2px solid #4ade80;
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '⚡';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 4em;
-            opacity: 0.1;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            color: #0a0e27;
-            font-size: 1.5em;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            margin: 30px 0;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.5);
-        }
-
-        /* Comparison Table */
-        .comparison-table {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .comparison-card {
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .comparison-card.bad {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
-            border: 2px solid rgba(239, 68, 38, 0.3);
-        }
-
-        .comparison-card.good {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
-            border: 2px solid #4ade80;
-        }
-
-        /* List Styles */
-        ul {
-            list-style: none;
             margin: 20px 0;
-        }
-
-        li {
-            padding: 15px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4ade80;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        /* Tech Specs */
-        .tech-specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .spec-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 3px solid #4ade80;
-        }
-
-        .spec-label {
-            color: #86efac;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .spec-value {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        /* Accordion for interactivity */
-        .accordion {
-            background: rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1.2em;
-            transition: 0.4s;
-            color: #86efac;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .accordion:hover {
-            background: rgba(74, 222, 128, 0.1);
-        }
-
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background: rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .accordion:after {
-            content: '\002B';
-            font-size: 1.5em;
-            color: #777;
-            float: right;
-            margin-left: 5px;
-        }
-
-        .active:after {
-            content: "\2212";
         }
     </style>
 </head>
@@ -621,145 +470,1145 @@
         <!-- Main Menu -->
         <div id="main-menu" class="content-page active">
             <div class="header">
-                <div class="logo">⚡ Instalacje Fotowoltaiczne</div>
-                <div class="subtitle">Twoja droga do energetycznej niezależności</div>
+                <img src="https://via.placeholder.com/300x100?text=.ECO+GREEN+ENERGY" alt=".ECO GREEN ENERGY Logo" class="logo-image">
+                <div class="logo">🎯 Dzień 2</div>
+                <div class="subtitle">Przebieg Spotkania i Neutralizacja Obiekcji</div>
                 <div class="quote-box">
-                    Dzień pierwszy - Szkolenie dla doradców 4ECO
+                    Sukces to nic innego jak kilka prostych dyscyplin, praktykowanych każdego dnia
                 </div>
             </div>
 
             <div class="main-menu">
-                <div class="menu-card" onclick="showSubmenu('firma')">
-                    <div class="menu-title">O Firmie</div>
-                    <div class="menu-description">Informacje o 4ECO, realizacjach i partnerstwach</div>
+                <div class="menu-card" onclick="showSubmenu('strategia')">
+                    <div class="menu-title">Strategia</div>
+                    <div class="menu-description">7 kroków sprzedażowych: Prospecting, Umówienie, Analiza potrzeb, Prezentacja, Neutralizacja obiekcji, Twarde zamknięcie, Dosprzedaż</div>
                 </div>
 
-                <div class="menu-card" onclick="showSubmenu('historia')">
-                    <div class="menu-title">Historia i Rozwój OZE</div>
-                    <div class="menu-description">Ewolucja branży odnawialnych źródeł energii</div>
+                <div class="menu-card" onclick="showSubmenu('zasady')">
+                    <div class="menu-title">Zasady</div>
+                    <div class="menu-description">7 zasad sprzedaży: Administracja, Sojusz, Reguły wpływu, Edukuj, Nie poddawaj się, Postawa, Dopasowanie</div>
                 </div>
 
-                <div class="menu-card" onclick="showSubmenu('problem')">
-                    <div class="menu-title">Problem Cen Prądu</div>
-                    <div class="menu-description">Analiza rosnących kosztów energii</div>
+                <div class="menu-card" onclick="showSubmenu('spotkanie')">
+                    <div class="menu-title">Przebieg Spotkania</div>
+                    <div class="menu-description">Drobne ale ważne uwagi: wygląd, zachowanie, komunikacja. Pełny proces od oględzin do zamknięcia</div>
                 </div>
 
-                <div class="menu-card" onclick="showSubmenu('rozwiazanie')">
-                    <div class="menu-title">Rozwiązanie Fotowoltaiczne</div>
-                    <div class="menu-description">Jak działa, komponenty, montaż, zaawansowane funkcje i proces</div>
+                <div class="menu-card" onclick="showSubmenu('obiekcje')">
+                    <div class="menu-title">Neutralizacja Obiekcji</div>
+                    <div class="menu-description">Typy obiekcji i metoda 4U: Uszanuj, U Szczegółów, Uzupełnij informację, Uzyskaj akceptację</div>
                 </div>
 
-                <div class="menu-card" onclick="showSubmenu('podsumowanie')">
-                    <div class="menu-title">Podsumowanie</div>
-                    <div class="menu-description">Kluczowe punkty i wezwanie do działania</div>
+                <div class="menu-card" onclick="showSubmenu('osobowosci')">
+                    <div class="menu-title">Typy Osobowości</div>
+                    <div class="menu-description">4 typy osobowości – 4 typy prezentowania. Dopasuj komunikację do klienta</div>
+                </div>
+
+                <div class="menu-card" onclick="showSubmenu('warsztaty')">
+                    <div class="menu-title">Warsztaty</div>
+                    <div class="menu-description">Praktyczne ćwiczenia: Prospecting, Badanie potrzeb, Prezentacja, Obiekcje, Zamykanie</div>
                 </div>
             </div>
         </div>
 
-        <!-- Submenu for O Firmie -->
-        <div id="submenu-firma" class="content-page">
+        <!-- Submenu for Strategia -->
+        <div id="submenu-strategia" class="content-page">
             <div class="page-header">
-                <div class="page-title">O Firmie</div>
-                <div class="page-subtitle">Informacje o 4ECO</div>
+                <div class="page-title">📊 Strategia</div>
+                <div class="page-subtitle">7 kroków sprzedażowych</div>
             </div>
 
             <div class="submenu">
-                <div class="submenu-card" onclick="showPage('firma-o-firmie')">
-                    <div class="submenu-title">4ECO - Lider OZE</div>
-                    <div class="submenu-description">Statystyki i kompleksowa obsługa</div>
+                <div class="submenu-card" onclick="showExercise('strategia-prospecting')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Prospecting</div>
+                    <div class="submenu-description">Poszukiwanie i identyfikacja potencjalnych klientów</div>
                 </div>
-                <div class="submenu-card" onclick="showPage('firma-realizacje')">
-                    <div class="submenu-title">Nasze Realizacje</div>
-                    <div class="submenu-description">Przykłady instalacji</div>
+                <div class="submenu-card" onclick="showExercise('strategia-umowienie')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Umówienie</div>
+                    <div class="submenu-description">Skuteczne umawianie spotkań z potencjalnymi klientami</div>
                 </div>
-                <div class="submenu-card" onclick="showPage('firma-partnerstwa')">
-                    <div class="submenu-title">Partnerstwa</div>
-                    <div class="submenu-description">Współprace z instytucjami</div>
+                <div class="submenu-card" onclick="showExercise('strategia-analiza')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Analiza potrzeb / opłacalności</div>
+                    <div class="submenu-description">Dogłębne zbadanie potrzeb klienta i opłacalności rozwiązania</div>
                 </div>
-                <div class="submenu-card" onclick="showPage('quiz-firma')">
-                    <div class="submenu-title">Quiz: O Firmie</div>
-                    <div class="submenu-description">Sprawdź swoją wiedzę</div>
+                <div class="submenu-card" onclick="showExercise('strategia-prezentacja')">
+                    <div class="submenu-number">4</div>
+                    <div class="submenu-title">Prezentacja</div>
+                    <div class="submenu-description">Dopasowana prezentacja rozwiązania do potrzeb klienta</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('strategia-neutralizacja')">
+                    <div class="submenu-number">5</div>
+                    <div class="submenu-title">Neutralizacja obiekcji i próbne zamknięcie</div>
+                    <div class="submenu-description">Profesjonalne radzenie sobie z wątpliwościami klienta</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('strategia-twarde')">
+                    <div class="submenu-number">6</div>
+                    <div class="submenu-title">Twarde zamknięcie</div>
+                    <div class="submenu-description">Finalizacja sprzedaży i podpisanie umowy</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('strategia-dosprzedaz')">
+                    <div class="submenu-number">7</div>
+                    <div class="submenu-title">Dosprzedaż / Polecenia</div>
+                    <div class="submenu-description">Rozwój współpracy i pozyskiwanie rekomendacji</div>
                 </div>
             </div>
         </div>
 
-        <!-- Content for O Firmie -->
-        <div id="firma-o-firmie" class="content-page">
+        <!-- Submenu for Zasady -->
+        <div id="submenu-zasady" class="content-page">
             <div class="page-header">
-                <div class="page-title">4ECO - Lider OZE w Polsce</div>
+                <div class="page-title">🔑 Zasady</div>
+                <div class="page-subtitle">7 zasad sprzedaży</div>
             </div>
-            <div class="slide-content">
-                <img src="https://via.placeholder.com/800x400?text=4ECO+Office" alt="4ECO Office" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
-                <div class="accordion">Statystyki 4ECO</div>
-                <div class="panel">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <span class="stat-number">40 000+</span>
-                            <span class="stat-label">Zadowolonych klientów</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">49</span>
-                            <span class="stat-label">Oddziałów w Polsce</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">80</span>
-                            <span class="stat-label">Certyfikowanych ekip</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">460</span>
-                            <span class="stat-label">Ekspertów doradców</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">3 mln zł</span>
-                            <span class="stat-label">Ubezpieczenie TUiR Warta</span>
-                        </div>
-                    </div>
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showExercise('zasady-administracja')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Administracja</div>
+                    <div class="submenu-description">Organizacja i kontrakt spotkania</div>
                 </div>
-                <div class="highlight-box">
-                    <h3>Kompleksowa obsługa</h3>
-                    <p>Od projektu i montażu po formalności z dotacjami - zapewniamy pełne wsparcie na każdym etapie</p>
+                <div class="submenu-card" onclick="showExercise('zasady-sojusz')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Sojusz</div>
+                    <div class="submenu-description">Budowanie relacji z klientem</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('zasady-reguly')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Reguły wpływu</div>
+                    <div class="submenu-description">Psychologiczne techniki perswazji</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('zasady-edukuj')">
+                    <div class="submenu-number">4</div>
+                    <div class="submenu-title">Edukuj</div>
+                    <div class="submenu-description">Ucz klienta, buduj autorytet</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('zasady-wytrwalosc')">
+                    <div class="submenu-number">5</div>
+                    <div class="submenu-title">Nie poddawaj się zbyt szybko</div>
+                    <div class="submenu-description">Wytrwałość w sprzedaży</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('zasady-postawa')">
+                    <div class="submenu-number">6</div>
+                    <div class="submenu-title">Postawa / Pewność siebie</div>
+                    <div class="submenu-description">Buduj zaufanie postawą</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('zasady-dopasowanie')">
+                    <div class="submenu-number">7</div>
+                    <div class="submenu-title">Dopasowanie</div>
+                    <div class="submenu-description">Dostosuj się do klienta</div>
                 </div>
             </div>
         </div>
 
-        <!-- Add similar content for all other IDs referenced in onclick calls -->
+        <!-- Submenu for Spotkanie -->
+        <div id="submenu-spotkanie" class="content-page">
+            <div class="page-header">
+                <div class="page-title">🤝 Przebieg Spotkania</div>
+                <div class="page-subtitle">Kilka kroków i uwag</div>
+            </div>
 
-        <!-- For example, add divs for 'historia-historia', 'problem-dramat', etc. with their content -->
+            <div class="submenu">
+                <div class="submenu-card" onclick="showExercise('spotkanie-uwagi')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Drobne uwagi</div>
+                    <div class="submenu-description">Wygląd, zachowanie, komunikacja</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('spotkanie-ogledziny')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Oględziny posiadłości</div>
+                    <div class="submenu-description">Sprawdzenie dachu, podwórka, licznika</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('spotkanie-administracja')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Administracja spotkania</div>
+                    <div class="submenu-description">Kontrakt i organizacja</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('spotkanie-pytania')">
+                    <div class="submenu-number">4</div>
+                    <div class="submenu-title">Matryca pytań</div>
+                    <div class="submenu-description">Dlaczego spotkanie? Czego oczekujecie?</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('spotkanie-potrzeby')">
+                    <div class="submenu-number">5</div>
+                    <div class="submenu-title">Badanie potrzeb</div>
+                    <div class="submenu-description">Analiza opłacalności i pytania czasowe</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('spotkanie-prezentacja')">
+                    <div class="submenu-number">6</div>
+                    <div class="submenu-title">Prezentacja</div>
+                    <div class="submenu-description">4 typy osobowości</div>
+                </div>
+            </div>
+        </div>
 
-        <!-- To fix, ensure every showPage('id') has a corresponding <div id="id" class="content-page"> -->
+        <!-- Submenu for Obiekcje -->
+        <div id="submenu-obiekcje" class="content-page">
+            <div class="page-header">
+                <div class="page-title">🛡️ Neutralizacja Obiekcji</div>
+                <div class="page-subtitle">Metoda 4U i typy obiekcji</div>
+            </div>
 
-        <!-- Assume all are added as in previous responses -->
+            <div class="submenu">
+                <div class="submenu-card" onclick="showExercise('obiekcje-metoda')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Metoda 4U</div>
+                    <div class="submenu-description">Uszanuj, U Szczegółów, Uzupełnij, Uzyskaj akceptację</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('obiekcje-lista')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Lista obiekcji</div>
+                    <div class="submenu-description">Drogo, nie działa, nie znam was itp.</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('obiekcje-probnazamkniecie')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Próbne zamknięcie</div>
+                    <div class="submenu-description">Wybór po stronie klienta</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submenu for Osobowości -->
+        <div id="submenu-osobowosci" class="content-page">
+            <div class="page-header">
+                <div class="page-title">🎭 Typy Osobowości</div>
+                <div class="page-subtitle">4 typy prezentowania</div>
+            </div>
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showExercise('osobowosci-czerwony')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Czerwony</div>
+                    <div class="submenu-description">Energiczny, zorientowany na wyniki</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('osobowosci-niebieski')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Niebieski</div>
+                    <div class="submenu-description">Analityczny, potrzebuje danych</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('osobowosci-zielony')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Zielony</div>
+                    <div class="submenu-description">Stabilny, potrzebuje pewności</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('osobowosci-zolty')">
+                    <div class="submenu-number">4</div>
+                    <div class="submenu-title">Żółty</div>
+                    <div class="submenu-description">Ekspresyjny, towarzyski</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submenu for Warsztaty -->
+        <div id="submenu-warsztaty" class="content-page">
+            <div class="page-header">
+                <div class="page-title">💼 Warsztaty</div>
+                <div class="page-subtitle">Praktyczne ćwiczenia</div>
+            </div>
+
+            <div class="submenu">
+                <div class="submenu-card" onclick="showExercise('warsztaty-prospecting')">
+                    <div class="submenu-number">1</div>
+                    <div class="submenu-title">Prospecting i umawianie</div>
+                    <div class="submenu-description">Jak długo próbować? Do skutku.</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('warsztaty-potrzeby')">
+                    <div class="submenu-number">2</div>
+                    <div class="submenu-title">Badanie potrzeb</div>
+                    <div class="submenu-description">Słuchanie, nie mówienie</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('warsztaty-prezentacja')">
+                    <div class="submenu-number">3</div>
+                    <div class="submenu-title">Prezentacja</div>
+                    <div class="submenu-description">Język korzyści, storytelling</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('warsztaty-obiekcje')">
+                    <div class="submenu-number">4</div>
+                    <div class="submenu-title">Obiekcje</div>
+                    <div class="submenu-description">Przygotowanie odpowiedzi</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('warsztaty-zamykanie')">
+                    <div class="submenu-number">5</div>
+                    <div class="submenu-title">Zamykanie sprzedaży</div>
+                    <div class="submenu-description">Naturalny efekt rozmowy</div>
+                </div>
+                <div class="submenu-card" onclick="showExercise('warsztaty-podsumowanie')">
+                    <div class="submenu-number">6</div>
+                    <div class="submenu-title">Podsumowanie</div>
+                    <div class="submenu-description">Zmiana działań dla lepszych wyników</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise Pages -->
+        <div id="exercise-strategia-prospecting" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Prospecting - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz jak najwięcej źródeł potencjalnych klientów. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-prospecting" placeholder="Źródło leadów...">
+                <button class="add-button" onclick="addItem('exercise-list-prospecting')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-prospecting"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-prospecting">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-prospecting', 'results-prospecting')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-prospecting', 'results-prospecting')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-prospecting', 'results-prospecting')">Reset</button>
+            </div>
+            <div class="results" id="results-prospecting">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Poszukiwanie i identyfikacja potencjalnych klientów</li>
+                    <li>Używaj baz danych, sieci społecznościowych</li>
+                    <li>Referencje od istniejących klientów</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-umowienie" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Umówienie - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz jak najwięcej pomysłów na umawianie spotkań. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-umowienie" placeholder="Twój pomysł...">
+                <button class="add-button" onclick="addItem('exercise-list-umowienie')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-umowienie"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-umowienie">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-umowienie', 'results-umowienie')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-umowienie', 'results-umowienie')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-umowienie', 'results-umowienie')">Reset</button>
+            </div>
+            <div class="results" id="results-umowienie">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Jak długo powinieneś próbować? Do skutku.</li>
+                    <li>Używaj skryptów umawiania</li>
+                    <li>Buduj zainteresowanie przez telefon</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-analiza" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Analiza potrzeb - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pytania do analizy opłacalności. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-analiza" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-analiza')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-analiza"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-analiza">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-analiza', 'results-analiza')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-analiza', 'results-analiza')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-analiza', 'results-analiza')">Reset</button>
+            </div>
+            <div class="results" id="results-analiza">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Jak u państwa wygląda sytuacja teraz?</li>
+                    <li>Czy już myśleli jak się zabezpieczyć przed wzrostami cen?</li>
+                    <li>Zasada Pareto 80/20</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-prezentacja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Prezentacja - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz elementy prezentacji dla różnych typów osobowości. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-prezentacja" placeholder="Element prezentacji...">
+                <button class="add-button" onclick="addItem('exercise-list-prezentacja')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-prezentacja"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-prezentacja">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-prezentacja', 'results-prezentacja')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-prezentacja', 'results-prezentacja')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-prezentacja', 'results-prezentacja')">Reset</button>
+            </div>
+            <div class="results" id="results-prezentacja">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>4 typy osobowości – 4 typy prezentowania</li>
+                    <li>Analiza opłacalności jako wsparcie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-neutralizacja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Neutralizacja obiekcji - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz strategie próbnego zamknięcia. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-neutralizacja" placeholder="Strategia...">
+                <button class="add-button" onclick="addItem('exercise-list-neutralizacja')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-neutralizacja"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-neutralizacja">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-neutralizacja', 'results-neutralizacja')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-neutralizacja', 'results-neutralizacja')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-neutralizacja', 'results-neutralizacja')">Reset</button>
+            </div>
+            <div class="results" id="results-neutralizacja">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Wybór jest po stronie klienta… Bierze Pan z magazynem 5kW czy 10kW?</li>
+                    <li>Metoda 4U: Uszanuj, U Szczegółów, Uzupełnij, Uzyskaj akceptację</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-twarde" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Twarde zamknięcie - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pytania do finalizacji sprzedaży. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-twarde" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-twarde')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-twarde"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-twarde">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-twarde', 'results-twarde')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-twarde', 'results-twarde')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-twarde', 'results-twarde')">Reset</button>
+            </div>
+            <div class="results" id="results-twarde">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Zależy panu na przyspieszonej realizacji?</li>
+                    <li>Jaka opcja finansowania pan wybiera?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-strategia-dosprzedaz" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Dosprzedaż - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pomysły na dosprzedaż i polecenia. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-dosprzedaz" placeholder="Pomysł...">
+                <button class="add-button" onclick="addItem('exercise-list-dosprzedaz')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-dosprzedaz"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-dosprzedaz">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-dosprzedaz', 'results-dosprzedaz')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-dosprzedaz', 'results-dosprzedaz')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-dosprzedaz', 'results-dosprzedaz')">Reset</button>
+            </div>
+            <div class="results" id="results-dosprzedaz">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Dosprzedaż magazynu do instalacji fotowoltaicznej</li>
+                    <li>Polecenia jako bezcenne źródło nowych klientów</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-administracja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Administracja - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz kroki organizacji spotkania. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-administracja" placeholder="Krok...">
+                <button class="add-button" onclick="addItem('exercise-list-administracja')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-administracja"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-administracja">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-administracja', 'results-administracja')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-administracja', 'results-administracja')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-administracja', 'results-administracja')">Reset</button>
+            </div>
+            <div class="results" id="results-administracja">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Wybieram miejsce i ustawiam krzesło</li>
+                    <li>Informuję ile potrwa spotkanie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-sojusz" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Sojusz - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz sposoby budowania relacji z klientem. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-sojusz" placeholder="Sposób...">
+                <button class="add-button" onclick="addItem('exercise-list-sojusz')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-sojusz"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-sojusz">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-sojusz', 'results-sojusz')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-sojusz', 'results-sojusz')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-sojusz', 'results-sojusz')">Reset</button>
+            </div>
+            <div class="results" id="results-sojusz">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Buduj zaufanie przez aktywne słuchanie</li>
+                    <li>Twórz atmosferę współpracy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-reguly" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Reguły wpływu - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz techniki perswazji. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-reguly" placeholder="Technika...">
+                <button class="add-button" onclick="addItem('exercise-list-reguly')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-reguly"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-reguly">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-reguly', 'results-reguly')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-reguly', 'results-reguly')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-reguly', 'results-reguly')">Reset</button>
+            </div>
+            <div class="results" id="results-reguly">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Wykorzystuj reguły wpływu (np. autorytet)</li>
+                    <li>Buduj konsensus z klientem</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-edukuj" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Edukuj - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz tematy do edukacji klienta. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-edukuj" placeholder="Temat...">
+                <button class="add-button" onclick="addItem('exercise-list-edukuj')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-edukuj"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-edukuj">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-edukuj', 'results-edukuj')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-edukuj', 'results-edukuj')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-edukuj', 'results-edukuj')">Reset</button>
+            </div>
+            <div class="results" id="results-edukuj">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Edukuj o korzyściach rozwiązania</li>
+                    <li>Prezentuj dane techniczne</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-wytrwalosc" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Wytrwałość - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz strategie na niepoddawanie się. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-wytrwalosc" placeholder="Strategia...">
+                <button class="add-button" onclick="addItem('exercise-list-wytrwalosc')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-wytrwalosc"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-wytrwalosc">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-wytrwalosc', 'results-wytrwalosc')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-wytrwalosc', 'results-wytrwalosc')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-wytrwalosc', 'results-wytrwalosc')">Reset</button>
+            </div>
+            <div class="results" id="results-wytrwalosc">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Nie poddawaj się zbyt szybko</li>
+                    <li>Próbuj do skutku</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-postawa" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Postawa - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz sposoby budowania pewności siebie. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-postawa" placeholder="Sposób...">
+                <button class="add-button" onclick="addItem('exercise-list-postawa')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-postawa"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-postawa">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-postawa', 'results-postawa')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-postawa', 'results-postawa')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-postawa', 'results-postawa')">Reset</button>
+            </div>
+            <div class="results" id="results-postawa">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Postawa i pewność siebie budują zaufanie</li>
+                    <li>Ćwicz pozytywne nastawienie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-zasady-dopasowanie" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Dopasowanie - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz sposoby dostosowania się do klienta. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-dopasowanie" placeholder="Sposób...">
+                <button class="add-button" onclick="addItem('exercise-list-dopasowanie')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-dopasowanie"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-dopasowanie">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-dopasowanie', 'results-dopasowanie')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-dopasowanie', 'results-dopasowanie')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-dopasowanie', 'results-dopasowanie')">Reset</button>
+            </div>
+            <div class="results" id="results-dopasowanie">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Dopasuj się do stylu klienta</li>
+                    <li>Obserwuj i dostosowuj komunikację</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-uwagi" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Drobne uwagi - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz uwagi dotyczące wyglądu, zachowania i komunikacji. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-uwagi" placeholder="Uwaga...">
+                <button class="add-button" onclick="addItem('exercise-list-uwagi')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-uwagi"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-uwagi">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-uwagi', 'results-uwagi')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-uwagi', 'results-uwagi')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-uwagi', 'results-uwagi')">Reset</button>
+            </div>
+            <div class="results" id="results-uwagi">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Wygląd ma znaczenie</li>
+                    <li>Zachowanie ma znaczenie</li>
+                    <li>Co i jak mówimy ma znaczenie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-ogledziny" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Oględziny - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz elementy do sprawdzenia podczas oględzin. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-ogledziny" placeholder="Element...">
+                <button class="add-button" onclick="addItem('exercise-list-ogledziny')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-ogledziny"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-ogledziny">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-ogledziny', 'results-ogledziny')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-ogledziny', 'results-ogledziny')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-ogledziny', 'results-ogledziny')">Reset</button>
+            </div>
+            <div class="results" id="results-ogledziny">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Dach, południe, podwórko</li>
+                    <li>Licznik energii (180 i 280), falownik, rozdzielnia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-administracja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Administracja - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz kroki administracji spotkania. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-administracja-spotkanie" placeholder="Krok...">
+                <button class="add-button" onclick="addItem('exercise-list-administracja-spotkanie')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-administracja-spotkanie"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-administracja-spotkanie">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-administracja-spotkanie', 'results-administracja-spotkanie')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-administracja-spotkanie', 'results-administracja-spotkanie')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-administracja-spotkanie', 'results-administracja-spotkanie')">Reset</button>
+            </div>
+            <div class="results" id="results-administracja-spotkanie">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Wybieram miejsce i ustawiam krzesło</li>
+                    <li>Informuję ile potrwa spotkanie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-pytania" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Matryca pytań - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pytania wstępne do matrycy. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-pytania" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-pytania')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-pytania"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-pytania">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-pytania', 'results-pytania')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-pytania', 'results-pytania')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-pytania', 'results-pytania')">Reset</button>
+            </div>
+            <div class="results" id="results-pytania">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Dlaczego zdecydowaliście się na spotkanie?</li>
+                    <li>Czego oczekujecie ode mnie?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-potrzeby" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Badanie potrzeb - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pytania o potrzeby i opłacalność. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-potrzeby" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-potrzeby')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-potrzeby"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-potrzeby">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-potrzeby', 'results-potrzeby')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-potrzeby', 'results-potrzeby')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-potrzeby', 'results-potrzeby')">Reset</button>
+            </div>
+            <div class="results" id="results-potrzeby">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Jak u państwa wygląda sytuacja teraz?</li>
+                    <li>Czy myśleli o zabezpieczeniu przed wzrostami cen?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-spotkanie-prezentacja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Prezentacja - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz elementy prezentacji dla różnych osobowości. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-prezentacja-spotkanie" placeholder="Element...">
+                <button class="add-button" onclick="addItem('exercise-list-prezentacja-spotkanie')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-prezentacja-spotkanie"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-prezentacja-spotkanie">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-prezentacja-spotkanie', 'results-prezentacja-spotkanie')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-prezentacja-spotkanie', 'results-prezentacja-spotkanie')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-prezentacja-spotkanie', 'results-prezentacja-spotkanie')">Reset</button>
+            </div>
+            <div class="results" id="results-prezentacja-spotkanie">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>4 typy osobowości – 4 typy prezentowania</li>
+                    <li>Analiza opłacalności</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-obiekcje-metoda" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Metoda 4U - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz kroki metody 4U dla danej obiekcji. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-metoda" placeholder="Krok...">
+                <button class="add-button" onclick="addItem('exercise-list-metoda')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-metoda"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-metoda">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-metoda', 'results-metoda')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-metoda', 'results-metoda')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-metoda', 'results-metoda')">Reset</button>
+            </div>
+            <div class="results" id="results-metoda">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Uszanuj – Okaż szacunek</li>
+                    <li>U Szczegółów – Dowiedz się więcej</li>
+                    <li>Uzupełnij informację – Wyjaśnij</li>
+                    <li>Uzyskaj akceptację – Potwierdź</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-obiekcje-lista" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Lista obiekcji - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz jak najwięcej obiekcji. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-lista" placeholder="Obiekcja...">
+                <button class="add-button" onclick="addItem('exercise-list-lista')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-lista"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-lista">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-lista', 'results-lista')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-lista', 'results-lista')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-lista', 'results-lista')">Reset</button>
+            </div>
+            <div class="results" id="results-lista">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>drogo</li>
+                    <li>nie działa</li>
+                    <li>muszę się zastanowić</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-obiekcje-probnazamkniecie" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Próbne zamknięcie - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz pytania próbnego zamknięcia. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-probnazamkniecie" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-probnazamkniecie')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-probnazamkniecie"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-probnazamkniecie">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-probnazamkniecie', 'results-probnazamkniecie')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-probnazamkniecie', 'results-probnazamkniecie')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-probnazamkniecie', 'results-probnazamkniecie')">Reset</button>
+            </div>
+            <div class="results" id="results-probnazamkniecie">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Bierze Pan z magazynem 5kW czy 10kW?</li>
+                    <li>Wybór jest po stronie klienta</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-osobowosci-czerwony" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Czerwony - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz cechy i pytania dla osobowości czerwonej. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-czerwony" placeholder="Cechy/Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-czerwony')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-czerwony"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-czerwony">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-czerwony', 'results-czerwony')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-czerwony', 'results-czerwony')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-czerwony', 'results-czerwony')">Reset</button>
+            </div>
+            <div class="results" id="results-czerwony">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Energiczny, zorientowany na wyniki</li>
+                    <li>Pytanie: Jak szybko możemy osiągnąć cel?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-osobowosci-niebieski" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Niebieski - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz cechy i pytania dla osobowości niebieskiej. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-niebieski" placeholder="Cechy/Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-niebieski')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-niebieski"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-niebieski">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-niebieski', 'results-niebieski')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-niebieski', 'results-niebieski')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-niebieski', 'results-niebieski')">Reset</button>
+            </div>
+            <div class="results" id="results-niebieski">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Analityczny, potrzebuje danych</li>
+                    <li>Pytanie: Jakie dane popierają to rozwiązanie?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-osobowosci-zielony" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Zielony - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz cechy i pytania dla osobowości zielonej. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-zielony" placeholder="Cechy/Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-zielony')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-zielony"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-zielony">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-zielony', 'results-zielony')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-zielony', 'results-zielony')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-zielony', 'results-zielony')">Reset</button>
+            </div>
+            <div class="results" id="results-zielony">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Stabilny, potrzebuje pewności</li>
+                    <li>Pytanie: Jak to zapewni mi stabilność?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-osobowosci-zolty" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Żółty - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz cechy i pytania dla osobowości żółtej. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-zolty" placeholder="Cechy/Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-zolty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-zolty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-zolty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-zolty', 'results-zolty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-zolty', 'results-zolty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-zolty', 'results-zolty')">Reset</button>
+            </div>
+            <div class="results" id="results-zolty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Ekspresyjny, towarzyski</li>
+                    <li>Pytanie: Jak to wzbogaci moje życie?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-prospecting" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Prospecting - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz techniki prospectingu. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-prospecting-warsztaty" placeholder="Technika...">
+                <button class="add-button" onclick="addItem('exercise-list-prospecting-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-prospecting-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-prospecting-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-prospecting-warsztaty', 'results-prospecting-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-prospecting-warsztaty', 'results-prospecting-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-prospecting-warsztaty', 'results-prospecting-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-prospecting-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>"Jak długo powinieneś próbować? Do skutku."</li>
+                    <li>Prospecting i umawianie spotkań</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-potrzeby" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Badanie potrzeb - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz jak najwięcej pytań do badania potrzeb. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-potrzeby-warsztaty" placeholder="Pytanie...">
+                <button class="add-button" onclick="addItem('exercise-list-potrzeby-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-potrzeby-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-potrzeby-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-potrzeby-warsztaty', 'results-potrzeby-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-potrzeby-warsztaty', 'results-potrzeby-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-potrzeby-warsztaty', 'results-potrzeby-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-potrzeby-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>"Prawdziwa sprzedaż zaczyna się od słuchania, nie od mówienia."</li>
+                    <li>Pytania w konstrukcji czasowej</li>
+                    <li>Zasada Pareto 80/20</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-prezentacja" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Prezentacja - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz elementy języka korzyści, strat, storytellingu i straight line. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-prezentacja-warsztaty" placeholder="Element...">
+                <button class="add-button" onclick="addItem('exercise-list-prezentacja-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-prezentacja-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-prezentacja-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-prezentacja-warsztaty', 'results-prezentacja-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-prezentacja-warsztaty', 'results-prezentacja-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-prezentacja-warsztaty', 'results-prezentacja-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-prezentacja-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>Język korzyści</li>
+                    <li>Język strat</li>
+                    <li>Storytelling</li>
+                    <li>Straight Line</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-obiekcje" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Obiekcje - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz odpowiedzi na najczęstsze obiekcje. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-obiekcje-warsztaty" placeholder="Odpowiedź...">
+                <button class="add-button" onclick="addItem('exercise-list-obiekcje-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-obiekcje-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-obiekcje-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-obiekcje-warsztaty', 'results-obiekcje-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-obiekcje-warsztaty', 'results-obiekcje-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-obiekcje-warsztaty', 'results-obiekcje-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-obiekcje-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>„Przygotuj odpowiedzi na najczęstsze obiekcje zanim się pojawią; praktyka eliminuje nerwowość.” — Eric Worre</li>
+                    <li>drogo, pali się, utylizacja, nie działa</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-zamykanie" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Zamykanie sprzedaży - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz techniki zamykania sprzedaży. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-zamykanie-warsztaty" placeholder="Technika...">
+                <button class="add-button" onclick="addItem('exercise-list-zamykanie-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-zamykanie-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-zamykanie-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-zamykanie-warsztaty', 'results-zamykanie-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-zamykanie-warsztaty', 'results-zamykanie-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-zamykanie-warsztaty', 'results-zamykanie-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-zamykanie-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>„Zamknięcie to nie sztuczka, to naturalny efekt dobrej rozmowy.”</li>
+                    <li>Zależ panu na przyspieszonej realizacji?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="exercise-warsztaty-podsumowanie" class="exercise-page">
+            <div class="exercise-header">
+                <div class="exercise-title">Podsumowanie - Ćwiczenie</div>
+                <div class="exercise-instruction">Wypisz kluczowe wnioski z warsztatów. Masz 5 minut. Dodawaj do listy poniżej.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="exercise-input" id="item-input-podsumowanie-warsztaty" placeholder="Wniosek...">
+                <button class="add-button" onclick="addItem('exercise-list-podsumowanie-warsztaty')">Dodaj</button>
+            </div>
+            <ul class="exercise-list" id="exercise-list-podsumowanie-warsztaty"></ul>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-podsumowanie-warsztaty">05:00</div>
+                <button class="timer-button start-button" onclick="startTimer(5, 'timer-podsumowanie-warsztaty', 'results-podsumowanie-warsztaty')">Start</button>
+                <button class="timer-button stop-button" onclick="stopTimer('timer-podsumowanie-warsztaty', 'results-podsumowanie-warsztaty')">Stop</button>
+                <button class="timer-button reset-button" onclick="resetTimer('timer-podsumowanie-warsztaty', 'results-podsumowanie-warsztaty')">Reset</button>
+            </div>
+            <div class="results" id="results-podsumowanie-warsztaty">
+                <h3>Podpowiedzi z prezentacji</h3>
+                <ul>
+                    <li>„Jeżeli chcesz zmienić wynik, zmień swoje działania.” — Jim Rohn</li>
+                    <li>„Nie życz sobie, aby było łatwiej, życz sobie, abyś był lepszy.” Jim Rohn</li>
+                </ul>
+            </div>
+        </div>
 
     </div>
 
     <script>
+        let timers = {};
         let currentPageStack = ['main-menu'];
 
         function showSubmenu(submenuId) {
             showPage(`submenu-${submenuId}`);
         }
 
+        function showExercise(exerciseId) {
+            showPage(`exercise-${exerciseId}`);
+        }
+
         function showPage(pageId) {
-            document.querySelectorAll('.content-page').forEach(page => {
+            document.querySelectorAll('.content-page, .exercise-page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            const pageElement = document.getElementById(pageId);
-            if (pageElement) {
-                pageElement.classList.add('active');
-                currentPageStack.push(pageId);
-                
-                document.querySelector('.back-button').classList.add('active');
-            } else {
-                console.error(`Page with ID ${pageId} not found.`);
-            }
+            document.getElementById(pageId).classList.add('active');
+            
+            currentPageStack.push(pageId);
+            
+            document.querySelector('.back-button').classList.add('active');
         }
 
         function goBack() {
             if (currentPageStack.length > 1) {
                 currentPageStack.pop();
                 const previousPage = currentPageStack[currentPageStack.length - 1];
-                document.querySelectorAll('.content-page').forEach(page => {
+                document.querySelectorAll('.content-page, .exercise-page').forEach(page => {
                     page.classList.remove('active');
                 });
                 document.getElementById(previousPage).classList.add('active');
@@ -770,37 +1619,84 @@
             }
         }
 
-        // Quiz Functions...
-        // Keep the quiz script as is
+        function addItem(listId) {
+            const inputId = 'item-input-' + listId.split('-')[1]; 
+            const input = document.getElementById(inputId) || document.getElementById('item-input-' + listId.split('-')[2] || 'item-input-' + listId.split('-')[0]);
+            if (input.value.trim() !== '') {
+                const li = document.createElement('li');
+                li.textContent = input.value;
+                const remove = document.createElement('span');
+                remove.classList.add('remove-item');
+                remove.textContent = '×';
+                remove.onclick = function() { this.parentElement.remove(); };
+                li.appendChild(remove);
+                document.getElementById(listId).appendChild(li);
+                input.value = '';
+            }
+        }
 
-        // Accordion script
-        var acc = document.getElementsByClassName("accordion");
-        var i;
+        function startTimer(minutes, timerId, resultId) {
+            if (timers[timerId]) return; // Nie startuj, jeśli już działa
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
+            let seconds = minutes * 60;
+            const display = document.getElementById(timerId);
+            const stopButton = display.parentElement.querySelector('.stop-button');
+            const startButton = display.parentElement.querySelector('.start-button');
+            const resetButton = display.parentElement.querySelector('.reset-button');
+            
+            stopButton.style.display = 'inline-block';
+            resetButton.style.display = 'inline-block';
+            startButton.style.display = 'none';
+            
+            timers[timerId] = setInterval(() => {
+                if (seconds <= 0) {
+                    clearInterval(timers[timerId]);
+                    timers[timerId] = null;
+                    display.textContent = '00:00';
+                    showResult(resultId);
+                    startButton.style.display = 'inline-block';
+                    stopButton.style.display = 'none';
+                    return;
                 }
-            });
+                
+                const min = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const sec = (seconds % 60).toString().padStart(2, '0');
+                display.textContent = `${min}:${sec}`;
+                seconds--;
+            }, 1000);
         }
 
-        // Modal functions...
-        function openModal(component) {
-            document.getElementById(component + 'Modal').style.display = 'flex';
+        function stopTimer(timerId, resultId) {
+            clearInterval(timers[timerId]);
+            timers[timerId] = null;
+            const display = document.getElementById(timerId);
+            display.textContent = '00:00';
+            showResult(resultId);
+            const stopButton = display.parentElement.querySelector('.stop-button');
+            const startButton = display.parentElement.querySelector('.start-button');
+            stopButton.style.display = 'none';
+            startButton.style.display = 'inline-block';
         }
 
-        function closeModal(component) {
-            document.getElementById(component + 'Modal').style.display = 'none';
+        function resetTimer(timerId, resultId) {
+            clearInterval(timers[timerId]);
+            timers[timerId] = null;
+            const display = document.getElementById(timerId);
+            display.textContent = '05:00';
+            const stopButton = display.parentElement.querySelector('.stop-button');
+            const startButton = display.parentElement.querySelector('.start-button');
+            const resultElement = document.getElementById(resultId);
+            stopButton.style.display = 'none';
+            startButton.style.display = 'inline-block';
+            if (resultElement) {
+                resultElement.classList.remove('active');
+            }
         }
 
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
+        function showResult(resultId) {
+            const element = document.getElementById(resultId);
+            if (element) {
+                element.classList.add('active');
             }
         }
 
