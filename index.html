@@ -272,6 +272,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .realization-img:hover {
@@ -406,6 +407,64 @@
             cursor: pointer;
         }
 
+        /* Lightbox Modal for Images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #4ade80;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            padding: 10px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 5px;
+        }
+
         /* Notification */
         .notification {
             display: none;
@@ -515,10 +574,21 @@
     <!-- Back Button -->
     <a href="#" class="back-button" onclick="goBack()">← Wstecz</a>
     <div class="notification" id="notification"></div>
+    
+    <!-- Regular Modal -->
     <div class="modal" id="myModal">
         <div class="modal-content" id="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal for Images -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
         </div>
     </div>
 
@@ -619,12 +689,12 @@
             <div class="slide-content">
                 <p>Współpracujemy z tysiącami klientów, realizując instalacje w domach, firmach i na gruntach. Oto przykłady naszych projektów.</p>
                 <div class="realizations-grid">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230126_105346_764_1674727001791_photo_optimized_0.jpg" alt="Realizacja 1" class="realization-img">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/RemoteMediaFile_6554001_0_2022_05_04_16_57_24_0.JPG" alt="Realizacja 2" class="realization-img">
-                    <img src="https://media.datacenterdynamics.com/media/images/Orange_Poland_Lodz.original.jpg" alt="Realizacja 3" class="realization-img">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230525_163450_853_1685025424828_photo_optimized_0.jpg" alt="Realizacja 4" class="realization-img">
-                    <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1007%2Fs10098-022-02403-0/MediaObjects/10098_2022_2403_Fig6_HTML.jpg" alt="Realizacja 5" class="realization-img">
-                    <img src="https://www.pv-magazine.com/wp-content/uploads/2021/11/Mibets-Floating-PV-in-Poland-01.jpg" alt="Realizacja 6" class="realization-img">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230126_105346_764_1674727001791_photo_optimized_0.jpg" alt="Instalacja fotowoltaiczna na dachu domu jednorodzinnego" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/RemoteMediaFile_6554001_0_2022_05_04_16_57_24_0.JPG" alt="Duża instalacja przemysłowa na hali produkcyjnej" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://media.datacenterdynamics.com/media/images/Orange_Poland_Lodz.original.jpg" alt="Instalacja na budynku komercyjnym Orange Polska" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230525_163450_853_1685025424828_photo_optimized_0.jpg" alt="Farma fotowoltaiczna na gruncie rolnym" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1007%2Fs10098-022-02403-0/MediaObjects/10098_2022_2403_Fig6_HTML.jpg" alt="Nowoczesna instalacja agrowoltaiczna" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://www.pv-magazine.com/wp-content/uploads/2021/11/Mibets-Floating-PV-in-Poland-01.jpg" alt="Pływająca elektrownia fotowoltaiczna na zbiorniku wodnym" class="realization-img" onclick="openLightbox(this)">
                 </div>
             </div>
         </div>
@@ -1032,7 +1102,7 @@
             }
         }
 
-        // Modal
+        // Regular Modal
         function showModal(title, htmlContent) {
             document.getElementById('modal-body').innerHTML = `<h2 style='color:#22c55e;'>${title}</h2>` + htmlContent;
             document.getElementById('myModal').style.display = 'flex';
@@ -1040,9 +1110,42 @@
         function closeModal() {
             document.getElementById('myModal').style.display = 'none';
         }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) closeModal();
+
+        // Lightbox for Images
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImage.src = imgElement.src;
+            lightboxCaption.textContent = imgElement.alt;
+            lightbox.style.display = 'flex';
         }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            const lightbox = document.getElementById('lightbox');
+            
+            if (event.target == modal) {
+                closeModal();
+            }
+            if (event.target == lightbox) {
+                closeLightbox();
+            }
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+                closeModal();
+            }
+        });
 
         // Notification
         function showNotification(msg) {
