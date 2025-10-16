@@ -219,16 +219,24 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Slide Content */
+        /* Slide Content - INCREASED FONT SIZES */
         .slide-content {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .slide-content p {
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
             color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em; /* Increased from 1em to 1.3em */
+        }
+
+        .slide-content h3 {
+            font-size: 1.8em; /* Increased from 1.5em to 1.8em */
+            color: #4ade80;
+            margin-bottom: 20px;
+            margin-top: 30px;
         }
 
         .slide-content ul {
@@ -237,10 +245,11 @@
         }
 
         .slide-content li {
-            margin-bottom: 12px;
-            font-size: 1.1em;
+            margin-bottom: 18px; /* Increased from 12px to 18px */
+            font-size: 1.25em; /* Increased from 1.1em to 1.25em */
             position: relative;
-            padding-left: 25px;
+            padding-left: 30px; /* Increased from 25px to 30px */
+            line-height: 1.7; /* Added line-height for better readability */
         }
 
         .slide-content li::before {
@@ -248,6 +257,7 @@
             position: absolute;
             left: 0;
             color: #4ade80;
+            font-size: 1.1em;
         }
 
         .realizations-grid {
@@ -282,6 +292,7 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.3s;
+            font-size: 1.2em; /* Increased font size */
         }
 
         .interactive-item:hover {
@@ -292,6 +303,8 @@
             color: #ef4444;
             font-weight: bold;
             margin: 20px 0;
+            font-size: 1.3em; /* Increased font size */
+            line-height: 1.7; /* Added line-height */
         }
 
         .chart {
@@ -317,6 +330,7 @@
             z-index: 1000;
             text-decoration: none;
             display: none;
+            font-size: 1.1em; /* Increased font size */
         }
 
         .back-button:hover {
@@ -336,6 +350,8 @@
             }
             .logo { font-size: 2em; }
             .page-title { font-size: 2em; }
+            .slide-content p { font-size: 1.2em; } /* Responsive font size */
+            .slide-content li { font-size: 1.15em; } /* Responsive font size */
         }
 
         /* Modal Styles */
@@ -370,6 +386,12 @@
             border-radius: 8px;
         }
 
+        .modal-content p {
+            font-size: 1.2em; /* Increased modal text size */
+            color: #333;
+            line-height: 1.6;
+        }
+
         .close {
             color: #aaa;
             float: right;
@@ -393,8 +415,9 @@
             transform: translateX(-50%);
             background: #22c55e;
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 25px; /* Increased padding */
             border-radius: 8px;
+            font-size: 1.1em; /* Increased font size */
         }
 
         /* Quiz Styles */
@@ -405,20 +428,23 @@
         }
 
         .quiz-question {
-            font-size: 1.5em;
+            font-size: 1.7em; /* Increased from 1.5em to 1.7em */
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .quiz-answers button {
             display: block;
             width: 100%;
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 15px; /* Increased padding */
             background: rgba(74,222,128,0.2);
             border: 1px solid #4ade80;
             color: #fff;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 1.2em; /* Increased font size */
+            line-height: 1.5;
         }
 
         .quiz-answers button:hover {
@@ -428,7 +454,13 @@
 
         .quiz-score {
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1.4em; /* Increased from 1.2em to 1.4em */
+        }
+
+        .quiz-result {
+            font-size: 1.5em; /* Added for quiz result */
+            text-align: center;
+            line-height: 1.6;
         }
 
         /* Stats Grid */
@@ -447,20 +479,20 @@
         }
 
         .stat-number {
-            font-size: 2em;
+            font-size: 2.2em; /* Increased from 2em to 2.2em */
             color: #4ade80;
             font-weight: bold;
         }
 
         .stat-label {
-            font-size: 1em;
+            font-size: 1.1em; /* Increased from 1em to 1.1em */
             color: rgba(255,255,255,0.8);
         }
 
         /* FAQ Box */
         .faq-box {
             background: rgba(255,255,255,0.05);
-            padding: 20px;
+            padding: 25px; /* Increased padding */
             border-radius: 15px;
             margin-bottom: 20px;
         }
@@ -468,11 +500,14 @@
         .faq-question {
             color: #4ade80;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px; /* Increased margin */
+            font-size: 1.3em; /* Increased font size */
         }
 
         .faq-answer {
             color: rgba(255,255,255,0.9);
+            font-size: 1.2em; /* Increased font size */
+            line-height: 1.7; /* Added line-height */
         }
     </style>
 </head>
@@ -648,7 +683,7 @@
                 <div class="page-title">Teraźniejszość OZE</div>
             </div>
             <div class="slide-content">
-                <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. Równolegle rozwijane są systemy magazynowania prądu, które stabilizują sieć, oraz inteligentne rozwiązania sieciowe umożliwiające automatyczne zarządzanie podażą i popytem. W Polsce szczególną rolę odegrały programy „Mój Prąd” i „Czyste Powietrze”, dzięki którym tysiące gospodarstw domowych zamieniło się w prosumentów. Integracja z elektromobilnością i cyfrowymi platformami sterowania sprawia, że OZE stają się nieodłącznym elementem strategii energetycznej, budując niezależność, efektywność i odporność całego systemu.</p>
+                <p>W XXI wieku fotowoltaika, farmy wiatrowe i biogazownie przestały być ciekawostką, wchodząc do głównego nurtu produkcji energii. Równolegle rozwijane są systemy magazynowania prądu, które stabilizują sieć, oraz inteligentne rozwiązania sieciowe umożliwiające automatyczne zarządzanie podażą i popytem. W Polsce szczególną rolę odegrały programy „Mój Prąd" i „Czyste Powietrze", dzięki którym tysiące gospodarstw domowych zamieniło się w prosumentów. Integracja z elektromobilnością i cyfrowymi platformami sterowania sprawia, że OZE stają się nieodłącznym elementem strategii energetycznej, budując niezależność, efektywność i odporność całego systemu.</p>
             </div>
         </div>
 
@@ -720,15 +755,15 @@
                 <div class="page-title">Skład Rachunku</div>
             </div>
             <div class="slide-content">
-                <p class="anger-section">Twój rachunek za prąd to nie tylko energia. To cała lista dopłat, podatków i „opłat specjalnych”, które sprawiają, że płacisz coraz więcej – nawet jeśli nic nie zmieniasz w swoim domu.</p>
+                <p class="anger-section">Twój rachunek za prąd to nie tylko energia. To cała lista dopłat, podatków i „opłat specjalnych", które sprawiają, że płacisz coraz więcej – nawet jeśli nic nie zmieniasz w swoim domu.</p>
                 <ul>
                     <li>Energię czynną – to, co faktycznie zużywasz.</li>
                     <li>Dystrybucję i składki sieciowe – czyli opłatę za sam fakt, że prąd w ogóle do Ciebie dociera.</li>
                     <li>Abonament, opłatę przejściową, jakościową – dopłaty, których nazw nie rozumiesz, ale musisz je płacić.</li>
                     <li>Opłaty dodatkowe – OZE, kogeneracyjna i od lipca 2025 r. z powrotem opłata mocowa.</li>
-                    <li>Podatki – VAT i akcyza, bo nawet państwo musi „zarobić” na Twoim rachunku.</li>
+                    <li>Podatki – VAT i akcyza, bo nawet państwo musi „zarobić" na Twoim rachunku.</li>
                 </ul>
-                <p>Efekt? Rachunek, który wygląda jak kara za to, że w ogóle masz prąd w domu. A to nie koniec. Dochodzą jeszcze „ochronne” regulacje: zamrożenia cen, limity zużycia, „cena maksymalna” (tylko do września 2025). Brzmi jak ochrona? W praktyce to tylko iluzja – i tak płacisz coraz więcej.</p>
+                <p>Efekt? Rachunek, który wygląda jak kara za to, że w ogóle masz prąd w domu. A to nie koniec. Dochodzą jeszcze „ochronne" regulacje: zamrożenia cen, limity zużycia, „cena maksymalna" (tylko do września 2025). Brzmi jak ochrona? W praktyce to tylko iluzja – i tak płacisz coraz więcej.</p>
                 <img src="https://via.placeholder.com/500x300?text=Struktura+rachunku" alt="Struktura rachunku" class="chart">
             </div>
         </div>
@@ -844,9 +879,9 @@
             </div>
             <div class="slide-content">
                 <h3>Autokonsumpcja – czyli prąd bez pośredników</h3>
-                <p>Wyobraź sobie, że Twoje panele działają jak mini-elektrownia na dachu. Gdy produkują energię, w pierwszej kolejności trafia ona prosto do Twoich urządzeń: lodówki, pralki, klimatyzacji czy komputera. Nie przechodzi przez żadne biurokratyczne „rurki”, nie idzie najpierw do operatora – korzystasz z niej od razu. I tu jest cała magia. Każdy kilowat zużyty na miejscu to czysta oszczędność – bez opłat za przesył, bez czekania na rozliczenie. Twój dach staje się źródłem darmowej energii, a sieć działa tylko jako wsparcie, gdy naprawdę jej potrzebujesz.</p>
+                <p>Wyobraź sobie, że Twoje panele działają jak mini-elektrownia na dachu. Gdy produkują energię, w pierwszej kolejności trafia ona prosto do Twoich urządzeń: lodówki, pralki, klimatyzacji czy komputera. Nie przechodzi przez żadne biurokratyczne „rurki", nie idzie najpierw do operatora – korzystasz z niej od razu. I tu jest cała magia. Każdy kilowat zużyty na miejscu to czysta oszczędność – bez opłat za przesył, bez czekania na rozliczenie. Twój dach staje się źródłem darmowej energii, a sieć działa tylko jako wsparcie, gdy naprawdę jej potrzebujesz.</p>
                 <h3>Jak zatrzymać więcej własnej energii?</h3>
-                <p>Najprostszy sposób to korzystać z prądu wtedy, kiedy słońce daje go najwięcej. Zmywarka o 13:00 zamiast o 22:00, pralka w południe, piekarnik i pompa ciepła w godzinach największej produkcji — to wszystko sprawia, że więcej energii zostaje u Ciebie w domu, zamiast płynąć do sieci. Można pójść krok dalej i wykorzystać inteligentne gniazdka czy programatory, które same uruchomią urządzenia w najlepszym momencie. A jeśli naprawdę chcesz mieć pełną kontrolę i przestać „oddawać” energię za darmo — rozwiązaniem jest magazyn energii. To on zbiera nadwyżki i oddaje je wieczorem, w nocy czy przy awarii. Dzięki temu Twoja instalacja działa nie tylko wtedy, gdy świeci słońce, ale wtedy, gdy Ty faktycznie potrzebujesz prądu. To nie jest już tylko oszczędność. To niezależność i poczucie, że Twoja energia zostaje tam, gdzie powinna — w Twoim domu.</p>
+                <p>Najprostszy sposób to korzystać z prądu wtedy, kiedy słońce daje go najwięcej. Zmywarka o 13:00 zamiast o 22:00, pralka w południe, piekarnik i pompa ciepła w godzinach największej produkcji — to wszystko sprawia, że więcej energii zostaje u Ciebie w domu, zamiast płynąć do sieci. Można pójść krok dalej i wykorzystać inteligentne gniazdka czy programatory, które same uruchomią urządzenia w najlepszym momencie. A jeśli naprawdę chcesz mieć pełną kontrolę i przestać „oddawać" energię za darmo — rozwiązaniem jest magazyn energii. To on zbiera nadwyżki i oddaje je wieczorem, w nocy czy przy awarii. Dzięki temu Twoja instalacja działa nie tylko wtedy, gdy świeci słońce, ale wtedy, gdy Ty faktycznie potrzebujesz prądu. To nie jest już tylko oszczędność. To niezależność i poczucie, że Twoja energia zostaje tam, gdzie powinna — w Twoim domu.</p>
                 <h3>Magazyn energii – zatrzymaj własny prąd zamiast go oddawać</h3>
                 <p>Magazyn energii to urządzenie, które sprawia, że prąd wyprodukowany przez Twoją instalację naprawdę zostaje u Ciebie. Gdy panele pracują pełną mocą i produkują więcej niż potrzebujesz, nadwyżka nie wędruje do sieci – tylko ładuje magazyn. A później, kiedy słońce znika albo zapotrzebowanie rośnie, energia wraca dokładnie tam, gdzie jest potrzebna. Wieczorem, w nocy, w czasie szczytu, a nawet przy awarii sieci – masz własne źródło zasilania. To technologia, która zwiększa autokonsumpcję, poprawia bilans finansowy i daje niezależność, o której większość użytkowników sieci może tylko pomarzyć.</p>
                 <h3>Inteligentne systemy zarządzania energią – Sinum Power i ENIGA</h3>
