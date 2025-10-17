@@ -271,12 +271,13 @@
             height: auto;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
 
         .realization-img:hover {
             transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(74, 222, 128, 0.3);
         }
 
         .interactive-section {
@@ -344,6 +345,96 @@
             display: block;
         }
 
+        /* Calculator Styles */
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.2);
+        }
+
+        .calculator-container h3 {
+            text-align: center;
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .calculator-container label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #86efac;
+            font-size: 1.1em;
+        }
+
+        .calculator-container input, 
+        .calculator-container select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .calculator-container input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .calculator-container button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+        }
+
+        .calc-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid #4ade80;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .extra-calc {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: none;
+        }
+
+        .extra-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid #ffc107;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .main-menu, .submenu {
@@ -353,65 +444,17 @@
             .page-title { font-size: 2em; }
             .slide-content p { font-size: 1.2em; } /* Responsive font size */
             .slide-content li { font-size: 1.15em; } /* Responsive font size */
+            .calculator-container {
+                padding: 15px;
+                margin: 10px;
+            }
         }
 
-        /* Modal Styles */
+        /* Modal Styles - Enhanced for Gallery */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .modal-content p {
-            font-size: 1.2em; /* Increased modal text size */
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Lightbox Modal for Images */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
@@ -422,47 +465,87 @@
             align-items: center;
         }
 
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
+        .modal-content {
+            background: linear-gradient(135deg, #334155 0%, #64748b 100%);
             margin: auto;
-            display: block;
-        }
-
-        .lightbox-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .lightbox-close:hover {
-            color: #4ade80;
-        }
-
-        .lightbox-caption {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            right: 0;
-            color: #fff;
+            padding: 30px;
+            border: 2px solid #4ade80;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 20px;
             text-align: center;
-            font-size: 1.2em;
-            padding: 10px;
-            background: rgba(0,0,0,0.7);
-            border-radius: 5px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            color: #fff;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
+            margin: 20px 0;
+        }
+
+        .modal-content p {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .modal-content h2 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        /* Gallery Modal Specific Styles */
+        .gallery-modal .modal-content {
+            background: linear-gradient(135deg, #334155 0%, #64748b 100%);
+            border: 2px solid #4ade80;
+            color: #fff;
+        }
+
+        .gallery-modal .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
+        }
+
+        .gallery-modal .modal-content h2 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .gallery-modal .modal-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em;
+            margin-top: 15px;
+        }
+
+        .close {
+            color: #4ade80;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #22c55e;
+            text-decoration: none;
+            transform: scale(1.1);
         }
 
         /* Notification */
@@ -583,12 +666,11 @@
         </div>
     </div>
 
-    <!-- Lightbox Modal for Images -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-            <img class="lightbox-image" id="lightbox-image" src="" alt="">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+    <!-- Gallery Modal -->
+    <div class="modal gallery-modal" id="galleryModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGalleryModal()">&times;</span>
+            <div id="gallery-modal-body"></div>
         </div>
     </div>
 
@@ -622,6 +704,62 @@
                 <div class="menu-card" onclick="showSubmenu('korzysci')">
                     <div class="menu-title">Korzyści i Dodatki</div>
                     <div class="menu-description">Zyski, technologie, dotacje, FAQ i quiz</div>
+                </div>
+                <div class="menu-card" onclick="showPage('kalkulator')">
+                    <div class="menu-title">Kalkulator PV</div>
+                    <div class="menu-description">Oblicz swoją instalację i oszczędności</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Page -->
+        <div id="kalkulator" class="content-page">
+            <div class="page-header">
+                <div class="page-title">Kalkulator Instalacji PV</div>
+                <div class="page-subtitle">Oblicz swoją instalację fotowoltaiczną i zobacz oszczędności!</div>
+            </div>
+            <div class="calculator-container">
+                <label>Roczne zużycie energii [kWh]</label>
+                <input type="number" id="zuzycie" placeholder="np. 4000">
+
+                <label>Wybór paneli [Wp]</label>
+                <select id="panel">
+                    <option value="450">450 (dla instalacji jednofazowych do 3,68 kWp)</option>
+                    <option value="480">480 (dla instalacji powyżej 3,68 kWp)</option>
+                </select>
+
+                <label>Orientacja dachu</label>
+                <select id="orientacja">
+                    <option value="0.95">Południe</option>
+                    <option value="0.9">Wschód-Zachód</option>
+                </select>
+
+                <label>Tryb magazynu energii</label>
+                <select id="trybMagazynu">
+                    <option value="export">On-grid (autokonsumpcja)</option>
+                    <option value="no-export">Off-grid</option>
+                </select>
+
+                <button onclick="oblicz()">OBLICZ INSTALACJĘ</button>
+
+                <div class="calc-result" id="wynik" style="display: none;"></div>
+
+                <div class="extra-calc" id="extra-calc">
+                    <h3 style="color: #4ade80; text-align: center; margin-bottom: 20px;">Oblicz okres zwrotu inwestycji</h3>
+                    <label>Obecna cena prądu [zł/kWh]</label>
+                    <input type="number" id="cenaPradu" placeholder="np. 0.85" step="0.01" min="0">
+
+                    <label>Cena instalacji [zł]</label>
+                    <input type="number" id="cenaInstalacji" placeholder="np. 35000" min="0">
+
+                    <label>Tryb kalkulacji zwrotu</label>
+                    <select id="trybKalkulacji">
+                        <option value="standardowa">Standardowa (stała cena prądu)</option>
+                        <option value="optymistyczna">Realistyczna (5% wzrostu ceny prądu rocznie)</option>
+                    </select>
+
+                    <button onclick="obliczZwrot()">Oblicz zwrot inwestycji</button>
+                    <div class="extra-result" id="extra-result"></div>
                 </div>
             </div>
         </div>
@@ -689,12 +827,12 @@
             <div class="slide-content">
                 <p>Współpracujemy z tysiącami klientów, realizując instalacje w domach, firmach i na gruntach. Oto przykłady naszych projektów.</p>
                 <div class="realizations-grid">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230126_105346_764_1674727001791_photo_optimized_0.jpg" alt="Instalacja fotowoltaiczna na dachu domu jednorodzinnego" class="realization-img" onclick="openLightbox(this)">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/RemoteMediaFile_6554001_0_2022_05_04_16_57_24_0.JPG" alt="Duża instalacja przemysłowa na hali produkcyjnej" class="realization-img" onclick="openLightbox(this)">
-                    <img src="https://media.datacenterdynamics.com/media/images/Orange_Poland_Lodz.original.jpg" alt="Instalacja na budynku komercyjnym Orange Polska" class="realization-img" onclick="openLightbox(this)">
-                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230525_163450_853_1685025424828_photo_optimized_0.jpg" alt="Farma fotowoltaiczna na gruncie rolnym" class="realization-img" onclick="openLightbox(this)">
-                    <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1007%2Fs10098-022-02403-0/MediaObjects/10098_2022_2403_Fig6_HTML.jpg" alt="Nowoczesna instalacja agrowoltaiczna" class="realization-img" onclick="openLightbox(this)">
-                    <img src="https://www.pv-magazine.com/wp-content/uploads/2021/11/Mibets-Floating-PV-in-Poland-01.jpg" alt="Pływająca elektrownia fotowoltaiczna na zbiorniku wodnym" class="realization-img" onclick="openLightbox(this)">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230126_105346_764_1674727001791_photo_optimized_0.jpg" alt="Realizacja 1" class="realization-img" onclick="openGallery(this, 'Instalacja fotowoltaiczna na dachu domu jednorodzinnego', 'Nowoczesna instalacja PV o mocy 10 kWp z panelami monokrystalicznymi.')">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/RemoteMediaFile_6554001_0_2022_05_04_16_57_24_0.JPG" alt="Realizacja 2" class="realization-img" onclick="openGallery(this, 'Farma fotowoltaiczna na gruncie', 'Duża instalacja gruntowa o mocy 500 kWp dla przedsiębiorstwa.')">
+                    <img src="https://media.datacenterdynamics.com/media/images/Orange_Poland_Lodz.original.jpg" alt="Realizacja 3" class="realization-img" onclick="openGallery(this, 'Instalacja przemysłowa Orange Polska', 'Kompleksowy system PV dla centrum danych w Łodzi.')">
+                    <img src="https://een.ec.europa.eu/apiws/documents/sites/apiws.documents/files/2024-02/dji_fly_20230525_163450_853_1685025424828_photo_optimized_0.jpg" alt="Realizacja 4" class="realization-img" onclick="openGallery(this, 'Instalacja na dachu przemysłowym', 'System fotowoltaiczny na hali magazynowej o mocy 250 kWp.')">
+                    <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1007%2Fs10098-022-02403-0/MediaObjects/10098_2022_2403_Fig6_HTML.jpg" alt="Realizacja 5" class="realization-img" onclick="openGallery(this, 'Agrowoltaika - innowacyjne rozwiązanie', 'Połączenie produkcji energii z uprawą roślin.')">
+                    <img src="https://www.pv-magazine.com/wp-content/uploads/2021/11/Mibets-Floating-PV-in-Poland-01.jpg" alt="Realizacja 6" class="realization-img" onclick="openGallery(this, 'Pływająca elektrownia fotowoltaiczna', 'Pierwsza w Polsce instalacja floating PV na zbiorniku wodnym.')">
                 </div>
             </div>
         </div>
@@ -915,11 +1053,11 @@
                 <h3>Sieć energetyczna</h3>
                 <p>Gwarantuje ciągłość dostaw energii niezależnie od warunków atmosferycznych. Odbiera nadwyżki z instalacji PV i przekazuje je do systemu. Umożliwia pełną wymianę energii dzięki licznikowi dwukierunkowemu. Stabilizuje parametry napięcia i częstotliwości w instalacji. Zapewnia kompatybilność i zgodność pracy systemu PV z krajową infrastrukturą energetyczną.</p>
                 <div class="interactive-section">
-                    <div class="interactive-item" onclick="showModal('Moduły Fotowoltaiczne', '<img src=&quot;https://via.placeholder.com/400x300?text=Panele&quot;><p>Monokrystaliczne, full black, half-cut, bifacjalne. Wymiary: 2094x1038mm, waga 26.5kg.</p>')">Moduły/Panele</div>
-                    <div class="interactive-item" onclick="showModal('Inwerter', '<img src=&quot;https://via.placeholder.com/400x300?text=Inwerter&quot;><p>Zamienia DC na AC. Aplikacja mobilna, 10 lat gwarancji.</p>')">Inwerter</div>
-                    <div class="interactive-item" onclick="showModal('Zabezpieczenia', '<img src=&quot;https://via.placeholder.com/400x300?text=Zabezpieczenia&quot;><p>Podwójna skrzynka, uziemienie, certyfikowane Dehn.</p>')">Zabezpieczenia AC/DC</div>
-                    <div class="interactive-item" onclick="showModal('Licznik', '<img src=&quot;https://via.placeholder.com/400x300?text=Licznik&quot;><p>Rejestruje produkcję i zużycie. Wymiana gratis.</p>')">Licznik Dwukierunkowy</div>
-                    <div class="interactive-item" onclick="showModal('Sieć', '<img src=&quot;https://via.placeholder.com/400x300?text=Sieć&quot;><p>Gwarantuje ciągłość, odbiera nadwyżki.</p>')">Sieć Energetyczna</div>
+                    <div class="interactive-item" onclick="showComponentModal('Moduły Fotowoltaiczne', 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop', 'Monokrystaliczne panele fotowoltaiczne o mocy 450-480 Wp. Wymiary: 2094x1038mm, waga 26.5kg. Technologia half-cut i bifacjalna dla maksymalnej wydajności.')">Moduły/Panele</div>
+                    <div class="interactive-item" onclick="showComponentModal('Inwerter (Falownik)', 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop', 'Zaawansowany inwerter string z aplikacją mobilną. Zamienia prąd stały DC na zmienny AC. Monitoring produkcji w czasie rzeczywistym, 10 lat gwarancji.')">Inwerter</div>
+                    <div class="interactive-item" onclick="showComponentModal('Zabezpieczenia AC/DC', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop', 'Podwójna skrzynka zabezpieczeń z uziemieniem. Certyfikowane zabezpieczenia Dehn z atestem Straży Pożarnej. Pełne bezpieczeństwo instalacji.')">Zabezpieczenia AC/DC</div>
+                    <div class="interactive-item" onclick="showComponentModal('Licznik Dwukierunkowy', 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=800&auto=format&fit=crop', 'Nowoczesny licznik dwukierunkowy rejestrujący produkcję i zużycie energii. Wymiana bezpłatna przez operatora sieci w ciągu 30 dni.')">Licznik Dwukierunkowy</div>
+                    <div class="interactive-item" onclick="showComponentModal('Sieć Energetyczna', 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop', 'Krajowa sieć elektroenergetyczna zapewniająca ciągłość dostaw. Odbiera nadwyżki energii i stabilizuje parametry napięcia.')">Sieć Energetyczna</div>
                 </div>
             </div>
         </div>
@@ -1080,6 +1218,7 @@
 
     <script>
         let currentPageStack = ['main-menu'];
+        let ostatniaProdukcja = 0; // For calculator
 
         function showSubmenu(submenuId) {
             showPage(`submenu-${submenuId}`);
@@ -1104,48 +1243,157 @@
 
         // Regular Modal
         function showModal(title, htmlContent) {
-            document.getElementById('modal-body').innerHTML = `<h2 style='color:#22c55e;'>${title}</h2>` + htmlContent;
+            document.getElementById('modal-body').innerHTML = `<h2>${title}</h2>` + htmlContent;
             document.getElementById('myModal').style.display = 'flex';
         }
+
+        // Component Modal with Images
+        function showComponentModal(title, imageUrl, description) {
+            document.getElementById('modal-body').innerHTML = `
+                <h2>${title}</h2>
+                <img src="${imageUrl}" alt="${title}" style="max-width: 100%; height: auto; border-radius: 15px; margin: 20px 0;">
+                <p>${description}</p>
+            `;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
         function closeModal() {
             document.getElementById('myModal').style.display = 'none';
         }
 
-        // Lightbox for Images
-        function openLightbox(imgElement) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImage = document.getElementById('lightbox-image');
-            const lightboxCaption = document.getElementById('lightbox-caption');
+        // Gallery Modal Functions
+        function openGallery(imgElement, title, description) {
+            const modal = document.getElementById('galleryModal');
+            const modalBody = document.getElementById('gallery-modal-body');
             
-            lightboxImage.src = imgElement.src;
-            lightboxCaption.textContent = imgElement.alt;
-            lightbox.style.display = 'flex';
+            modalBody.innerHTML = `
+                <h2>${title}</h2>
+                <img src="${imgElement.src}" alt="${imgElement.alt}" style="max-width: 100%; max-height: 70vh; object-fit: contain;">
+                <p>${description}</p>
+            `;
+            
+            modal.style.display = 'flex';
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').style.display = 'none';
         }
 
         // Close modals when clicking outside
         window.onclick = function(event) {
-            const modal = document.getElementById('myModal');
-            const lightbox = document.getElementById('lightbox');
+            const regularModal = document.getElementById('myModal');
+            const galleryModal = document.getElementById('galleryModal');
             
-            if (event.target == modal) {
+            if (event.target == regularModal) {
                 closeModal();
             }
-            if (event.target == lightbox) {
-                closeLightbox();
+            if (event.target == galleryModal) {
+                closeGalleryModal();
             }
         }
 
-        // Close lightbox with Escape key
+        // Close modals with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                closeLightbox();
                 closeModal();
+                closeGalleryModal();
             }
         });
+
+        // Calculator Functions
+        function oblicz() {
+            let zuzycie = parseFloat(document.getElementById('zuzycie').value);
+            let orientacja = parseFloat(document.getElementById('orientacja').value);
+            let trybMagazynu = document.getElementById('trybMagazynu').value;
+            const powierzchniaPanelu = 2.34; // Stała powierzchnia panelu w m²
+            const limitJednofazowy = 3.68; // Limit dla instalacji jednofazowej w kWp
+
+            if (isNaN(zuzycie)) {
+                showNotification("Podaj roczne zużycie energii!");
+                return;
+            }
+
+            // Obliczenie wstępnej mocy instalacji (z marginesem 20%)
+            let mocWstępna = (zuzycie * 1.2) / 1000;
+
+            // Automatyczny wybór paneli: 450 Wp dla instalacji <= 3,68 kWp, 480 Wp powyżej
+            let panel = mocWstępna <= limitJednofazowy ? 450 : 480;
+            let typInstalacji = mocWstępna <= limitJednofazowy ? "jednofazowa" : "trójfazowa";
+
+            // Obliczenie liczby paneli (zaokrąglenie w górę)
+            let liczbaPaneli = Math.ceil((mocWstępna * 1000) / panel);
+            // Rzeczywista moc instalacji na podstawie liczby paneli
+            let mocInstalacji = (liczbaPaneli * panel) / 1000;
+            // Obliczenie rocznej produkcji energii
+            let produkcja = mocInstalacji * 1000 * orientacja;
+            // Obliczenie powierzchni
+            let powierzchnia = liczbaPaneli * powierzchniaPanelu;
+
+            // Dobór pojemności magazynu energii na podstawie mocy instalacji (w kWh)
+            let magazynPojemnosc;
+            if (mocInstalacji <= 5) magazynPojemnosc = 5;
+            else if (mocInstalacji > 5 && mocInstalacji <= 9) magazynPojemnosc = 10;
+            else magazynPojemnosc = 15;
+
+            // Wynik główny
+            let wynik = `
+                <b>Typ instalacji:</b> ${typInstalacji}<br>
+                <b>Liczba paneli:</b> ${liczbaPaneli} x ${panel} Wp<br>
+                <b>Moc instalacji:</b> ${mocInstalacji.toFixed(2)} kWp<br>
+                <b>Szacowana roczna produkcja:</b> ${produkcja.toFixed(0)} kWh<br>
+                <b>Powierzchnia dachu potrzebna:</b> ${powierzchnia.toFixed(1)} m²<br>
+                <b>Magazyn energii:</b> ${magazynPojemnosc} kWh
+            `;
+
+            if (trybMagazynu === 'export') {
+                wynik += "<br><b>Tryb rozliczenia:</b> Eksport energii do sieci";
+            } else {
+                wynik += "<br><b>Tryb rozliczenia:</b> Bez eksportu (tylko zużycie lokalne)";
+            }
+
+            document.getElementById('wynik').innerHTML = wynik;
+            document.getElementById('wynik').style.display = 'block';
+
+            // Pokazanie kalkulatora zwrotu
+            document.getElementById('extra-calc').style.display = 'block';
+            ostatniaProdukcja = produkcja;
+        }
+
+        function obliczZwrot() {
+            let cenaPradu = parseFloat(document.getElementById('cenaPradu').value);
+            let cenaInstalacji = parseFloat(document.getElementById('cenaInstalacji').value);
+            let trybKalkulacji = document.getElementById('trybKalkulacji').value;
+
+            if (isNaN(cenaPradu) || isNaN(cenaInstalacji) || ostatniaProdukcja === 0) {
+                showNotification("Podaj wszystkie dane do kalkulacji zwrotu!");
+                return;
+            }
+
+            let lata = 0, oszczednosci = 0, wynikZwrotu = "";
+
+            if (trybKalkulacji === "standardowa") {
+                lata = cenaInstalacji / (cenaPradu * ostatniaProdukcja);
+                oszczednosci = cenaPradu * ostatniaProdukcja;
+                wynikZwrotu = `
+                    <b>Szacowany okres zwrotu:</b> ${lata.toFixed(1)} lat<br>
+                    <b>Roczne oszczędności:</b> ${oszczednosci.toFixed(2)} zł
+                `;
+            } else {
+                // Optymistyczna - 5% wzrost ceny prądu rocznie
+                let suma = 0, cena = cenaPradu;
+                while (suma < cenaInstalacji && lata < 50) {
+                    suma += cena * ostatniaProdukcja;
+                    cena *= 1.05;
+                    lata++;
+                }
+                oszczednosci = suma;
+                wynikZwrotu = `
+                    <b>Szacowany okres zwrotu:</b> ${lata} lat<br>
+                    <b>Łączne oszczędności w tym czasie:</b> ${oszczednosci.toFixed(2)} zł
+                `;
+            }
+            document.getElementById('extra-result').innerHTML = wynikZwrotu;
+        }
 
         // Notification
         function showNotification(msg) {
@@ -1153,20 +1401,6 @@
             notif.innerText = msg;
             notif.style.display = 'block';
             setTimeout(() => { notif.style.display = 'none'; }, 2200);
-        }
-
-        // Kalkulator for ceny (add to relevant page if needed)
-        function calculateAnger() {
-            const zuzycie = document.getElementById('zuzycie') ? document.getElementById('zuzycie').value : 3650;
-            if (zuzycie) {
-                const strata = (zuzycie * 1.34) - (zuzycie * 0.55);
-                const resultEl = document.getElementById('result');
-                if (resultEl) {
-                    resultEl.innerHTML = `Straciłeś ${strata.toFixed(2)} zł rocznie! Czas na PV!`;
-                } else {
-                    showNotification(`Straciłeś ${strata.toFixed(2)} zł rocznie! Czas na PV!`);
-                }
-            }
         }
 
         // Quiz
