@@ -379,13 +379,45 @@
             margin-top: 8px;
             border: 2px solid rgba(74, 222, 128, 0.3);
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
             font-size: 1.1em;
+            font-weight: 500;
         }
 
         .calculator-container input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(31, 41, 55, 0.6);
+        }
+
+        /* Enhanced Select Styling */
+        .calculator-container select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        .calculator-container select:focus {
+            outline: none;
+            border-color: #4ade80;
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+        }
+
+        .calculator-container select option {
+            background: #ffffff;
+            color: #1f2937;
+            padding: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .calculator-container select option:hover,
+        .calculator-container select option:checked {
+            background: #f0f9ff;
+            color: #1f2937;
         }
 
         .calculator-container button {
