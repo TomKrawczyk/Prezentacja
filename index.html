@@ -345,6 +345,35 @@
             display: block;
         }
 
+        /* Next Button */
+        .next-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background: rgba(74, 222, 128, 0.2);
+            border: 2px solid #4ade80;
+            border-radius: 50px;
+            color: #4ade80;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            display: none;
+            font-size: 1.1em;
+        }
+
+        .next-button:hover {
+            background: #4ade80;
+            color: #0a0e27;
+            transform: translateX(5px);
+        }
+
+        .next-button.active {
+            display: block;
+        }
+
         /* Calculator Styles */
         .calculator-container {
             max-width: 600px;
@@ -479,6 +508,17 @@
             .calculator-container {
                 padding: 15px;
                 margin: 10px;
+            }
+            .back-button, .next-button {
+                top: 20px;
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .back-button {
+                left: 20px;
+            }
+            .next-button {
+                right: 20px;
             }
         }
 
@@ -688,6 +728,10 @@
 <body>
     <!-- Back Button -->
     <a href="#" class="back-button" onclick="goBack()">← Wstecz</a>
+    
+    <!-- Next Button -->
+    <a href="#" class="next-button" onclick="goNext()">Dalej →</a>
+    
     <div class="notification" id="notification"></div>
     
     <!-- Regular Modal -->
@@ -974,7 +1018,7 @@
             </div>
             <div class="slide-content">
                 <p class="anger-section">W 2020 roku 1 kWh kosztowała około 0,55 zł. W 2025 roku - już 1,34 zł. To nie jest normalna korekta cen – to wzrost o ponad 160% za dokładnie tę samą energię. I nie dlatego, że prąd jest lepszy. Nie dlatego, że zużywasz więcej. Powód jest prosty: Tauron, PGE i inni dostawcy prądu mogą podnosić ceny, bo system im na to pozwala.</p>
-                 <div class="chart"><img src="assets/images/ceny_pradu_2003_2025_zrodlo.png" alt="Historia OZE Timeline" class="chart"></div>
+                 <div class="chart"><img src="assets/images/ceny_pradu_2003_2025_zrodlo.png" alt="Historia wzrostu rachunku" class="chart"></div>
             </div>
         </div>
 
@@ -1265,6 +1309,15 @@
         let currentPageStack = ['main-menu'];
         let ostatniaProdukcja = 0; // For calculator
 
+        // Navigation sequences for each category
+        const navigationSequences = {
+            'historia': ['historia-przeszlosc', 'historia-terazniejszosc', 'historia-przyszlosc'],
+            'ceny': ['ceny-historia', 'ceny-rachunki', 'ceny-sklad', 'ceny-oszczednosci', 'ceny-emisje'],
+            'instalacja': ['instalacja-dzialanie', 'instalacja-komponenty', 'instalacja-montaz', 'instalacja-zaawansowane'],
+            'firma': ['firma-info', 'firma-realizacje', 'firma-partnerstwa'],
+            'korzysci': ['korzysci-korzysci', 'korzysci-technologie', 'korzysci-dotacje', 'korzysci-faq', 'korzysci-quiz']
+        };
+
         function showSubmenu(submenuId) {
             showPage(`submenu-${submenuId}`);
         }
@@ -1274,6 +1327,47 @@
             document.getElementById(pageId).classList.add('active');
             currentPageStack.push(pageId);
             document.querySelector('.back-button').classList.add('active');
+            
+            // Show next button only for subcategory pages
+            updateNextButton(pageId);
+        }
+
+        function updateNextButton(currentPageId) {
+            const nextButton = document.querySelector('.next-button');
+            
+            // Check if current page is a subcategory page and find its sequence
+            let currentSequence = null;
+            let currentIndex = -1;
+            
+            for (const [category, sequence] of Object.entries(navigationSequences)) {
+                const index = sequence.indexOf(currentPageId);
+                if (index !== -1) {
+                    currentSequence = sequence;
+                    currentIndex = index;
+                    break;
+                }
+            }
+            
+            // Show next button if there's a next page in the sequence
+            if (currentSequence && currentIndex !== -1 && currentIndex < currentSequence.length - 1) {
+                nextButton.classList.add('active');
+            } else {
+                nextButton.classList.remove('active');
+            }
+        }
+
+        function goNext() {
+            const currentPageId = currentPageStack[currentPageStack.length - 1];
+            
+            // Find current sequence and next page
+            for (const [category, sequence] of Object.entries(navigationSequences)) {
+                const currentIndex = sequence.indexOf(currentPageId);
+                if (currentIndex !== -1 && currentIndex < sequence.length - 1) {
+                    const nextPageId = sequence[currentIndex + 1];
+                    showPage(nextPageId);
+                    break;
+                }
+            }
         }
 
         function goBack() {
@@ -1282,7 +1376,13 @@
                 const previousPage = currentPageStack[currentPageStack.length - 1];
                 document.querySelectorAll('.content-page').forEach(page => page.classList.remove('active'));
                 document.getElementById(previousPage).classList.add('active');
-                if (currentPageStack.length === 1) document.querySelector('.back-button').classList.remove('active');
+                
+                if (currentPageStack.length === 1) {
+                    document.querySelector('.back-button').classList.remove('active');
+                }
+                
+                // Update next button for the previous page
+                updateNextButton(previousPage);
             }
         }
 
@@ -1529,6 +1629,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.back-button').classList.remove('active');
+            document.querySelector('.next-button').classList.remove('active');
             renderQuiz();
         });
     </script>
